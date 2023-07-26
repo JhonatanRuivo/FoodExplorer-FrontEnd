@@ -10,6 +10,13 @@ export default createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.COLORS.DARK400};
     color: ${({ theme }) => theme.COLORS.LIGHT100};
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+
   }
 
   a {

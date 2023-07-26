@@ -1,11 +1,13 @@
 import { Container } from "./styles";
+import { Button } from "../../components/Button";
 
 
 export function SignIn() {
 
   return(
     <Container>
-      <h1>Hello React!</h1>
+      <Button title="Entrar" />
+      <Button title="Cadastrar"/>
     </Container>
     
   )
