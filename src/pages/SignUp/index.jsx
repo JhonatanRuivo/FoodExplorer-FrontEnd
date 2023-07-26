@@ -5,11 +5,20 @@ import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Logo } from '../../components/Logo'
 
-export function SignIn() {
+export function SignUp() {
   return (
     <Container>
       <Logo width={43} />
       <Form>
+        <div className="input">
+          <label htmlFor="name">Seu nome</label>
+          <Input
+            placeholder="Exemplo: Maria da Silva"
+            id="name"
+            type="text"
+          />
+        </div>
+
         <div className="input">
           <label htmlFor="email">Email</label>
           <Input
@@ -18,7 +27,7 @@ export function SignIn() {
             type="email"
           />
         </div>
-        
+
         <div className="input">
           <label htmlFor="password">Senha</label>
           <Input
@@ -28,8 +37,8 @@ export function SignIn() {
           />
         </div>
 
-        <Button title="Entrar" />
-        <ButtonText title="Criar uma conta"/>
+        <Button title="Criar conta" />
+        <ButtonText title="Já tenho uma conta" />
       </Form>
     </Container>
   )
