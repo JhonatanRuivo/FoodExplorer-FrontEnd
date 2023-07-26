@@ -1,11 +1,9 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
-export function ButtonText({title}) {
+export function ButtonText({ title, big = false, ...rest }) {
   return (
-    <Container>
-      <button>
-        {title}
-      </button>
+    <Container type="button" $fontsize={big} {...rest}>
+      {title}
     </Container>
   )
 }

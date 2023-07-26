@@ -18,7 +18,7 @@ export function SignIn() {
             type="email"
           />
         </div>
-        
+
         <div className="input">
           <label htmlFor="password">Senha</label>
           <Input
@@ -29,7 +29,7 @@ export function SignIn() {
         </div>
 
         <Button title="Entrar" />
-        <ButtonText title="Criar uma conta"/>
+        <ButtonText title="Criar uma conta" />
       </Form>
     </Container>
   )

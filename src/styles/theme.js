@@ -25,5 +25,15 @@ export default {
     MINT100: '#04D361',
     CAKE100: '#065E7C',
     CAKE200: '#82F3FF'
+  },
+
+  FONTS: {
+    BUTTONTEXT_BIG: "24px",
+    BUTTONTEXT_SMALL: "14px",
+  },
+
+  FONTWEIGHT: {
+    BUTTONTEXT_BIG: "300",
+    BUTTONTEXT_SMALL: "500",
   }
 }
