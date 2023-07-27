@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { Container, Main, Content, Items } from './styles'
 import { IoSearchOutline } from 'react-icons/io5'
 
 import { HeaderMenu } from '../../components/HeaderMenu'
@@ -10,11 +10,17 @@ export function Menu() {
   return (
     <Container>
       <HeaderMenu />
-      <Input
-        icon={IoSearchOutline}
-        placeholder="Busque por pratos ou ingredientes"
-      />
-      <ButtonText title="Sair" pop large />
+      <Main>
+        <Input
+          id="input"
+          icon={IoSearchOutline}
+          placeholder="Busque por pratos ou ingredientes"
+        />
+        <Content>
+          <Items></Items>
+        </Content>
+        <ButtonText title="Sair" pop large border />
+      </Main>
       <Footer />
     </Container>
   )
