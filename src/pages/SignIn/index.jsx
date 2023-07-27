@@ -29,7 +29,7 @@ export function SignIn() {
         </div>
 
         <Button title="Entrar" />
-        <ButtonText title="Criar uma conta" />
+        <ButtonText title="Criar uma conta" pop bold/>
       </Form>
     </Container>
   )

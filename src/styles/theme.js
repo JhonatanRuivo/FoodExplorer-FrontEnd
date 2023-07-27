@@ -27,13 +27,22 @@ export default {
     CAKE200: '#82F3FF'
   },
 
-  FONTS: {
-    BUTTONTEXT_BIG: "24px",
-    BUTTONTEXT_SMALL: "14px",
+  FONT_SIZE: {
+    BUTTONTEXT_14: "14px",
+    BUTTONTEXT_16: "16px",
+    BUTTONTEXT_22: "22px",
+    BUTTONTEXT_24: "24px",
   },
 
-  FONTWEIGHT: {
-    BUTTONTEXT_BIG: "300",
-    BUTTONTEXT_SMALL: "500",
+  FONT_WEIGHT: {
+    BUTTONTEXT_300: "300",
+    BUTTONTEXT_400: "400",
+    BUTTONTEXT_500: "500",
+  },
+
+  FONT: {
+    POPPINS: "Poppins",
   }
+
+  
 }

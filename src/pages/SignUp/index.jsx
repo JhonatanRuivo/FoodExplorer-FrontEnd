@@ -38,7 +38,7 @@ export function SignUp() {
         </div>
 
         <Button title="Criar conta" />
-        <ButtonText title="Já tenho uma conta" />
+        <ButtonText title="Já tenho uma conta" pop bold/>
       </Form>
     </Container>
   )

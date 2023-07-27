@@ -1,8 +1,8 @@
 import { Container } from './styles'
 
-export function ButtonText({ title, big = false, ...rest }) {
+export function ButtonText({ title, pop = false, large = false, bold = false, ...rest }) {
   return (
-    <Container type="button" $fontsize={big} {...rest}>
+    <Container type="button" $fontweight={bold} $fontsize={large} $poppins={pop} {...rest}>
       {title}
     </Container>
   )

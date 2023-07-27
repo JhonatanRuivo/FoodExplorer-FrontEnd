@@ -7,10 +7,10 @@ export const Container = styled.button`
 
   color: ${({ theme }) => theme.COLORS.LIGHT100};
 
-  font-family: Poppins;
-  font-size: ${({ theme, $fontsize }) => $fontsize ? theme.FONTS.BUTTONTEXT_BIG : theme.FONTS.BUTTONTEXT_SMALL};
+  font-family: ${({theme, $poppins }) => $poppins ? theme.FONT.POPPINS : 'Roboto'};
+  font-size: ${({ theme, $fontsize }) => $fontsize ? theme.FONT_SIZE.BUTTONTEXT_24 : theme.FONT_SIZE.BUTTONTEXT_14};
   font-style: normal;
-  font-weight: ${({ theme, $fontsize }) => $fontsize ? theme.FONTWEIGHT.BUTTONTEXT_BIG : theme.FONTWEIGHT.BUTTONTEXT_SMALL};
+  font-weight: ${({ theme, $fontweight }) => $fontweight ? theme.FONT_WEIGHT.BUTTONTEXT_500 : theme.FONT_WEIGHT.BUTTONTEXT_300};
 
   &:hover {
     scale: 1.05;
