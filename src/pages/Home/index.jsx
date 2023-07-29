@@ -1,15 +1,20 @@
-import { Container } from "./styles"
+import { Container, ListDishes } from './styles'
 
-import { Header } from "../../components/Header"
-import { Footer } from "../../components/Footer"
-import { Banner } from "../../components/Banner"
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { Banner } from '../../components/Banner'
+import { CardDish } from '../../components/CardDish'
 
 export function Home() {
-  return(
+  return (
     <Container>
-      <Header/>
-      <Banner/>
-      <Footer/>
+      <Header />
+      <Banner />
+      <ListDishes>
+        <h3>Refeições</h3>
+        <CardDish />
+      </ListDishes>
+      <Footer />
     </Container>
   )
 }

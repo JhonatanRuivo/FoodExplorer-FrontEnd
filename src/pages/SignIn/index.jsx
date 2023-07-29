@@ -10,6 +10,7 @@ export function SignIn() {
     <Container>
       <Logo width={43} />
       <Form>
+        <h3>Faça login</h3>
         <div className="input">
           <label htmlFor="email">Email</label>
           <Input

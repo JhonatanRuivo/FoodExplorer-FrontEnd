@@ -5,6 +5,7 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.COLORS.LIGHT100};
 
   width: 100%;
+  height: 48px;
   display: flex;
   align-items: center;
   gap: 14px;

@@ -5,13 +5,12 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.LIGHT100};
 
   width: 100%;
-  border: 0;
+  border: none;
   padding: 12px 32px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   border-radius: 5px;
 
   font-family: Poppins;

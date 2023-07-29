@@ -6,10 +6,18 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 
   > h1 {
-    font-size: 37px;
+    font-size: 42px;
     
+    @media (max-width:768px) {
+      font-size: 37px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
   }
 `
