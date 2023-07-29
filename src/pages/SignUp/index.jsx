@@ -17,8 +17,8 @@ export function SignUp() {
         </div>
 
         <div className="input">
-          <label htmlFor="password">Senha</label>
-          <Input placeholder="No mínimo 6 caracteres" id="password" type="password" />
+          <label htmlFor="email">Email</label>
+          <Input placeholder="Exemplo: Maria@email.com" id="email" type="email" />
         </div>
 
         <div className="input">

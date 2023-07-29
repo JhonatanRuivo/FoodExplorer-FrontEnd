@@ -9,7 +9,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 12px 14px;
 
   margin-top: 8px;
   border-radius: 8px;
@@ -19,7 +18,18 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT100};
 
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
+
+    padding: 12px 14px;
+    border-radius: 8px;
+
+    &:focus {
+      @media (min-width: 768px) {
+        border: 1px solid ${({ theme }) => theme.COLORS.LIGHT100};
+        background-color: ${({ theme }) => theme.COLORS.DARK700};
+      }
+    }
   }
 `
