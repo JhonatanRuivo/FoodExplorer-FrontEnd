@@ -3,12 +3,19 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK700};
   width: 100%;
-  height: 114px;
-  padding: 56px 28px 24px;
+  padding: 24px 123px;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 32px;
+
+  @media (max-width: 768px) {
+    height: 114px;
+    padding: 56px 28px 24px;
+
+    justify-content: space-between;
+    align-items: center;
+  }
 `
 export const Icon = styled.button`
   display: none;
@@ -21,6 +28,7 @@ export const Icon = styled.button`
 `
 export const Logo = styled.div`
   display: flex;
+  width:100%;
   gap: 8px;
 
   > h1 {
@@ -34,8 +42,9 @@ export const Logo = styled.div`
     }
   }
 `
+
 export const ButtonCart = styled.button`
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: none;
   }
 
@@ -45,7 +54,7 @@ export const ButtonCart = styled.button`
   position: relative;
   height: 100%;
 
-  > button {
+  > .count {
     background-color: ${({ theme }) => theme.COLORS.TOMATO100};
     color: ${({ theme }) => theme.COLORS.LIGHT100};
     display: flex;

@@ -37,6 +37,11 @@ export const Form = styled.div`
     font-weight: 500;
     margin: auto;
   }
+  >.input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
   @media (max-width: 768px) {
     background-color: transparent;

@@ -1,11 +1,12 @@
 import { Container, Logo, ButtonCart, Icon } from './styles'
 
-import { PiReceipt, PiList } from 'react-icons/pi'
+import { PiReceipt, PiList, PiMagnifyingGlass } from 'react-icons/pi'
+import { Input } from '../Input'
 
 export function Header() {
   return (
     <Container>
-      <Icon>
+      <Icon type="button">
         <PiList size={32} />
       </Icon>
       <Logo>
@@ -23,8 +24,11 @@ export function Header() {
         </svg>
         <h1>food explorer</h1>
       </Logo>
-      <ButtonCart >
-        <button>0</button>
+
+      <Input icon={PiMagnifyingGlass} placeholder="Busque por pratos ou ingredientes" />
+
+      <ButtonCart type="button">
+        <div className="count">0</div>
         <PiReceipt size={32} />
       </ButtonCart>
     </Container>
