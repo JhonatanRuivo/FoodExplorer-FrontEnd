@@ -8,9 +8,8 @@ export const Container = styled.footer`
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
-  gap: 8px;
 
   bottom: 0;
 

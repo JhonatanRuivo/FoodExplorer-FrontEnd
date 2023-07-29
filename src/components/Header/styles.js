@@ -10,17 +10,38 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 `
+export const Icon = styled.button`
+  display: none;
 
+  @media (max-width: 768px) {
+    display: flex;
+    background-color: transparent;
+    color: ${({ theme }) => theme.COLORS.LIGHT100};
+  }
+`
 export const Logo = styled.div`
   display: flex;
   gap: 8px;
 
   > h1 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
   }
+
+  @media (max-width: 768px) {
+    > h1 {
+      font-size: 22px;
+    }
+  }
 `
-export const ButtonCart = styled.div`
+export const ButtonCart = styled.button`
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  background-color: transparent;
+  color: ${({ theme }) => theme.COLORS.LIGHT100};
+
   position: relative;
   height: 100%;
 

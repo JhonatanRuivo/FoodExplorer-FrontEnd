@@ -4,17 +4,19 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  flex-direction: column;
-
+  display: grid;
+  grid-template-rows:
+    'header'
+    'banner'
+    'section1'
+    'section2'
+    'section3'
+    'footer';
 `
 
-export const ListDishes = styled.div`
+export const Section = styled.div`
   width: 100vw;
   height: 320px;
 
   margin-top: 62px;
-
-  
-
 `

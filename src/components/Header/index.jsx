@@ -1,11 +1,13 @@
-import { Container, Logo, ButtonCart } from './styles'
+import { Container, Logo, ButtonCart, Icon } from './styles'
 
 import { PiReceipt, PiList } from 'react-icons/pi'
 
 export function Header() {
   return (
     <Container>
-      <PiList size={32} />
+      <Icon>
+        <PiList size={32} />
+      </Icon>
       <Logo>
         <svg
           width="24"
@@ -21,7 +23,7 @@ export function Header() {
         </svg>
         <h1>food explorer</h1>
       </Logo>
-      <ButtonCart>
+      <ButtonCart >
         <button>0</button>
         <PiReceipt size={32} />
       </ButtonCart>

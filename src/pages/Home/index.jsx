@@ -1,4 +1,4 @@
-import { Container, ListDishes } from './styles'
+import { Container, Section } from './styles'
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
@@ -10,10 +10,18 @@ export function Home() {
     <Container>
       <Header />
       <Banner />
-      <ListDishes>
+      <Section>
         <h3>Refeições</h3>
         <CardDish />
-      </ListDishes>
+      </Section>
+      <Section>
+        <h3>Sobrmemesas</h3>
+        <CardDish />
+      </Section>
+      <Section>
+        <h3>Bebidas</h3>
+        <CardDish />
+      </Section>
       <Footer />
     </Container>
   )
