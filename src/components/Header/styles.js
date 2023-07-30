@@ -3,11 +3,20 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK700};
   width: 100%;
-  padding: 24px 123px;
+  padding: 25px 123px;
 
   display: flex;
   align-items: center;
   gap: 32px;
+
+  >.input {
+    width: 100%;
+  }
+
+  #signOut {
+    width: 32px;
+    height: 32px;
+  }
 
   @media (max-width: 768px) {
     height: 114px;
@@ -17,6 +26,9 @@ export const Container = styled.div`
     align-items: center;
 
     > .input {
+      display: none;
+    }
+    > #signOut {
       display: none;
     }
   }
@@ -35,19 +47,20 @@ export const Icon = styled.button`
 export const Logo = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 197px;
   gap: 8px;
 
   > h1 {
     font-size: 24px;
     font-weight: 700;
+
+    white-space: nowrap;
   }
 
   @media (max-width: 768px) {
+    width: 100%;
     > h1 {
       font-size: 22px;
     }
   }
 `
-
-

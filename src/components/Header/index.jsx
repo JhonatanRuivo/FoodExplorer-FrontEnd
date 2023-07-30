@@ -1,6 +1,6 @@
 import { Container, Logo, Icon } from './styles'
 
-import { PiList, PiMagnifyingGlass } from 'react-icons/pi'
+import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
 import { Input } from '../Input'
 import { ButtonCart } from '../ButtonCart'
 
@@ -34,7 +34,10 @@ export function Header() {
         />
       </div>
 
-      <ButtonCart/>
+      <ButtonCart />
+      <label htmlFor='signOut' id='signOut'>
+        <PiSignOut id='signOut'/>
+      </label>
     </Container>
   )
 }
