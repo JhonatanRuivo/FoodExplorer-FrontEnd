@@ -15,8 +15,13 @@ export const Container = styled.div`
 
     justify-content: space-between;
     align-items: center;
+
+    > .input {
+      display: none;
+    }
   }
 `
+
 export const Icon = styled.button`
   display: none;
 
@@ -26,9 +31,11 @@ export const Icon = styled.button`
     color: ${({ theme }) => theme.COLORS.LIGHT100};
   }
 `
+
 export const Logo = styled.div`
   display: flex;
-  width:100%;
+  justify-content: center;
+  width: 100%;
   gap: 8px;
 
   > h1 {
@@ -43,30 +50,4 @@ export const Logo = styled.div`
   }
 `
 
-export const ButtonCart = styled.button`
-  @media (min-width: 769px) {
-    display: none;
-  }
 
-  background-color: transparent;
-  color: ${({ theme }) => theme.COLORS.LIGHT100};
-
-  position: relative;
-  height: 100%;
-
-  > .count {
-    background-color: ${({ theme }) => theme.COLORS.TOMATO100};
-    color: ${({ theme }) => theme.COLORS.LIGHT100};
-    display: flex;
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-
-    position: absolute;
-    right: -4px;
-    top: -4px;
-  }
-`
