@@ -3,21 +3,19 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-
-  display: grid;
-  grid-area: 
- 	  "header"
-    "banner"
-    "section1"
-    "section2"
-    "section3"
-    "footer"
-    ;
+  position: relative;
 `
 
 export const Section = styled.div`
-  width: 100vw;
-  height: 320px;
+  
+  color: ${({ theme }) => theme.COLORS.LIGHT300};
 
-  margin-top: 62px;
+  height: 530px;
+  margin: 48px 124px;
+
+  font-family: 'Poppins';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+
 `

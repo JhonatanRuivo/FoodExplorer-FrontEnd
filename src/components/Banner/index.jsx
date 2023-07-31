@@ -8,7 +8,7 @@ export function Banner() {
     <Container>
       <img src={banner} alt="doces" />
       <div className="slogan">
-        <h3>Sabores inigualáveis</h3>
+        <h2>Sabores inigualáveis</h2>
         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
       </div>
     </Container>

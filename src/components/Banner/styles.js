@@ -27,7 +27,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    > h3 {
+    > h2 {
       font-family: Poppins;
       font-size: 40px;
       font-weight: 500;

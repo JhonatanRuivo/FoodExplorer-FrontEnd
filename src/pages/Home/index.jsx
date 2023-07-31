@@ -14,14 +14,21 @@ export function Home() {
         <h3>Refeições</h3>
         <CardDish />
       </Section>
+
+
+
+
+
+      
       <Section>
-        <h3>Sobrememesas</h3>
+        <h3>Refeições</h3>
         <CardDish />
       </Section>
       <Section>
-        <h3>Bebidas</h3>
+        <h3>Refeições</h3>
         <CardDish />
       </Section>
+      
       <Footer />
     </Container>
   )

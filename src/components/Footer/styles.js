@@ -11,8 +11,6 @@ export const Container = styled.footer`
   justify-content: space-around;
   text-align: center;
 
-  bottom: 0;
-
   > .logo {
     display: flex;
     text-align: center;
