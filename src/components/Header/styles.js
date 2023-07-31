@@ -3,11 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK700};
   width: 100%;
+  height:104px;
   padding: 25px 123px;
 
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 32px;  
 
   >.input {
     width: 100%;

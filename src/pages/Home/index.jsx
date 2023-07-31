@@ -15,7 +15,7 @@ export function Home() {
         <CardDish />
       </Section>
       <Section>
-        <h3>Sobrmemesas</h3>
+        <h3>Sobrememesas</h3>
         <CardDish />
       </Section>
       <Section>

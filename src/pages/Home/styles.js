@@ -5,13 +5,14 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows:
-    'header'
-    'banner'
-    'section1'
-    'section2'
-    'section3'
-    'footer';
+  grid-area: 
+ 	  "header"
+    "banner"
+    "section1"
+    "section2"
+    "section3"
+    "footer"
+    ;
 `
 
 export const Section = styled.div`

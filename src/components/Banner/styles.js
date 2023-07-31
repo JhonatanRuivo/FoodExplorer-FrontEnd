@@ -1,51 +1,64 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  @media (max-width: 425px) {
-    background: linear-gradient(180deg, #091e26 0%, #00131c 100%);
+  background: linear-gradient(180deg, #091e26 0%, #00131c 100%);
 
-    border-radius: 5px;
-    width: 90%;
-    height: 120px;
-    margin: 44px auto 0;
+  border-radius: 5px;
+  height: 260px;
+  margin: 164px 124px 62px;
 
-    position: relative;
+  display: flex;
+
+  position: relative;
+
+  > img {
+    max-width: 632px;
+    max-height: 406px;
+
+    position: absolute;
+    left: -100px;
+    top: -146px;
+  }
+
+  > .slogan {
+    margin-left: 50%;
+
     display: flex;
-    align-items: center;
-    gap: 3px;
+    flex-direction: column;
+    justify-content: center;
 
-    > img {
-      width: 191px;
-      height: 149px;
-
-      position: absolute;
-      top: -29px;
-      left: -29px;
-    }
-    > .slogan {
+    > h3 {
       font-family: Poppins;
-      margin-left: 153px;
-
-      > h3 {
-        font-size: 16px;
-        font-weight: 500;
-      }
-      > p {
-        font-size: 10px;
-        font-weight: 400;
-      }
+      font-size: 40px;
+      font-weight: 500;
     }
   }
 
-  @media (max-width: 375px) {
-    > .slogan {
+  @media (max-width: 950px) {
+    display: none;
+  }
+
+  @media (max-width: 1240px) {
+    height: 205px;
+    margin: 123px 93px 46px;
+
+    > img {
+      max-width: 648px;
+      max-height: 309px;
+
+      position: absolute;
+      left: -75px;
+      top: -105px;
+    }
+
+    .slogan {
       > h3 {
-        font-size: 12px;
+        font-family: Poppins;
+        font-size: 30px;
         font-weight: 400;
       }
-      >p {
-        font-size: 8px;
-        font-weight: 300; 
+      > p {
+        font-size: 14px;
       }
     }
   }
