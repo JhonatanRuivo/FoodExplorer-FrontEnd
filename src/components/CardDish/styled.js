@@ -7,6 +7,7 @@ export const Container = styled.div`
   border-radius: 8px;
 
   position: relative;
+  z-index: -1;
   width: 304px;
   height: 462px;
   padding: 24px;
@@ -14,9 +15,9 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
-  gap: 15px;
 
   > img {
     width: 176px;
@@ -37,14 +38,12 @@ export const Container = styled.div`
 
   > .dishDescription {
     color: ${({ theme }) => theme.COLORS.LIGHT400};
-    font-family: 'Roboto';
     font-size: 14px;
     font-weight: 400;
   }
 
   > .price {
     color: ${({ theme }) => theme.COLORS.CAKE200};
-    font-family: 'Roboto';
     font-size: 32px;
     font-weight: 400;
   }
@@ -61,7 +60,6 @@ export const Container = styled.div`
     }
 
     > strong {
-      font-family: 'Roboto';
       font-size: 20px;
       font-weight: 700;
     }

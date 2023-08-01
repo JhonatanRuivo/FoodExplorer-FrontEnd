@@ -17,6 +17,9 @@ export const Container = styled.div`
   #signOut {
     width: 32px;
     height: 32px;
+
+    background: transparent;
+    color: ${({theme}) => theme.COLORS.LIGHT100};
   }
 
   @media (max-width: 768px) {
@@ -29,7 +32,7 @@ export const Container = styled.div`
     > .input {
       display: none;
     }
-    > #signOut {
+    #signOut {
       display: none;
     }
   }

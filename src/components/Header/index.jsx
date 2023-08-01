@@ -35,8 +35,10 @@ export function Header() {
       </div>
 
       <ButtonCart />
-      <label htmlFor='signOut' id='signOut'>
-        <PiSignOut id='signOut'/>
+      <label htmlFor="signOut">
+        <button id="signOut">
+          <PiSignOut size={32} />
+        </button>
       </label>
     </Container>
   )

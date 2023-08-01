@@ -11,6 +11,8 @@ export const Container = styled.div`
 
   position: relative;
 
+  white-space: nowrap;
+
   > img {
     max-width: 632px;
     max-height: 406px;
