@@ -1,37 +1,35 @@
 import { Container } from './styled'
+import { PiMinus, PiPlus } from 'react-icons/pi'
 
-import { PiHeartStraight, PiMinus, PiPlus } from 'react-icons/pi'
 import { Button } from '../Button'
 
-import Salada from '../../assets/Salada Ravanello.png'
-
-export function CardDish() {
+export function CardDish({ image, icon, dishName, dishDescription, price, amount }) {
   return (
     <Container>
-      <img src={Salada} alt="Prato com Salada" />
+      <img src={image} />
 
-      <label htmlFor="icon" className="iconFav">
-        <PiHeartStraight size={28} id="icon" />
-      </label>
+      <button id="iconTop" aria-label="Favorites Dish">
+        {icon}
+      </button>
 
-      <h3 className="dishName">Salada Rovanello {'>'}</h3>
+      <h3 className="dishName">{dishName}</h3>
 
-      <p className="dishDescription">
-        Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
-      </p>
+      <p className="dishDescription">{dishDescription}</p>
 
-      <h2 className="price">R$ 49,97</h2>
+      <h2 className="price">{price}</h2>
 
-      <div className="amount">
-        <button id="minus">
-          <PiMinus size={24} />
-        </button>
-        <strong>01</strong>
-        <button id="more">
-          <PiPlus size={24} />
-        </button>
+      <div className="footerButtons">
+        <div className="amount">
+          <button id="minus" type="button">
+            <PiMinus size={24} />
+          </button>
+          <strong>{amount}</strong>
+          <button id="more" type="button">
+            <PiPlus size={24} />
+          </button>
+        </div>
 
-        <Button title="incluir" />
+        <Button title="incluir" type="button" />
       </div>
     </Container>
   )

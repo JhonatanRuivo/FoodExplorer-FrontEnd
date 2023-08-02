@@ -7,11 +7,10 @@ export const Container = styled.div`
   border-radius: 8px;
 
   position: relative;
-  z-index: -1;
   width: 304px;
   height: 462px;
   padding: 24px;
-  margin-top: 23px;
+  margin-top: 24px;
 
   display: flex;
   flex-direction: column;
@@ -19,15 +18,21 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
 
-  > img {
-    width: 176px;
-    height: 176px;
-  }
+  #iconTop {
+    background-color: transparent;
+    color: ${({ theme }) => theme.COLORS.LIGHT300};
 
-  > .iconFav {
+    width: 24px;
+    height: 22px;
+
     position: absolute;
     top: 12px;
     right: 16px;
+  }
+
+  > img {
+    width: 176px;
+    height: 176px;
   }
 
   > .dishName {
@@ -48,20 +53,64 @@ export const Container = styled.div`
     font-weight: 400;
   }
 
-  > .amount {
+  > .footerButtons {
     display: flex;
     align-items: center;
     gap: 16px;
 
-    #minus,
-    #more {
-      background-color: transparent;
-      color: ${({ theme }) => theme.COLORS.LIGHT100};
+    > .amount {
+      display: flex;
+      gap: 14px;
+
+      #minus,
+      #more {
+        background-color: transparent;
+        color: ${({ theme }) => theme.COLORS.LIGHT100};
+      }
+
+      > strong {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 210px;
+    height: 292px;
+
+    gap: 12px;
+
+    > img {
+      width: 88px;
+      height: 88px;
     }
 
-    > strong {
-      font-size: 20px;
-      font-weight: 700;
+    > .dishName {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    > .dishDescription {
+      display: none;
+    }
+
+    > .price {
+      font-size: 16px;
+    }
+
+    > .footerButtons {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+
+      > .amount {
+        > strong {
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
     }
   }
 `

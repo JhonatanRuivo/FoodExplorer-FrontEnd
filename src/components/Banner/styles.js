@@ -54,7 +54,7 @@ export const Container = styled.div`
     }
 
     .slogan {
-      > h3 {
+      > h2 {
         font-family: Poppins;
         font-size: 30px;
         font-weight: 400;
