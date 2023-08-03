@@ -39,16 +39,20 @@ export const Container = styled.div`
     font-family: 'Poppins';
     font-size: 24px;
     font-weight: 700;
+
+    white-space: nowrap;
   }
 
   > .dishDescription {
     color: ${({ theme }) => theme.COLORS.LIGHT400};
+    font-family: 'Roboto';
     font-size: 14px;
     font-weight: 400;
   }
 
   > .price {
     color: ${({ theme }) => theme.COLORS.CAKE200};
+    font-family: 'Roboto';
     font-size: 32px;
     font-weight: 400;
   }
