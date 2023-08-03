@@ -13,9 +13,12 @@ export const Container = styled.button`
   border-bottom: ${({ theme, $border }) => ($border ? theme.COLORS.DARK1000 + ` 1px solid` : '')};
   font-family: ${({ theme, $poppins }) => ($poppins ? theme.FONT.POPPINS : 'Roboto')};
   padding: 10px;
+  text-align: ${({ $textStart }) => ($textStart ? 'start' : 'center')};
 
-  &:hover {
-    scale: 1.05;
-    transition: 300ms;
+  @media (min-width: 769px) {
+    &:hover {
+      scale: 1.05;
+      transition: 300ms;
+    }
   }
 `

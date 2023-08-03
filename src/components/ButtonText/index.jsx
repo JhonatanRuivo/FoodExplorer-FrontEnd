@@ -6,6 +6,7 @@ export function ButtonText({
   large = false,
   bold = false,
   border = false,
+  textStart = false,
   ...rest
 }) {
   return (
@@ -15,6 +16,7 @@ export function ButtonText({
       $fontsize={large}
       $poppins={pop}
       $border={border}
+      $textStart={textStart}
       {...rest}
     >
       {title}

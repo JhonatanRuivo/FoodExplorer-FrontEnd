@@ -5,14 +5,16 @@ export const Container = styled.footer`
 
   width: 100%;
   height: 77px;
-  margin-top: 46px;
 
   display: flex;
   align-items: center;
   justify-content: space-around;
   text-align: center;
 
-  > .logo {
+  position: absolute;
+  bottom: 0;
+
+  .logo {
     display: flex;
     text-align: center;
     gap: 6px;

@@ -187,7 +187,6 @@ export function Home() {
           amount={'01'}
         />
       </Section>
-
       <Footer />
     </Container>
   )

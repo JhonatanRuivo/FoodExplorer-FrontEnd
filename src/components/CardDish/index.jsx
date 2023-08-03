@@ -7,11 +7,11 @@ import { Button } from '../Button'
 export function CardDish({ image, user = false, dishName, dishDescription, price, amount = false }) {
   return (
     <Container>
-      <img src={image} />
-
       <button id="iconTop" aria-label="Favorites Dish">
         {user ? <PiHeartStraight size={24}/> : <PiPencilSimpleLight size={24}/>}
       </button>
+
+      <img src={image} />
 
       <h3 className="dishName">{dishName}</h3>
 
