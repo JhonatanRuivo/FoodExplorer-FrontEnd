@@ -1,19 +1,20 @@
-import { Container, Logo, Icon } from './styles'
+import { Container, Icon } from './styles'
 
 import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
 import { Input } from '../Input'
 import { ButtonCart } from '../ButtonCart'
+import { ButtonNewDish } from '../ButtonNewDish'
 
-export function Header() {
+export function Header({admin= false}) {
   return (
     <Container>
       <Icon type="button">
         <PiList size={32} />
       </Icon>
-      <Logo>
+      <div className="logo">
         <svg
-          width="24"
-          height="27"
+          width="22"
+          height="25"
           viewBox="0 0 22 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -23,8 +24,11 @@ export function Header() {
             fill="#065E7C"
           />
         </svg>
-        <h1>food explorer</h1>
-      </Logo>
+        <div className="textLogo">
+          <h3>food explorer</h3>
+          <p>{admin}</p>
+        </div>
+      </div>
 
       <div className="input">
         <Input
@@ -34,7 +38,8 @@ export function Header() {
         />
       </div>
 
-      <ButtonCart />
+      {admin ? '' : <ButtonCart />}
+      {admin ? <ButtonNewDish/> : ""}
       <label htmlFor="signOut">
         <button id="signOut">
           <PiSignOut size={32} />

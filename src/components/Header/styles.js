@@ -3,15 +3,43 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK700};
   width: 100%;
-  height:104px;
+  height: 104px;
   padding: 25px 123px;
 
   display: flex;
   align-items: center;
-  gap: 32px;  
+  gap: 32px;
 
-  >.input {
+  .input {
     width: 100%;
+  }
+
+  .logo {
+    width: 200px;
+    display: flex;
+    align-items: top;
+    gap: 10px;
+
+    .textLogo {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      white-space: nowrap;
+
+      > h3 {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      > p {
+        color: ${({ theme }) => theme.COLORS.CAKE200};
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
   }
 
   #signOut {
@@ -19,7 +47,7 @@ export const Container = styled.div`
     height: 32px;
 
     background: transparent;
-    color: ${({theme}) => theme.COLORS.LIGHT100};
+    color: ${({ theme }) => theme.COLORS.LIGHT100};
   }
 
   @media (max-width: 768px) {
@@ -45,26 +73,5 @@ export const Icon = styled.button`
     display: flex;
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT100};
-  }
-`
-
-export const Logo = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 197px;
-  gap: 8px;
-
-  > h1 {
-    font-size: 24px;
-    font-weight: 700;
-
-    white-space: nowrap;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    > h1 {
-      font-size: 22px;
-    }
   }
 `
