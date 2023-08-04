@@ -14,6 +14,7 @@ export const Container = styled.footer`
   position: absolute;
   bottom: 0;
 
+
   .logo {
     display: flex;
     text-align: center;
