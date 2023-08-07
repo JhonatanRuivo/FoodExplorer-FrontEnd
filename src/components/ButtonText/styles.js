@@ -15,10 +15,4 @@ export const Container = styled.button`
   padding: 10px;
   text-align: ${({ $textStart }) => ($textStart ? 'start' : 'center')};
 
-  @media (min-width: 769px) {
-    &:hover {
-      scale: 1.05;
-      transition: 300ms;
-    }
-  }
 `
