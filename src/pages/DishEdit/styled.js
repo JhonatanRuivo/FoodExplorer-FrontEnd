@@ -48,12 +48,10 @@ export const Container = styled.div`
         .tags {
           display: flex;
           gap: 12px;
+          margin-bottom: 42px;
         }
-        .footerButtons {
-          display: flex;
-          gap: 33px;
-          align-items: center;
-          margin-top: 48px;
+        .footerButton {
+          width: 154px;
         }
       }
     }
@@ -85,12 +83,11 @@ export const Container = styled.div`
             font-size: 16px;
           }
           .tags {
-            max-width: 100%;
             display: flex;
             flex-wrap: wrap;
           }
-          .footerButtons {
-            justify-content: space-around;
+          .footerButton {
+            width: 100%;
           }
         }
       }

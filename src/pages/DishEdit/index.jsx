@@ -2,20 +2,19 @@ import { Container } from './styled.js'
 import { SlArrowLeft } from 'react-icons/sl'
 import img from '../../assets/Salada Ravanello.png'
 
-import { ButtonText } from '../../components/ButtonText'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import { ButtonText } from '../../components/ButtonText/index.jsx'
+import { Header } from '../../components/Header/index.jsx'
+import { Footer } from '../../components/Footer/index.jsx'
 import { Tag } from '../../components/Tag/index.jsx'
-import { Amount } from '../../components/Amount'
-import { Button } from '../../components/Button'
+import { Button } from '../../components/Button/index.jsx'
 
-export function Dish() {
+export function DishEdit() {
   return (
     <Container>
-      <Header />
+      <Header admin="admin" />
       <div className="body">
         <label htmlFor="back">
-          <SlArrowLeft id="back" size={32} />
+          <SlArrowLeft size={32} />
           <ButtonText title="Voltar" bold pop large />
         </label>
         <div className="main">
@@ -34,9 +33,9 @@ export function Dish() {
               <Tag title="alface" />
               <Tag title="alface" />
             </div>
-            <div className="footerButtons">
-              <Amount amount={'01'} />
-              <Button title={`incluir R$25,00`} small />
+
+            <div className="footerButton">
+              <Button title="Editar prato" />
             </div>
           </div>
         </div>
