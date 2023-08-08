@@ -51,9 +51,10 @@ export const Container = styled.div`
   }
 
   @media (max-width: 768px) {
-    height: 114px;
+    height: 100%;
     padding: 56px 28px 24px;
 
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
@@ -61,6 +62,9 @@ export const Container = styled.div`
       display: none;
     }
     #signOut {
+      display: none;
+    }
+    >label {
       display: none;
     }
   }

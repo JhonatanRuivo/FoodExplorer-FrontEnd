@@ -2,12 +2,21 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
   > .body {
-    margin: 25px 123px 0;
+    margin: 25px 123px 140px;
 
-    > main {
+    > label {
+      width: 106px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+    }
+
+    > .main {
       padding-top: 42px;
       display: flex;
       align-items: center;
@@ -22,17 +31,21 @@ export const Container = styled.div`
         flex-direction: column;
         gap: 24px;
         font-family: Poppins;
+        text-align: justify;
 
         > h1 {
+          color: ${({ theme }) => theme.COLORS.LIGHT300};
           font-size: 40px;
           font-weight: 500;
         }
         > p {
+          color: ${({ theme }) => theme.COLORS.LIGHT300};
+
           font-size: 24px;
           font-weight: 400;
         }
 
-        > ul {
+        .tags {
           display: flex;
           gap: 12px;
         }
@@ -47,12 +60,40 @@ export const Container = styled.div`
 
     @media (max-width: 768px) {
       margin: 16px 56px 32px;
-    }
-    > label {
-      width: 106px;
-      height: 34px;
-      display: flex;
-      align-items: center;
+
+      > label {
+        height: 24px;
+      }
+      > .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 100px;
+
+        .imgDish {
+          width: 264px;
+          height: 264px;
+        }
+        .description {
+          > h1 {
+            text-align: center;
+
+            font-size: 27px;
+          }
+          > p {
+            font-size: 16px;
+          }
+          .tags {
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .footerButtons {
+            justify-content: center;
+          }
+        }
+      }
     }
   }
 `

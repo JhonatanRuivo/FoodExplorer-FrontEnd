@@ -18,7 +18,7 @@ export function Dish() {
           <SlArrowLeft id="back" size={32} />
           <ButtonText title="Voltar" bold pop large />
         </label>
-        <main>
+        <div className='main'>
           <img className="imgDish" src={img} alt="Foto do prato" />
           <div className="description">
             <h1>Salada Rovanello</h1>
@@ -26,23 +26,23 @@ export function Dish() {
               Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um
               toque especial.
             </p>
-            <ul>
+            <div className='tags'>
               <Tag title="alface" />
               <Tag title="alface" />
               <Tag title="alface" />
               <Tag title="alface" />
               <Tag title="alface" />
               <Tag title="alface" />
-            </ul>
+            </div>
             <div className="footerButtons">
               <Amount amount={'01'} />
               <Button title={`incluir R$25,00`} small/>
             </div>
           </div>
-        </main>
+        </div>
       </div>
 
-      <Footer />
+      <Footer  />
     </Container>
   )
 }
