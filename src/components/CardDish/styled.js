@@ -62,21 +62,6 @@ export const Container = styled.div`
     align-items: center;
     gap: 16px;
 
-    > .amount {
-      display: flex;
-      gap: 14px;
-
-      #minus,
-      #more {
-        background-color: transparent;
-        color: ${({ theme }) => theme.COLORS.LIGHT100};
-      }
-
-      > strong {
-        font-size: 20px;
-        font-weight: 700;
-      }
-    }
   }
 
   @media (max-width: 768px) {
@@ -108,13 +93,6 @@ export const Container = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 16px;
-
-      > .amount {
-        > strong {
-          font-size: 16px;
-          font-weight: 400;
-        }
-      }
     }
   }
 `

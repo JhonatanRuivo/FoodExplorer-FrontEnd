@@ -1,8 +1,9 @@
 import { Container } from './styled'
-import { PiMinus, PiPlus, PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
+import {PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
 
 
 import { Button } from '../Button'
+import { Amount } from '../Amount'
 
 export function CardDish({ image, user = false, dishName, dishDescription, price, amount = false }) {
   return (
@@ -20,15 +21,7 @@ export function CardDish({ image, user = false, dishName, dishDescription, price
       <h2 className="price">{price}</h2>
 
       <div className="footerButtons">
-        <div className="amount">
-          <button id="minus" type="button">
-            {amount ? <PiMinus size={24}/> : ""}
-          </button>
-          <strong>{amount}</strong>
-          <button id="more" type="button">
-            {amount ? <PiPlus size={24} /> : ""}
-          </button>
-        </div>
+        <Amount amount={amount}/>
 
         {amount ? <Button title="incluir" type="button" /> : ""}
       </div>

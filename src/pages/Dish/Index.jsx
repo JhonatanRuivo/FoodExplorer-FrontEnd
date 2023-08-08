@@ -32,7 +32,7 @@ export function Dish() {
               <Tag title="alface" />
               <Tag title="alface" />
             </ul>
-            <div className="amount"></div>
+            
           </div>
         </main>
       </div>
