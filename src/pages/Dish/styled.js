@@ -36,6 +36,12 @@ export const Container = styled.div`
           display: flex;
           gap: 12px;
         }
+        .footerButtons {
+          display: flex;
+          gap: 33px;
+          align-items: center;
+          margin-top: 48px;
+        }
       }
     }
 

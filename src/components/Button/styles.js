@@ -4,14 +4,14 @@ export const Container = styled.button`
   background-color: ${({ theme }) => theme.COLORS.TOMATO100};
   color: ${({ theme }) => theme.COLORS.LIGHT100};
 
-  width: 100%;
+  width: ${({ $fitContent }) => $fitContent ? 'fit-content' : '100%'};
   border: none;
   padding: 12px 32px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: 5px; 
 
   font-family: Poppins;
   font-size: 14px;

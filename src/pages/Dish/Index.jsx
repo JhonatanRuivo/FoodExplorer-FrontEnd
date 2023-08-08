@@ -6,6 +6,8 @@ import { ButtonText } from '../../components/ButtonText'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Tag } from '../../components/Tag/index.jsx'
+import { Amount } from '../../components/Amount'
+import { Button } from '../../components/Button'
 
 export function Dish() {
   return (
@@ -32,7 +34,10 @@ export function Dish() {
               <Tag title="alface" />
               <Tag title="alface" />
             </ul>
-            
+            <div className="footerButtons">
+              <Amount amount={'01'} />
+              <Button title={`incluir R$25,00`} small/>
+            </div>
           </div>
         </main>
       </div>
