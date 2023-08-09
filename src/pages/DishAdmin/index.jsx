@@ -8,7 +8,7 @@ import { Footer } from '../../components/Footer/index.jsx'
 import { Tag } from '../../components/Tag/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
 
-export function DishEdit() {
+export function DishAdmin() {
   return (
     <Container>
       <Header admin="admin" />
