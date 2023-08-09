@@ -16,7 +16,7 @@ export function Dish() {
       <div className="body">
         <label htmlFor="back">
           <SlArrowLeft id="back" size={32} />
-          <ButtonText title="Voltar" bold pop large />
+          <ButtonText title="voltar" bold pop large />
         </label>
         <div className="main">
           <img className="imgDish" src={img} alt="Foto do prato" />

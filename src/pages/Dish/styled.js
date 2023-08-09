@@ -35,18 +35,19 @@ export const Container = styled.div`
 
         > h1 {
           color: ${({ theme }) => theme.COLORS.LIGHT300};
-          font-size: 40px;
+          font-size: 38px;
           font-weight: 500;
         }
         > p {
           color: ${({ theme }) => theme.COLORS.LIGHT300};
 
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 400;
         }
 
         .tags {
           display: flex;
+          flex-wrap: wrap;
           gap: 12px;
         }
         .footerButtons {
@@ -83,11 +84,6 @@ export const Container = styled.div`
           }
           > p {
             font-size: 16px;
-          }
-          .tags {
-            max-width: 100%;
-            display: flex;
-            flex-wrap: wrap;
           }
           .footerButtons {
             justify-content: space-around;

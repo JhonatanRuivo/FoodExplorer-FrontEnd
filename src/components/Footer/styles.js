@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.footer`
+export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK600};
 
   width: 100%;
@@ -13,8 +13,7 @@ export const Container = styled.footer`
 
   position: absolute;
   bottom: 0;
-
-
+  
   .logo {
     display: flex;
     text-align: center;
