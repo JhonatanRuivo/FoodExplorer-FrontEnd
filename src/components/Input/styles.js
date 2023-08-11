@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 48px;
 
   label {
-    background-color: ${({ theme }) => theme.COLORS.DARK900};
+    background-color: ${({ theme, $bg }) => ($bg ? theme.COLORS.DARK800 : theme.COLORS.DARK900)};
     color: ${({ theme }) => theme.COLORS.LIGHT400};
 
     width: 100%;
@@ -34,6 +34,7 @@ export const Container = styled.div`
       padding: 12px 14px;
 
       border-radius: 8px;
+
     }
   }
 `
