@@ -1,5 +1,5 @@
 import { Container, Body } from './styled.js'
-import { SlArrowLeft } from 'react-icons/sl'
+import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
 import { PiPlusLight, PiUploadSimple, PiXLight } from 'react-icons/pi'
 
 import { ButtonText } from '../../components/ButtonText'
@@ -34,17 +34,20 @@ export function NewDish() {
 
             <div id="inputName" className="input">
               <label htmlFor="inputName">Nome</label>
-              <Input placeholder="Ex.: Salada Ceasar " admin />
+              <Input type="text" placeholder="Ex.: Salada Ceasar " admin />
             </div>
 
             <div id="category" className="input">
               <label htmlFor="category">Categoria</label>
-              <select name="category" id="setCategory">
-                <option value="Refeição">Refeição</option>
-                <option value="Salada">Salada</option>
-                <option value="Sobremesa">Sobremesa</option>
-                <option value="Bebida">Bebida</option>
-              </select>
+              <div id="setCategory">
+                <select name="category">
+                  <option value="Refeição">Refeição</option>
+                  <option value="Salada">Salada</option>
+                  <option value="Sobremesa">Sobremesa</option>
+                  <option value="Bebida">Bebida</option>
+                </select>
+                  <SlArrowDown id='icon'/>
+              </div>
             </div>
           </div>
 
@@ -64,9 +67,9 @@ export function NewDish() {
               </div>
             </div>
 
-            <div id='inputPrice'className='input'>
+            <div id="inputPrice" className="input">
               <label htmlFor="inputPrice">Preço</label>
-              <Input placeholder="R$ 00,00" admin/>
+              <Input placeholder="R$ 00,00" admin />
             </div>
           </div>
         </form>

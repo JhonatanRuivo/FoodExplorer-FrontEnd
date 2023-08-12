@@ -40,6 +40,10 @@ export const Body = styled.div`
           color: ${({ theme }) => theme.COLORS.LIGHT400};
         }
       }
+    }
+    #sectionOne {
+      width: 100%;
+
       #inputImage {
         width: 230px;
 
@@ -64,7 +68,10 @@ export const Body = styled.div`
       }
       #category {
         width: 40%;
+        position: relative;
+
         select {
+          width: 100%;
           background-color: ${({ theme }) => theme.COLORS.DARK800};
           color: ${({ theme }) => theme.COLORS.LIGHT400};
           border: none;
@@ -74,13 +81,29 @@ export const Body = styled.div`
           font-family: Roboto;
           font-size: 14px;
           font-weight: 400;
+
+          appearance: none;
+          cursor: pointer;
+        }
+        #icon {
+          color: ${({ theme }) => theme.COLORS.LIGHT400};
+
+          position: absolute;
+          right: 16px;
+          top: 63%;
+          cursor: pointer;
         }
       }
+    }
+
+    #sectionTwo {
+      width: 100%;
+
       #ingredients {
         background-color: ${({ theme }) => theme.COLORS.DARK800};
         width: 100%;
 
-        padding: 8px 8px;
+        padding: 4px 8px;
         display: flex;
         gap: 16px;
         border-radius: 8px;
@@ -110,11 +133,10 @@ export const Body = styled.div`
           display: flex;
           gap: 8px;
           align-items: center;
-
-          
         }
       }
-      
+      #inputPrice {
+      }
     }
   }
 `
