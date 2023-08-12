@@ -98,7 +98,9 @@ export const Body = styled.div`
 
     #sectionTwo {
       width: 100%;
-
+      #selectIngredients {
+        width: 100%;
+      }
       #ingredients {
         background-color: ${({ theme }) => theme.COLORS.DARK800};
         width: 100%;
