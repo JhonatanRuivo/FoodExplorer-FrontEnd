@@ -42,8 +42,6 @@ export const Body = styled.div`
       }
     }
     #sectionOne {
-      width: 100%;
-
       #inputImage {
         width: 230px;
 
@@ -97,7 +95,6 @@ export const Body = styled.div`
     }
 
     #sectionTwo {
-      width: 100%;
       #selectIngredients {
         width: 100%;
       }
@@ -138,6 +135,34 @@ export const Body = styled.div`
         }
       }
       #inputPrice {
+      }
+    }
+
+    #sectionThree {
+      #inputDishDescription {
+        width: 100%;
+
+        textarea {
+          background-color: ${({ theme }) => theme.COLORS.DARK800};
+          color: ${({ theme }) => theme.COLORS.LIGHT100};
+
+          width: 100%;
+          padding: 14px;
+          height: 172px;
+          resize: none;
+
+          border-radius: 5px;
+          border: none;
+
+          font-family: Roboto;
+          font-size: 16px;
+          font-weight: 400;
+
+          &:focus {
+            outline: none;
+            border: 1px solid ${({ theme }) => theme.COLORS.LIGHT100};
+          }
+        }
       }
     }
   }

@@ -46,7 +46,7 @@ export function NewDish() {
                   <option value="Sobremesa">Sobremesa</option>
                   <option value="Bebida">Bebida</option>
                 </select>
-                  <SlArrowDown id='icon'/>
+                <SlArrowDown id="icon" />
               </div>
             </div>
           </div>
@@ -70,6 +70,19 @@ export function NewDish() {
             <div id="inputPrice" className="input">
               <label htmlFor="inputPrice">Preço</label>
               <Input placeholder="R$ 00,00" admin />
+            </div>
+          </div>
+
+          <div id="sectionThree" className='section'>
+            <div id='inputDishDescription' className="input">
+              <label htmlFor="dishDescription">Descrição</label>
+              <textarea
+                name="inputDishDescription"
+                id="dishDescription"
+                cols= ""
+                rows=""
+                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              ></textarea>
             </div>
           </div>
         </form>
