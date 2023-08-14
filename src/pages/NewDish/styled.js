@@ -165,5 +165,9 @@ export const Body = styled.div`
         }
       }
     }
+
+    #buttonSave {
+      margin: 0 0 0 auto;
+    }
   }
 `

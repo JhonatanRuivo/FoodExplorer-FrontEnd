@@ -5,6 +5,7 @@ import { PiPlusLight, PiUploadSimple, PiXLight } from 'react-icons/pi'
 import { ButtonText } from '../../components/ButtonText'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
+import { Button } from '../../components/Button'
 import { Title } from '../../components/Title'
 import { Input } from '../../components/Input'
 
@@ -73,17 +74,21 @@ export function NewDish() {
             </div>
           </div>
 
-          <div id="sectionThree" className='section'>
-            <div id='inputDishDescription' className="input">
+          <div id="sectionThree" className="section">
+            <div id="inputDishDescription" className="input">
               <label htmlFor="dishDescription">Descrição</label>
               <textarea
                 name="inputDishDescription"
                 id="dishDescription"
-                cols= ""
+                cols=""
                 rows=""
                 placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
               ></textarea>
             </div>
+          </div>
+
+          <div id="buttonSave">
+            <Button title="Salvar alterações" small tomato />
           </div>
         </form>
       </Body>

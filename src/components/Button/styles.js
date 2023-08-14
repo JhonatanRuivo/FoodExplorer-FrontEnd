@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.button`
-  background-color: ${({ theme }) => theme.COLORS.TOMATO100};
+  background-color: ${({ theme, $color }) => $color ? theme.COLORS.TOMATO400 : theme.COLORS.TOMATO100};
   color: ${({ theme }) => theme.COLORS.LIGHT100};
 
   width: ${({ $fitContent }) => $fitContent ? 'fit-content' : '100%'};
