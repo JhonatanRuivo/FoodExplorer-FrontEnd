@@ -167,8 +167,22 @@ export const Body = styled.div`
       }
     }
 
-    #buttonSave {
+    #buttonsSaveAndDelete {
+      display: flex;
+      gap: 32px;
       margin: 0 0 0 auto;
+
+      #deleteButton {
+        background-color: ${({ theme }) => theme.COLORS.DARK800};
+        color: ${({ theme }) => theme.COLORS.LIGHT100};
+
+        padding: 12px 24px;
+        border-radius: 5px;
+
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 500;
+      }
     }
   }
 `
