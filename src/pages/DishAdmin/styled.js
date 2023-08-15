@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -57,7 +58,7 @@ export const Container = styled.div`
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) {
       margin: 16px 56px 32px;
 
       > label {

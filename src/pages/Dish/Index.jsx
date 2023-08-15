@@ -41,7 +41,6 @@ export function Dish() {
           </div>
         </div>
       </div>
-
       <Footer />
     </Container>
   )

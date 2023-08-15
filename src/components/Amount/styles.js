@@ -15,7 +15,7 @@ export const Container = styled.div`
     font-weight: 700;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     > strong {
       font-size: 16px;
       font-weight: 400;

@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100vw;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     width: 316px;
     margin: auto;
 
@@ -43,7 +43,7 @@ export const Form = styled.div`
     gap: 8px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT400};
     width: 100%;

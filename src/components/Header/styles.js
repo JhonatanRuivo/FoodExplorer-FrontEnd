@@ -50,7 +50,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT100};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     height: 100%;
     padding: 56px 28px 24px;
 
@@ -73,7 +73,7 @@ export const Container = styled.div`
 export const Icon = styled.button`
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     display: flex;
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT100};

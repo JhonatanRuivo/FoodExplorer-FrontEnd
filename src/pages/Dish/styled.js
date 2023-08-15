@@ -2,12 +2,15 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
 
   > .body {
     margin: 25px 123px 140px;
+    
 
     > label {
       width: 106px;
@@ -58,10 +61,11 @@ export const Container = styled.div`
         }
       }
     }
+  }
 
-    @media (max-width: 768px) {
+  @media (max-width: 1023px) {
+    > .body {
       margin: 16px 56px 32px;
-
       > label {
         height: 24px;
       }

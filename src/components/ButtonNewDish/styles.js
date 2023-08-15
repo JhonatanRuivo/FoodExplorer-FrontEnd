@@ -21,7 +21,7 @@ export const Container = styled.button`
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) {
       background-color: transparent;
 
       position: relative;
