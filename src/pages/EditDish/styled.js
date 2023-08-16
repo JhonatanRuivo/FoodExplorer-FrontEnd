@@ -11,7 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
 
-  .back {
+  .buttonPrev {
     width: 106px;
     height: 34px;
     display: flex;

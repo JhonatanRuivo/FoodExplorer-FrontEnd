@@ -11,12 +11,30 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
 
-  .back {
+  .buttonPrev {
     width: 106px;
     height: 34px;
     display: flex;
     align-items: center;
     cursor: pointer;
+  }
+  .buttonPrevMobile {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .buttonPrev {
+      display: none;
+    }
+    .buttonPrevMobile {
+      width: fit-content;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    
   }
 `
 
@@ -42,6 +60,7 @@ export const Body = styled.div`
       gap: 32px;
 
       .input {
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -182,5 +201,35 @@ export const Body = styled.div`
     }
   }
 
+  @media (max-width: 1023px) {
+    padding: 32px;
+
+    >form {
+      gap: 24px;
+      
+      #sectionOne {
+        flex-direction: column;
+        gap: 24px;
+        #inputImage {
+          width: 100%;
+        }
+        #inputName {
+          width: 100%;
+        }
+        #category {
+          width: 100%;
+        }
+      }
+
+      #sectionTwo {
+        flex-direction: column;
+        gap: 24px;
+        #inputPrice {
+          width: 100%;
+        }
+      }
+    
+    }
+  }
   
 `

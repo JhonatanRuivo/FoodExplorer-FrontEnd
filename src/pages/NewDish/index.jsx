@@ -14,11 +14,15 @@ export function NewDish() {
     <Container>
       <Header admin="admin" />
       <Body>
-        <div className="back">
-          <label className="back" htmlFor="back">
-            <SlArrowLeft id="back" size={32} />
-            <ButtonText title="voltar" bold pop large />
-          </label>
+        <div className="buttonPrev">
+          <label htmlFor="buttonPrev" />
+          <SlArrowLeft id="buttonPrev" size={32} />
+          <ButtonText id="buttonDesktop" title="voltar" bold pop large />
+        </div>
+        <div className="buttonPrevMobile">
+          <label htmlFor="buttonPrevMobile" />
+          <SlArrowLeft id="buttonPrevMobile" size={14} />
+          <ButtonText id="buttonMobile" title="voltar" bold pop />
         </div>
 
         <Title title={'Adicionar prato'} />

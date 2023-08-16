@@ -14,9 +14,9 @@ export function EditDish() {
     <Container>
       <Header admin="admin" />
       <Body>
-        <div className="back">
-          <label className="back" htmlFor="back">
-            <SlArrowLeft id="back" size={32} />
+        <div className="buttonPrev">
+          <label className="buttonPrev" htmlFor="buttonPrev">
+            <SlArrowLeft id="buttonPrev" size={32} />
             <ButtonText title="voltar" bold pop large />
           </label>
         </div>
