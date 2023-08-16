@@ -18,6 +18,22 @@ export const Container = styled.div`
     align-items: center;
     cursor: pointer;
   }
+  .buttonPrevMobile {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .buttonPrev {
+      display: none;
+    }
+    .buttonPrevMobile {
+      width: fit-content;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
 `
 
 export const Body = styled.div`
@@ -192,6 +208,39 @@ export const Body = styled.div`
         font-family: Poppins;
         font-size: 14px;
         font-weight: 500;
+      }
+    }
+  }
+
+  @media (max-width: 1023px) {
+    padding: 32px;
+
+    > form {
+      gap: 24px;
+
+      #sectionOne {
+        flex-direction: column;
+        gap: 24px;
+        #inputImage {
+          width: 100%;
+        }
+        #inputName {
+          width: 100%;
+        }
+        #category {
+          width: 100%;
+        }
+      }
+
+      #sectionTwo {
+        flex-direction: column;
+        gap: 24px;
+        #inputPrice {
+          width: 100%;
+        }
+      }
+      #buttonsSaveAndDelete {
+        gap: 24px;
       }
     }
   }
