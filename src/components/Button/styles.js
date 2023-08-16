@@ -10,11 +10,13 @@ export const Container = styled.button`
 
   display: flex;
   align-items: center;
+  white-space: nowrap;
   justify-content: center;
   border-radius: 5px; 
+  gap: 8px;
 
   font-family: Poppins;
-  font-size: 14px;
+  font-size: ${({$font}) => $font ? '10px' : '16px'};
   font-style: normal;
   font-weight: 500;
 

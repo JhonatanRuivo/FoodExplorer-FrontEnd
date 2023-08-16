@@ -8,6 +8,7 @@ import { Footer } from '../../components/Footer'
 import { Tag } from '../../components/Tag/index.jsx'
 import { Amount } from '../../components/Amount'
 import { Button } from '../../components/Button'
+import { PiReceipt } from 'react-icons/pi'
 
 export function Dish() {
   return (
@@ -23,20 +24,22 @@ export function Dish() {
           <div className="description">
             <h1>Salada Rovanello</h1>
             <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um
-              toque especial.
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
             </p>
             <div className="tags">
               <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
+              <Tag title="cebola" />
+              <Tag title="pão naan" />
+              <Tag title="pepino" />
+              <Tag title="rabanete" />
+              <Tag title="tomate" />
             </div>
             <div className="footerButtons">
               <Amount amount={'01'} />
-              <Button title={`incluir R$25,00`} small />
+
+              <Button id="submitButtonDesktop" title="Incluir R$25,00" small />
+
+              <Button id="submitButtonMobile" icon={PiReceipt} title="inserir R$25,00" small mobile/>
             </div>
           </div>
         </div>

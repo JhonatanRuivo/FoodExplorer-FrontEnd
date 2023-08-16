@@ -11,14 +11,14 @@ export const Container = styled.div`
   }
 
   > strong {
-    font-size: 20px;
+    font-family: Roboto;
+    font-size: 22px;
     font-weight: 700;
   }
 
   @media (max-width: 1023px) {
     > strong {
-      font-size: 16px;
-      font-weight: 400;
+      font-size: 20px;
     }
   }
 `
