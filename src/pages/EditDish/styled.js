@@ -208,6 +208,11 @@ export const Body = styled.div`
         font-family: Poppins;
         font-size: 14px;
         font-weight: 500;
+
+        white-space: nowrap;
+      }
+      #saveButton {
+        font-size: 14px;
       }
     }
   }
@@ -240,7 +245,14 @@ export const Body = styled.div`
         }
       }
       #buttonsSaveAndDelete {
-        gap: 24px;
+        width: 100%;
+        justify-content: space-around;
+        #deleteButton {
+          font-size: 12px;
+        }
+        #saveButton {
+          font-size: 12px;
+        }
       }
     }
   }

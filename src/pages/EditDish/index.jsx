@@ -95,7 +95,7 @@ export function EditDish() {
             <button id="deleteButton" type="button">
               Excluir prato
             </button>
-            <Button title="Salvar alterações" small tomato />
+            <Button id="saveButton" title="Salvar alterações" small tomato />
           </div>
         </form>
       </Body>
