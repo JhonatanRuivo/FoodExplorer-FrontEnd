@@ -198,6 +198,7 @@ export const Body = styled.div`
 
     #buttonSave {
       margin: 0 0 0 auto;
+      font-size: 14px;
     }
   }
 
@@ -228,7 +229,11 @@ export const Body = styled.div`
           width: 100%;
         }
       }
-    
+      
+      #buttonSave {
+        width: 100%;
+        font-size: 12px;
+      }
     }
   }
   

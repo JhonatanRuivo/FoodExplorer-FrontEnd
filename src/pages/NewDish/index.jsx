@@ -91,9 +91,9 @@ export function NewDish() {
             </div>
           </div>
 
-          <div id="buttonSave">
-            <Button title="Salvar alterações" small tomato />
-          </div>
+          
+            <Button id="buttonSave" title="Salvar alterações" small tomato />
+          
         </form>
       </Body>
       <Footer />
