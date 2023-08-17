@@ -28,11 +28,11 @@ export function DishAdmin() {
             </p>
             <div className="tags">
               <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
-              <Tag title="alface" />
+              <Tag title="cebola" />
+              <Tag title="pão naan" />
+              <Tag title="pepino" />
+              <Tag title="rabanete" />
+              <Tag title="tomate" />
             </div>
             <div className="footerButtons">
               <Button title={'Editar prato'} />

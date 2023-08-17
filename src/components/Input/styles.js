@@ -13,7 +13,8 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 14px;
+
+    padding-left: ${({ $search }) => ($search ? '30%' : '14px')};
 
     border-radius: 8px;
     gap: 8px;
@@ -34,7 +35,6 @@ export const Container = styled.div`
       padding: 12px 14px;
 
       border-radius: 8px;
-
     }
   }
 `

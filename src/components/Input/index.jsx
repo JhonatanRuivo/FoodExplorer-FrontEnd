@@ -1,11 +1,11 @@
 import { Container } from './styles'
 
-export function Input({ icon: Icon, admin = false, ...rest }) {
+export function Input({ search = false, icon: Icon, admin = false, ...rest }) {
   return (
-    <Container tabIndex="0" $bg={admin}>
-      <label >
+    <Container tabIndex="0" $bg={admin} $search={search} >
+      <label>
         {Icon && <Icon size={24} />}
-        <input {...rest}  />
+        <input {...rest} />
       </label>
     </Container>
   )

@@ -5,7 +5,7 @@ import { Input } from '../Input'
 import { ButtonCart } from '../ButtonCart'
 import { ButtonNewDish } from '../ButtonNewDish'
 
-export function Header({admin= false}) {
+export function Header({ admin = false }) {
   return (
     <Container>
       <Icon type="button">
@@ -32,6 +32,7 @@ export function Header({admin= false}) {
 
       <div className="input">
         <Input
+          search
           icon={PiMagnifyingGlass}
           type="text"
           placeholder="Busque por pratos ou ingredientes"
@@ -39,7 +40,7 @@ export function Header({admin= false}) {
       </div>
 
       {admin ? '' : <ButtonCart />}
-      {admin ? <ButtonNewDish/> : ""}
+      {admin ? <ButtonNewDish /> : ''}
       <label htmlFor="signOut">
         <button id="signOut">
           <PiSignOut size={32} />

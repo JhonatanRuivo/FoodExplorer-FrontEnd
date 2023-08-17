@@ -58,13 +58,22 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    > .logo {
+      width: 100%;
+      .textLogo {
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+      }
+    }
+
     > .input {
       display: none;
     }
     #signOut {
       display: none;
     }
-    >label {
+    > label {
       display: none;
     }
   }

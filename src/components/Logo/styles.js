@@ -11,13 +11,12 @@ export const Container = styled.div`
 
   > h1 {
     font-size: 42px;
-
-    @media (max-width: 1023px) {
-      font-size: 37px;
-    }
   }
 
   @media (max-width: 1023px) {
     justify-content: flex-start;
+    h1 {
+      font-size: 37px;
+    }
   }
 `

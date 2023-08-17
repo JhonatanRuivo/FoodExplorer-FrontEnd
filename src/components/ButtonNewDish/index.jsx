@@ -1,10 +1,10 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
 export function ButtonNewDish() {
   return (
     <Container type="button">
       <label>
-        <p>novo prato</p>
+        <p>Novo prato</p>
       </label>
     </Container>
   )

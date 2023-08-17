@@ -32,7 +32,7 @@ export const Container = styled.div`
         flex-direction: column;
         gap: 24px;
         font-family: Poppins;
-        text-align: justify;
+        text-align: start;
 
         > h1 {
           color: ${({ theme }) => theme.COLORS.LIGHT300};
@@ -52,9 +52,9 @@ export const Container = styled.div`
           gap: 12px;
         }
         .footerButtons {
-            width: 150px;
-            margin-top: 48px;
-          }
+          width: 150px;
+          margin-top: 48px;
+        }
       }
     }
 
@@ -76,13 +76,18 @@ export const Container = styled.div`
           height: 264px;
         }
         .description {
-          > h1 {
-            text-align: center;
+          text-align: center;
 
+          > h1 {
             font-size: 27px;
           }
           > p {
             font-size: 16px;
+            
+          }
+          .tags {
+           justify-content: center;
+           gap: 24px;
           }
           .footerButtons {
             width: 100%;

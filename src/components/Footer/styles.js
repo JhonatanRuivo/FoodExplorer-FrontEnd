@@ -29,6 +29,8 @@ export const Container = styled.div`
   }
 
   > p {
+    color: ${({ theme }) => theme.COLORS.LIGHT200};
+
     font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     font-weight: 400;
