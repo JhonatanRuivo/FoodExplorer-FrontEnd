@@ -15,6 +15,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 73px;
+
   }
 `
 
@@ -22,8 +23,8 @@ export const Form = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK700};
   width: 476px;
   height: fit-content;
-  margin: auto;
   border-radius: 16px;
+  margin: auto;
 
   display: flex;
   flex-direction: column;
@@ -49,6 +50,8 @@ export const Form = styled.div`
     width: 100%;
     margin: 0;
     padding: 0;
+
+    
 
     > h3 {
       display: none;

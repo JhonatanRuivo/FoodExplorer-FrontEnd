@@ -17,7 +17,7 @@ export function Logo({ ...rest }) {
         />
       </svg>
 
-      <h1>food Explorer</h1>
+      <h1>food explorer</h1>
     </Container>
   )
 }

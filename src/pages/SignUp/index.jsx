@@ -8,7 +8,7 @@ import { Logo } from '../../components/Logo'
 export function SignUp() {
   return (
     <Container>
-      <Logo width={43} />
+      <Logo width={43} id='logo'/>
       <Form>
         <h3>Crie sua conta</h3>
         <div className="input">
