@@ -6,10 +6,10 @@ import { IoCloseOutline } from 'react-icons/io5'
 export function HeaderMenu({ admin = false }) {
   return (
     <Container>
-      <Link to={admin ? '/admin' : '/'} className='iconX' >
+      <Link to={admin ? '/admin' : '/'} className="iconX">
         <IoCloseOutline size={28} />
+        <p>Menu</p>
       </Link>
-      <p>Menu</p>
     </Container>
   )
 }

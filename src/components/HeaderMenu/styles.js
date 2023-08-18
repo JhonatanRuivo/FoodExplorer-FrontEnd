@@ -8,14 +8,14 @@ export const Container = styled.div`
   height: 114px;
   padding: 56px 28px 24px;
 
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  font-size: 22px;
-  font-weight: 400;
-
   > .iconX {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 22px;
+    font-weight: 400;
+
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT100};
   }

@@ -61,6 +61,8 @@ export const Container = styled.div`
 
     > .logo {
       width: 100%;
+      justify-content: center;
+      
       .textLogo {
         flex-direction: row;
         gap: 8px;

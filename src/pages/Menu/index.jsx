@@ -19,7 +19,7 @@ export function Menu() {
         <Content>
           <Items></Items>
         </Content>
-        <ButtonText title="Sair" pop large border textStart/>
+        <ButtonText title="Sair" pop large border textStart />
       </Main>
       <Footer />
     </Container>
