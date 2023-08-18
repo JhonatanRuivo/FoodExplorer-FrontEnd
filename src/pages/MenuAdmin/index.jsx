@@ -9,7 +9,7 @@ import { Input } from '../../components/Input'
 export function MenuAdmin() {
   return (
     <Container>
-      <HeaderMenu />
+      <HeaderMenu admin/>
       <Main>
         <Input id="input" icon={IoSearchOutline} placeholder="Busque por pratos ou ingredientes" />
         <Content>

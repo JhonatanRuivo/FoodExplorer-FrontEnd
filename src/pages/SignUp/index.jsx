@@ -1,5 +1,7 @@
 import { Container, Form } from './styles'
 
+import { Link } from 'react-router-dom'
+
 import { ButtonText } from '../../components/ButtonText'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
@@ -8,7 +10,7 @@ import { Logo } from '../../components/Logo'
 export function SignUp() {
   return (
     <Container>
-      <Logo width={43} id='logo'/>
+      <Logo width={43} id="logo" />
       <Form>
         <h3>Crie sua conta</h3>
         <div className="input">
@@ -27,7 +29,8 @@ export function SignUp() {
         </div>
 
         <Button title="Entrar" />
-        <ButtonText title="Criar uma conta" pop bold />
+
+        <ButtonText title="Já tenho uma conta" pop bold to="/" />
       </Form>
     </Container>
   )

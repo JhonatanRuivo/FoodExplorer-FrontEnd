@@ -8,9 +8,10 @@ import { ButtonNewDish } from '../ButtonNewDish'
 export function Header({ admin = false }) {
   return (
     <Container>
-      <Icon type="button">
+      <Icon type="button"to={admin ? '/menuadmin' : '/menu'} >
         <PiList size={32} />
       </Icon>
+
       <div className="logo">
         <svg
           width="22"

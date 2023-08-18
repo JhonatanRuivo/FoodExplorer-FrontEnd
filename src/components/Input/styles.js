@@ -14,7 +14,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    padding-left: ${({ $search }) => ($search ? '30%' : '14px')};
+    padding-left: ${({ $search }) => ($search ? '20%' : '14px')};
 
     border-radius: 8px;
     gap: 8px;

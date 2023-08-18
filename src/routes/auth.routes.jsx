@@ -11,13 +11,13 @@ import { NewDish } from '../pages/NewDish'
 export function AuthRoutes() {
   return (
     <Routes>
-      <Route path="/admin" element={<HomeAdmin />} />
       <Route path="/" element={<SignIn />} />
       <Route path="/register" element={<SignUp />} />
+      <Route path="/admin" element={<HomeAdmin />} />
       <Route path="/dishadmin" element={<DishAdmin />} />
-      <Route path="/editdish" element={<EditDish />} />
       <Route path="/menuadmin" element={<MenuAdmin />} />
       <Route path="/newdish" element={<NewDish />} />
+      <Route path="/editdish" element={<EditDish />} />
     </Routes>
   )
 }

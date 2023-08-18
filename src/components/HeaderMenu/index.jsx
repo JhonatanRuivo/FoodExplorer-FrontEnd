@@ -1,14 +1,15 @@
+import { Link } from 'react-router-dom'
 import { Container } from './styles'
 
 import { IoCloseOutline } from 'react-icons/io5'
 
-export function HeaderMenu() {
+export function HeaderMenu({ admin = false }) {
   return (
     <Container>
-      <button>
+      <Link to={admin ? '/admin' : '/'} className='iconX' >
         <IoCloseOutline size={28} />
-      </button>
-        <p>Menu</p>
+      </Link>
+      <p>Menu</p>
     </Container>
   )
 }

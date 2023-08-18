@@ -15,7 +15,7 @@ export const Container = styled.div`
   font-size: 22px;
   font-weight: 400;
 
-  > button {
+  > .iconX {
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT100};
   }
