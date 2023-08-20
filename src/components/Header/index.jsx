@@ -45,11 +45,11 @@ export function Header({ admin = false }) {
 
       <Link to="/newdish">{admin ? <ButtonNewDish /> : ''}</Link>
 
-      <label htmlFor="signOut">
-        <Link id="signOut" to='/' >
+      <div>
+        <Link id="signOut" to="/">
           <PiSignOut size={32} />
         </Link>
-      </label>
+      </div>
     </Container>
   )
 }

@@ -1,15 +1,18 @@
 import { Container, Form } from './styles'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 import { ButtonText } from '../../components/ButtonText'
 import { Button } from '../../components/Button'
-import { Input } from '../../components/Input'
+import { Input} from '../../components/Input'
 import { Logo } from '../../components/Logo'
 
 export function SignUp() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const { register, handleSubmit } = useForm()
 
   function handleSignUp() {
     if (!name || !email || !password) {
@@ -28,12 +31,13 @@ export function SignUp() {
   return (
     <Container>
       <Logo width={43} id="logo" />
-      <Form >
+      <Form onSubmit={handleSubmit(handleSignUp)}>
         <h3>Crie sua conta</h3>
         <div className="input">
           <label htmlFor="Name">Seu nome</label>
 
           <Input
+            {...register('name')}
             id="Name"
             type="text"
             placeholder="Exemplo: Maria da Silva"
@@ -63,7 +67,7 @@ export function SignUp() {
           />
         </div>
 
-        <Button title="Cadastrar" type="submit" onClick={handleSignUp} />
+        <Button title="Cadastrar" type="submit" />
 
         <ButtonText title="Já tenho uma conta" pop bold to="/" />
       </Form>
