@@ -2,6 +2,8 @@ import { Container, Body } from './styled.js'
 import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
 import { PiPlusLight, PiUploadSimple, PiXLight } from 'react-icons/pi'
 
+import { Link } from 'react-router-dom'
+
 import { ButtonText } from '../../components/ButtonText'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'

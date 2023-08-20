@@ -1,4 +1,5 @@
 import { Container, Icon } from './styles'
+import { Link } from 'react-router-dom'
 
 import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
 import { Input } from '../Input'
@@ -8,7 +9,7 @@ import { ButtonNewDish } from '../ButtonNewDish'
 export function Header({ admin = false }) {
   return (
     <Container>
-      <Icon type="button"to={admin ? '/menuadmin' : '/menu'} >
+      <Icon type="button" to={admin ? '/menuadmin' : '/menu'}>
         <PiList size={32} />
       </Icon>
 
@@ -41,11 +42,13 @@ export function Header({ admin = false }) {
       </div>
 
       {admin ? '' : <ButtonCart />}
-      {admin ? <ButtonNewDish /> : ''}
+
+      <Link to="/newdish">{admin ? <ButtonNewDish /> : ''}</Link>
+
       <label htmlFor="signOut">
-        <button id="signOut">
+        <Link id="signOut" to='/' >
           <PiSignOut size={32} />
-        </button>
+        </Link>
       </label>
     </Container>
   )

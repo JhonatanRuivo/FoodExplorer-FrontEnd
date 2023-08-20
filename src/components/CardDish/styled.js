@@ -30,38 +30,49 @@ export const Container = styled.div`
     right: 16px;
   }
 
-  > img {
-    width: 176px;
-    height: 176px;
-  }
+  .card {
+    color: ${({ theme }) => theme.COLORS.LIGHT300};
+    text-decoration: none;
 
-  > .dishName {
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-weight: 700;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
 
-    white-space: nowrap;
-  }
+    > img {
+      width: 176px;
+      height: 176px;
+    }
 
-  > .dishDescription {
-    color: ${({ theme }) => theme.COLORS.LIGHT400};
-    font-family: 'Roboto';
-    font-size: 14px;
-    font-weight: 400;
-  }
+    > .dishName {
+      font-family: 'Poppins';
+      font-size: 24px;
+      font-weight: 700;
 
-  > .price {
-    color: ${({ theme }) => theme.COLORS.CAKE200};
-    font-family: 'Roboto';
-    font-size: 32px;
-    font-weight: 400;
+      white-space: nowrap;
+    }
+
+    > .dishDescription {
+      color: ${({ theme }) => theme.COLORS.LIGHT400};
+      font-family: 'Roboto';
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    > .price {
+      color: ${({ theme }) => theme.COLORS.CAKE200};
+      font-family: 'Roboto';
+      font-size: 32px;
+      font-weight: 400;
+    }
   }
 
   > .footerButtons {
     display: flex;
     align-items: center;
     gap: 16px;
-
   }
 
   @media (max-width: 1023px) {
@@ -70,22 +81,26 @@ export const Container = styled.div`
 
     gap: 12px;
 
-    > img {
-      width: 88px;
-      height: 88px;
-    }
+    .card {
+      gap: 12px;
 
-    > .dishName {
-      font-size: 14px;
-      font-weight: 500;
-    }
+      > img {
+        width: 88px;
+        height: 88px;
+      }
 
-    > .dishDescription {
-      display: none;
-    }
+      > .dishName {
+        font-size: 14px;
+        font-weight: 500;
+      }
 
-    > .price {
-      font-size: 16px;
+      > .dishDescription {
+        display: none;
+      }
+
+      > .price {
+        font-size: 16px;
+      }
     }
 
     > .footerButtons {
