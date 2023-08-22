@@ -1,18 +1,16 @@
 import { Container, Form } from './styles'
+import { api } from '../../services/api'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
 
 import { ButtonText } from '../../components/ButtonText'
 import { Button } from '../../components/Button'
-import { Input} from '../../components/Input'
+import { Input } from '../../components/Input'
 import { Logo } from '../../components/Logo'
 
 export function SignUp() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const { register, handleSubmit } = useForm()
 
   function handleSignUp() {
     if (!name || !email || !password) {
@@ -25,20 +23,29 @@ export function SignUp() {
       return alert('A senha deve conter no mínimo 6 caracteres!')
     }
 
-    console.log('cadastrado com sucesso!')
+    api.post('/users', { name, email, password })
+      .then(() => {
+        alert('Usuário cadastrado com sucesso!')
+      })
+      .catch(error => {
+        if(error.response) {
+          alert(error.response.data.message)
+        } else {
+          alert('Não foi possível cadastrar!')
+        }
+      })
   }
 
   return (
     <Container>
       <Logo width={43} id="logo" />
-      <Form onSubmit={handleSubmit(handleSignUp)}>
+      <Form>
         <h3>Crie sua conta</h3>
-        <div className="input">
-          <label htmlFor="Name">Seu nome</label>
 
+        <div className="input">
+          <label htmlFor="name">Seu nome</label>
           <Input
-            {...register('name')}
-            id="Name"
+            id="name"
             type="text"
             placeholder="Exemplo: Maria da Silva"
             onChange={(e) => setName(e.target.value)}
@@ -46,28 +53,26 @@ export function SignUp() {
         </div>
 
         <div className="input">
-          <label htmlFor="Email"> Email </label>
-
+          <label htmlFor="email"> Email </label>
           <Input
             placeholder="Exemplo: Maria@email.com"
-            id="Email"
+            id="email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
         <div className="input">
-          <label htmlFor="Password">Senha</label>
-
+          <label htmlFor="password">Senha</label>
           <Input
             placeholder="No mínimo 6 caracteres"
-            id="Password"
+            id="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        <Button title="Cadastrar" type="submit" />
+        <Button title="Cadastrar" onClick={handleSignUp} />
 
         <ButtonText title="Já tenho uma conta" pop bold to="/" />
       </Form>

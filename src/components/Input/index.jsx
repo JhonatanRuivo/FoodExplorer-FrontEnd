@@ -1,7 +1,6 @@
-import { forwardRef } from 'react'
 import { Container } from './styles'
 
-function InputRef({ search = false, icon: Icon, admin = false, ...rest }, ref) {
+export function Input({ search = false, icon: Icon, admin = false, ...rest }) {
   return (
     <Container $bg={admin} $search={search}>
       {Icon && <Icon size={24} />}
@@ -9,5 +8,3 @@ function InputRef({ search = false, icon: Icon, admin = false, ...rest }, ref) {
     </Container>
   )
 }
-
-export const Input = forwardRef(InputRef)
