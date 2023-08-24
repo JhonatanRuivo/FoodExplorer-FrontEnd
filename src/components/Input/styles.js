@@ -31,5 +31,6 @@ export const Container = styled.div`
     padding: 12px 14px;
 
     border-radius: 8px;
+
   }
 `
