@@ -1,5 +1,6 @@
 import { Container, Icon } from './styles'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth'
 
 import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
 import { Input } from '../Input'
@@ -7,9 +8,17 @@ import { ButtonCart } from '../ButtonCart'
 import { ButtonNewDish } from '../ButtonNewDish'
 
 export function Header({ admin = false }) {
+  const { signOut } = useAuth()
+  const navigation = useNavigate()
+
+  function handleSignOut() {
+    navigation('/')
+    signOut()
+  }
+
   return (
     <Container>
-      <Icon type="button" to='/menu'>
+      <Icon type="button" to="/menu">
         <PiList size={32} />
       </Icon>
 
@@ -46,9 +55,9 @@ export function Header({ admin = false }) {
       <Link to="/new">{admin ? <ButtonNewDish /> : ''}</Link>
 
       <div>
-        <Link id="signOut" to="/">
+        <button id="signOut" onClick={handleSignOut}>
           <PiSignOut size={32} />
-        </Link>
+        </button>
       </div>
     </Container>
   )
