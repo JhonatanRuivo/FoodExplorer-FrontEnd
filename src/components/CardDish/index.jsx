@@ -15,9 +15,21 @@ export function CardDish({
 }) {
   return (
     <Container>
-      <Link id="iconTop" to="/edit">
-        {user ? <PiHeartStraight size={24} /> : <PiPencilSimpleLight size={24} />}
-      </Link>
+      <div>
+        {user ? (
+          <>
+            <Link className='iconTop' to='' >
+              <PiHeartStraight size={24} />
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link className="iconTop" to="/edit">
+              <PiPencilSimpleLight size={24} />
+            </Link>
+          </>
+        )}
+      </div>
 
       <Link className="card" to="/dish ">
         <img src={image} />

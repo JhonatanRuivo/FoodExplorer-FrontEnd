@@ -18,7 +18,8 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
 
-  #iconTop {
+  .iconTop{
+    
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT300};
 

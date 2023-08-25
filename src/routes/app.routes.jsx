@@ -33,18 +33,3 @@ export function AppRoutes() {
     </Routes>
   )
 }
-
-// ;<Routes>
-//   <Route path="/" element={<Home />} />
-//   {user.is_admin === 0 ? (
-//     <>
-//       <Route path="/new" element={<Home />} />
-//     </>
-//   ) : (
-//     <>
-//       <Route path="/edit/:id" element={<Edit />} />
-//       <Route path="/new" element={<New />} />
-//     </>
-//   )}
-//   <Route path="/details/:id" element={<Details />} />
-// </Routes>
