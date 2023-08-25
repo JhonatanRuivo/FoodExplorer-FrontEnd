@@ -1,12 +1,12 @@
 import { Container } from './styled.js'
 import { SlArrowLeft } from 'react-icons/sl'
 import img from '../../assets/Salada Ravanello.png'
+import { Link } from 'react-router-dom'
 
 import { ButtonText } from '../../components/ButtonText/index.jsx'
 import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
 import { Tag } from '../../components/Tag/index.jsx'
-import { Amount } from '../../components/Amount/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
 
 export function DishAdmin() {
@@ -35,7 +35,7 @@ export function DishAdmin() {
               <Tag title="tomate" />
             </div>
             <div className="footerButtons">
-              <Button title={'Editar prato'} />
+              <Button title={'Editar prato'} type='button' to="/edit" />
             </div>
           </div>
         </div>

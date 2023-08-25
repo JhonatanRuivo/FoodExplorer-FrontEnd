@@ -15,11 +15,11 @@ export function CardDish({
 }) {
   return (
     <Container>
-      <Link id="iconTop" to={user ? '' : '/editdish'}>
+      <Link id="iconTop" to="/edit">
         {user ? <PiHeartStraight size={24} /> : <PiPencilSimpleLight size={24} />}
       </Link>
 
-      <Link className="card" to={user ? '/dish' : '/dishadmin'}>
+      <Link className="card" to="/dish ">
         <img src={image} />
 
         <h3 className="dishName">{dishName}</h3>

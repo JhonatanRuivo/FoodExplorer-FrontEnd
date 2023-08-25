@@ -9,7 +9,7 @@ import { ButtonNewDish } from '../ButtonNewDish'
 export function Header({ admin = false }) {
   return (
     <Container>
-      <Icon type="button" to={admin ? '/menuadmin' : '/menu'}>
+      <Icon type="button" to='/menu'>
         <PiList size={32} />
       </Icon>
 
@@ -43,7 +43,7 @@ export function Header({ admin = false }) {
 
       {admin ? '' : <ButtonCart />}
 
-      <Link to="/newdish">{admin ? <ButtonNewDish /> : ''}</Link>
+      <Link to="/new">{admin ? <ButtonNewDish /> : ''}</Link>
 
       <div>
         <Link id="signOut" to="/">
