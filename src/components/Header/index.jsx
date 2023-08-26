@@ -9,10 +9,10 @@ import { ButtonNewDish } from '../ButtonNewDish'
 
 export function Header({ admin = false }) {
   const { signOut } = useAuth()
-  const navigation = useNavigate()
+  const navigate = useNavigate()
 
   function handleSignOut() {
-    navigation('/')
+    navigate('/')
     signOut()
   }
 
@@ -43,6 +43,7 @@ export function Header({ admin = false }) {
 
       <div className="input">
         <Input
+          id="search"
           search
           icon={PiMagnifyingGlass}
           type="text"

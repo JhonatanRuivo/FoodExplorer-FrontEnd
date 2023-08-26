@@ -2,9 +2,9 @@ import { Container, Form } from './styles'
 import { useState } from 'react'
 
 import { ButtonText } from '../../components/ButtonText'
+import { useAuth } from '../../hooks/auth'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
-import { useAuth } from '../../hooks/auth'
 import { Logo } from '../../components/Logo'
 
 export function SignIn() {
@@ -13,11 +13,11 @@ export function SignIn() {
 
   const { signIn } = useAuth()
 
-  
-
   function handleSignIn() {
+    if (!email || !password) {
+      return alert('Preencha todos os campos!')
+    }
     signIn({ email, password })
-
   }
 
   return (
@@ -28,6 +28,7 @@ export function SignIn() {
         <div className="input">
           <label htmlFor="email">Email</label>
           <Input
+          autoComplete='on'
             placeholder="Exemplo: exemplo@exemplo.com.br"
             id="email"
             type="email"

@@ -8,16 +8,23 @@ import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
 import { Title } from '../../components/Title'
 import { Input } from '../../components/Input'
+import { useNavigate } from 'react-router-dom'
 
 export function NewDish() {
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <Container>
       <Header admin="admin" />
       <Body>
         <div className="buttonPrev">
           <label htmlFor="buttonPrev" />
-          <SlArrowLeft id="buttonPrev" size={32} />
-          <ButtonText id="buttonDesktop" title="voltar" bold pop large />
+          <SlArrowLeft name="buttonPrev" size={32} />
+          <ButtonText id="buttonDesktop" title="voltar" bold pop large onClick={handleBack} />
         </div>
         <div className="buttonPrevMobile">
           <label htmlFor="buttonPrevMobile" />

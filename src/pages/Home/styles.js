@@ -6,10 +6,13 @@ export const Container = styled.div`
   min-height: 100vh;
   position: relative;
 
-  .main {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-bottom: 100px;
+  &::-webkit-scrollbar {
+    width: 10px;
   }
+`
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 100px;
 `

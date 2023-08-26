@@ -2,12 +2,14 @@ import { Container } from './styles'
 
 export function ButtonText({
   title,
+  icon: Icon,
   pop = false,
   large = false,
   bold = false,
   border = false,
   textStart = false,
   ...rest
+  
 }) {
   return (
     <Container
@@ -19,6 +21,7 @@ export function ButtonText({
       $textStart={textStart}
       {...rest}
     >
+      {Icon}
       {title}
     </Container>
   )

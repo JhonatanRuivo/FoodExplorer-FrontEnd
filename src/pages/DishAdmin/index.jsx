@@ -1,22 +1,28 @@
 import { Container } from './styled.js'
 import { SlArrowLeft } from 'react-icons/sl'
 import img from '../../assets/Salada Ravanello.png'
-import { Link } from 'react-router-dom'
 
 import { ButtonText } from '../../components/ButtonText/index.jsx'
 import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
 import { Tag } from '../../components/Tag/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
+import { useNavigate } from 'react-router-dom'
 
 export function DishAdmin() {
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <Container>
       <Header admin="admin" />
       <div className="body">
         <label htmlFor="back">
-          <SlArrowLeft id="back" size={32} />
-          <ButtonText title="voltar" bold pop large />
+          <SlArrowLeft name="back" size={32} />
+          <ButtonText title="voltar" bold pop large onClick={handleBack} />
         </label>
         <div className="main">
           <img className="imgDish" src={img} alt="Foto do prato" />

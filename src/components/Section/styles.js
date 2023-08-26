@@ -2,71 +2,66 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 85%;
-  margin: 0 auto ;
+  margin: 0 auto;
 
-  > label {
+  .titleList {
     color: ${({ theme }) => theme.COLORS.LIGHT300};
     width: 100%;
     font-family: Poppins;
     font-size: 32px;
     font-weight: 500;
+  }
+  #dishesList {
+    width: 100%;
+    position: relative;
 
-    > .dishesListWrapper {
-      width: 100%;
-      position: relative;
+    display: flex;
+    gap: 27px;
 
-      #dishesList {
-        width: 100%;
+    overflow: auto;
 
-        display: flex;
-        gap: 27px;
+    > .arrowLeft,
+    .arrowRight {
+      background: linear-gradient(
+        to left,
+        transparent 0%,
+        rgba(0, 10, 15, 0.7) 30%,
+        rgba(0, 10, 15, 1) 100%
+      );
+      color: ${({ theme }) => theme.COLORS.LIGHT100};
+      width: 150px;
 
-        overflow: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: auto;
 
-        > .arrowLeft,
-        .arrowRight {
-          background: linear-gradient(
-            to left,
-            transparent 0%,
-            rgba(0, 10, 15, 0.7) 50%,
-            rgba(0, 10, 15, 1) 100%
-          );
-          color: ${({ theme }) => theme.COLORS.LIGHT100};
-          width: 200px;
+      display: flex;
+      align-items: center;
 
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: auto;
-
-          display: flex;
-          align-items: center;
-
-          @media (max-width: 1023px) {
-            width: 35px;
-          }
-        }
-
-        .arrowRight {
-          background: linear-gradient(
-            to right,
-            transparent 0%,
-            rgba(0, 10, 15, 0.7) 50%,
-            rgba(0, 10, 15, 1) 100%
-          );
-          left: auto;
-          right: 0;
-
-          flex-direction: column;
-          align-items: flex-end;
-          justify-content: center;
-        }
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
+      @media (max-width: 1023px) {
+        width: 35px;
       }
+    }
+
+    .arrowRight {
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 10, 15, 0.7) 50%,
+        rgba(0, 10, 15, 1) 100%
+      );
+      left: auto;
+      right: 0;
+
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 `

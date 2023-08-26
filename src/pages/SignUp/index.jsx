@@ -1,6 +1,6 @@
 import { Container, Form } from './styles'
-import { api } from '../../services/api'
 import { useState } from 'react'
+import { api } from '../../services/api'
 
 import { ButtonText } from '../../components/ButtonText'
 import { Button } from '../../components/Button'
@@ -23,8 +23,7 @@ export function SignUp() {
       return alert('A senha deve conter no mínimo 6 caracteres!')
     }
 
-    api
-      .post('/users', { name, email, password })
+    api.post('/users', { name, email, password })
       .then(() => {
         alert('Usuário cadastrado com sucesso!')
       })

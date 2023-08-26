@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { Container, Main } from './styles'
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
@@ -7,13 +7,14 @@ import { Section } from '../../components/Section'
 import { CardDish } from '../../components/CardDish'
 
 import Spaguetti from '../../assets/Spaguetti Gambe.png'
+import { useState } from 'react'
 
 export function HomeAdmin() {
   return (
     <Container>
-      <Header admin="admin"/>
+      <Header admin="admin" />
       <Banner />
-      <div className="main">
+      <Main>
         <Section title="Refeições">
           <CardDish
             image={Spaguetti}
@@ -146,9 +147,8 @@ export function HomeAdmin() {
             price={'R$ 79,97'}
           />
         </Section>
-      </div>
+      </Main>
       <Footer />
     </Container>
   )
 }
-//

@@ -1,24 +1,23 @@
+import { useState } from 'react'
 import { Container } from './styles'
 
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 
 export function Section({ title, children }) {
+
+
   return (
     <Container>
-      <label htmlFor="dishesList">
-        {title}
-        <div className="dishesListWrapper">
-          <div id="dishesList">
-            {children}
-            <button className="arrowLeft" aria-label="Previous Image">
-              <SlArrowLeft size={40} />
-            </button>
-            <button className="arrowRight" aria-label="Next Image">
-              <SlArrowRight size={40} />
-            </button>
-          </div>
-        </div>
-      </label>
+      <div className="titleList">{title}</div>
+      <div id="dishesList">
+        {children}
+        <button className="arrowLeft" aria-label="Previous Image">
+          <SlArrowLeft size={40} />
+        </button>
+        <button className="arrowRight" aria-label="Next Image">
+          <SlArrowRight size={40} />
+        </button>
+      </div>
     </Container>
   )
 }

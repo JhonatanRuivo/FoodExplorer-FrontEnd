@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { Container, Main } from './styles'
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
@@ -13,7 +13,7 @@ export function Home() {
     <Container>
       <Header />
       <Banner />
-      <div className="main">
+      <Main>
         <Section title="Refeições">
           <CardDish
             image={Spaguetti}
@@ -188,7 +188,7 @@ export function Home() {
             amount={'01'}
           />
         </Section>
-      </div>
+      </Main>
       <Footer />
     </Container>
   )

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.button`
   background-color: transparent;
 
-  > label {
+  > div {
     background-color: ${({ theme }) => theme.COLORS.TOMATO100};
     color: ${({ theme }) => theme.COLORS.LIGHT100};
     width: 100%;

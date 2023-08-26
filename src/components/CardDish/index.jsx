@@ -18,7 +18,7 @@ export function CardDish({
       <div>
         {user ? (
           <>
-            <Link className='iconTop' to='' >
+            <Link className="iconTop" to="">
               <PiHeartStraight size={24} />
             </Link>
           </>

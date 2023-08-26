@@ -1,10 +1,10 @@
 import { Container } from './styles'
 
-export function Input({ search = false, icon: Icon, admin = false, ...rest }) {
+export function Input({autoComplete = "off", search = false, icon: Icon, admin = false, ...rest }) {
   return (
     <Container $bg={admin} $search={search}>
       {Icon && <Icon size={24} />}
-      <input {...rest} />
+      <input {...rest} autoComplete={autoComplete} />
     </Container>
   )
 }
