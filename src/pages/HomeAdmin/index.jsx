@@ -7,9 +7,10 @@ import { Section } from '../../components/Section'
 import { CardDish } from '../../components/CardDish'
 
 import Spaguetti from '../../assets/Spaguetti Gambe.png'
-import { useState } from 'react'
 
 export function HomeAdmin() {
+ 
+
   return (
     <Container>
       <Header admin="admin" />

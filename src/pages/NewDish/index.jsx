@@ -22,14 +22,13 @@ export function NewDish() {
       <Header admin="admin" />
       <Body>
         <div className="buttonPrev">
-          <label htmlFor="buttonPrev" />
-          <SlArrowLeft name="buttonPrev" size={32} />
+          <SlArrowLeft id="buttonPrev" size={32} />
           <ButtonText id="buttonDesktop" title="voltar" bold pop large onClick={handleBack} />
         </div>
+
         <div className="buttonPrevMobile">
-          <label htmlFor="buttonPrevMobile" />
           <SlArrowLeft id="buttonPrevMobile" size={14} />
-          <ButtonText id="buttonMobile" title="voltar" bold pop />
+          <ButtonText id="buttonMobile" title="voltar" bold pop onClick={handleBack} />
         </div>
 
         <Title title={'Adicionar prato'} />
@@ -45,14 +44,14 @@ export function NewDish() {
             </div>
 
             <div id="inputName" className="input">
-              <label htmlFor="inputName">Nome</label>
-              <Input type="text" placeholder="Ex.: Salada Ceasar " admin />
+              <label htmlFor="name">Nome</label>
+              <Input id="name" type="text" placeholder="Ex.: Salada " admin />
             </div>
 
             <div id="category" className="input">
-              <label htmlFor="category">Categoria</label>
-              <div id="setCategory">
-                <select name="category">
+              <label htmlFor="setCategory">Categoria</label>
+              <div>
+                <select id="setCategory">
                   <option value="Refeição">Refeição</option>
                   <option value="Salada">Salada</option>
                   <option value="Sobremesa">Sobremesa</option>
@@ -65,7 +64,7 @@ export function NewDish() {
 
           <div id="sectionTwo" className="section">
             <div id="selectIngredients" className="input">
-              <label htmlFor="selectIngredients">Ingredientes</label>
+              <label htmlFor="ingredients">Ingredientes</label>
               <div id="ingredients">
                 <button id="tag">
                   Pão Naan
@@ -80,8 +79,8 @@ export function NewDish() {
             </div>
 
             <div id="inputPrice" className="input">
-              <label htmlFor="inputPrice">Preço</label>
-              <Input placeholder="R$ 00,00" admin />
+              <label htmlFor="price">Preço</label>
+              <Input id="price" placeholder="R$ 00,00" admin />
             </div>
           </div>
 
@@ -89,7 +88,6 @@ export function NewDish() {
             <div id="inputDishDescription" className="input">
               <label htmlFor="dishDescription">Descrição</label>
               <textarea
-                name="inputDishDescription"
                 id="dishDescription"
                 cols=""
                 rows=""
@@ -98,9 +96,7 @@ export function NewDish() {
             </div>
           </div>
 
-          
-            <Button id="buttonSave" title="Salvar alterações" small tomato />
-          
+          <Button id="buttonSave" title="Salvar alterações" small tomato />
         </form>
       </Body>
       <Footer />

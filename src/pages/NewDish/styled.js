@@ -10,6 +10,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+`
+
+export const Body = styled.div`
+  width: 100%;
+  height: 100%;
+
+  padding: 40px 123px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 
   .buttonPrev {
     width: 106px;
@@ -21,31 +31,6 @@ export const Container = styled.div`
   .buttonPrevMobile {
     display: none;
   }
-
-  @media (max-width: 1023px) {
-    .buttonPrev {
-      display: none;
-    }
-    .buttonPrevMobile {
-      width: fit-content;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    
-  }
-`
-
-export const Body = styled.div`
-  width: 100%;
-  height: 100%;
-
-  padding: 40px 123px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 
   > form {
     width: 100%;
@@ -205,9 +190,20 @@ export const Body = styled.div`
   @media (max-width: 1023px) {
     padding: 32px;
 
-    >form {
+    .buttonPrev {
+      display: none;
+    }
+    .buttonPrevMobile {
+      width: fit-content;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    > form {
       gap: 24px;
-      
+
       #sectionOne {
         flex-direction: column;
         gap: 24px;
@@ -229,12 +225,11 @@ export const Body = styled.div`
           width: 100%;
         }
       }
-      
+
       #buttonSave {
         width: 100%;
         font-size: 12px;
       }
     }
   }
-  
 `

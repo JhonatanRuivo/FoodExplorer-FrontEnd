@@ -30,7 +30,7 @@ export function EditDish() {
         <div className="buttonPrevMobile">
           
           <SlArrowLeft id="buttonPrevMobile" size={14} />
-          <ButtonText id="buttonMobile" title="voltar" bold pop />
+          <ButtonText id="buttonMobile" title="voltar" bold pop onClick={handleBack}/>
         </div>
 
         <Title title={'Editar prato'} />

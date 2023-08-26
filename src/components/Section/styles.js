@@ -11,57 +11,60 @@ export const Container = styled.div`
     font-size: 32px;
     font-weight: 500;
   }
-  #dishesList {
+
+  #dishesListWrapper {
     width: 100%;
     position: relative;
 
-    display: flex;
-    gap: 27px;
-
-    overflow: auto;
-
-    > .arrowLeft,
-    .arrowRight {
-      background: linear-gradient(
-        to left,
-        transparent 0%,
-        rgba(0, 10, 15, 0.7) 30%,
-        rgba(0, 10, 15, 1) 100%
-      );
-      color: ${({ theme }) => theme.COLORS.LIGHT100};
-      width: 150px;
-
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: auto;
-
+    #dishesList {
+      width: 100%;
       display: flex;
-      align-items: center;
+      gap: 27px;
+      overflow: auto;
 
-      @media (max-width: 1023px) {
-        width: 35px;
+      > .arrowLeft,
+      .arrowRight {
+        background: linear-gradient(
+          to left,
+          transparent 0%,
+          rgba(0, 10, 15, 0.7) 30%,
+          rgba(0, 10, 15, 1) 100%
+        );
+        color: ${({ theme }) => theme.COLORS.LIGHT100};
+        width: 150px;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 1023px) {
+          width: 35px;
+        }
       }
-    }
 
-    .arrowRight {
-      background: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 10, 15, 0.7) 50%,
-        rgba(0, 10, 15, 1) 100%
-      );
-      left: auto;
-      right: 0;
+      .arrowRight {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 10, 15, 0.7) 50%,
+          rgba(0, 10, 15, 1) 100%
+        );
+        left: auto;
+        right: 0;
 
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-    }
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+      }
 
-    &::-webkit-scrollbar {
-      display: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 `
