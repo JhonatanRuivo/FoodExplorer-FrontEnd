@@ -57,22 +57,30 @@ export const Body = styled.div`
     }
     #sectionOne {
       #inputImage {
+        height: 100%;
         width: 230px;
 
-        #selectImage {
+        .inputFile {
+          display: flex;
+          gap: 8px;
+
           background-color: ${({ theme }) => theme.COLORS.DARK800};
-          color: ${({ theme }) => theme.COLORS.LIGHT100};
+          color: ${({ theme }) => theme.COLORS.LIGHT300};
 
           display: flex;
           border-radius: 8px;
-          gap: 8px;
           padding: 12px 32px;
 
-          font-family: Poppins;
-          font-size: 14px;
-          font-weight: 500;
-
           white-space: nowrap;
+          align-items: center;
+
+          &:hover {
+          cursor: pointer;
+        }
+        }
+
+        #selectImage {
+          display: none;
         }
       }
       #inputName {
