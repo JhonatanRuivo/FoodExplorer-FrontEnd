@@ -12,8 +12,10 @@ import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 
 export function NewDish() {
+  const [newIngredient, setNewIngredient] = useState()
   const [description, setDescription] = useState()
-  const [category, setCategory] = useState()
+  const [ingredients, setIngredients] = useState([])
+  const [category, setCategory] = useState('Refeição')
   const [price, setPrice] = useState()
   const [file, setFile] = useState(null)
   const [name, setName] = useState()
@@ -33,7 +35,11 @@ export function NewDish() {
 
     setFile(e.target.files[0])
   }
-  
+
+  const handleAddIngredient = () => {
+    setIngredients((prevState) => [...prevState, newIngredient])
+    
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -66,7 +72,7 @@ export function NewDish() {
               <button className="inputFile" onClick={handleUploadClick}>
                 {file ? (
                   <>
-                    <PiCheckCircleDuotone size={24} color="cyan"/>
+                    <PiCheckCircleDuotone size={24} color="cyan" />
                     `${file.name}`
                   </>
                 ) : (
@@ -76,21 +82,15 @@ export function NewDish() {
                   </>
                 )}
               </button>
-              <input
-                required
-                id="selectImage"
-                type="file"
-                onChange={handleFileChange}
-                ref={inputImageRef}
-              />
+              <input id="selectImage" type="file" onChange={handleFileChange} ref={inputImageRef} />
             </div>
 
             <div id="inputName" className="input">
               <label htmlFor="name">Nome</label>
               <Input
-                required
                 id="name"
                 type="text"
+                maxLength={20}
                 placeholder="Ex.: Salada "
                 admin
                 onChange={(e) => setName(e.target.value)}
@@ -100,12 +100,8 @@ export function NewDish() {
             <div id="category" className="input">
               <label htmlFor="setCategory">Categoria</label>
               <div>
-                <select
-                  required
-                  id="setCategory"
-                  onChangeCapture={(e) => setCategory(e.currentTarget.value)}
-                >
-                  <option defaultValue value="Refeição">Refeição</option>
+                <select id="setCategory" onChange={(e) => setCategory(e.target.value)}>
+                  <option value="Refeição">Refeição</option>
                   <option value="Salada">Salada</option>
                   <option value="Sobremesa">Sobremesa</option>
                   <option value="Bebida">Bebida</option>
@@ -119,23 +115,35 @@ export function NewDish() {
             <div id="selectIngredients" className="input">
               <label htmlFor="addTag">Ingredientes</label>
               <div id="ingredients">
-                <button id="tag">
-                  Pão Naan
-                  <PiXLight />
-                </button>
+                {ingredients.map((ingredients, index) => (
+                  <button id="tag" key={String(index)}>
+                    {ingredients}
+                    <PiXLight />
+                  </button>
+                ))}
 
-                <button id="addTag">
-                  Adicionar
-                  <PiPlusLight />
-                </button>
+                <div id="addTag">
+                  <input
+                    id="inputTag"
+                    type="text"
+                    placeholder="Adicionar"
+                    onChange={(e) => setNewIngredient(e.target.value)}
+                  />
+                  <button id="addIcon" onClick={handleAddIngredient}>
+                    <PiPlusLight />
+                  </button>
+                </div>
               </div>
             </div>
 
             <div id="inputPrice" className="input">
               <label htmlFor="price">Preço</label>
               <Input
-                required
                 id="price"
+                type="number"
+                min={10}
+                max={100}
+                step={0.01}
                 placeholder="R$ 00,00"
                 admin
                 onChange={(e) => setPrice(e.target.value)}
@@ -147,7 +155,6 @@ export function NewDish() {
             <div id="inputDishDescription" className="input">
               <label htmlFor="dishDescription">Descrição</label>
               <textarea
-                required
                 id="dishDescription"
                 typeof="text"
                 onChange={(e) => setDescription(e.target.value)}

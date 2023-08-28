@@ -141,6 +141,9 @@ export const Body = styled.div`
           align-items: center;
         }
         #addTag {
+          height: 100%;
+          width: 15%;
+          
           background-color: transparent;
           color: ${({ theme }) => theme.COLORS.LIGHT500};
 
@@ -154,6 +157,18 @@ export const Body = styled.div`
           display: flex;
           gap: 8px;
           align-items: center;
+
+          #inputTag {
+            background-color: transparent;
+            color: ${({ theme }) => theme.COLORS.LIGHT400};
+
+            width: 100%;
+          }
+
+          #addIcon {
+            background-color: transparent;
+            color: ${({ theme }) => theme.COLORS.LIGHT400}};
+          }
         }
       }
       #inputPrice {
@@ -193,7 +208,7 @@ export const Body = styled.div`
       margin: 0 0 0 auto;
       font-size: 14px;
     }
-  }
+  
 
   @media (max-width: 1023px) {
     padding: 32px;
