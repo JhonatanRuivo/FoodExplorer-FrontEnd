@@ -1,6 +1,11 @@
 import { Container, Body } from './styled.js'
 import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
-import { PiPlusLight, PiUploadSimple, PiXLight, PiCheckCircleDuotone } from 'react-icons/pi'
+import {
+  PiPlusLight,
+  PiUploadSimple,
+  PiXLight,
+  PiCheckCircleDuotone,
+} from 'react-icons/pi'
 
 import { Input } from '../../components/Input'
 import { Title } from '../../components/Title'
@@ -12,13 +17,13 @@ import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 
 export function NewDish() {
-  const [newIngredient, setNewIngredient] = useState()
-  const [description, setDescription] = useState()
+  const [newIngredient, setNewIngredient] = useState(null)
+  const [description, setDescription] = useState(null)
   const [ingredients, setIngredients] = useState([])
-  const [category, setCategory] = useState('Refeição')
-  const [price, setPrice] = useState()
+  const [category, setCategory] = useState(null)
+  const [price, setPrice] = useState(null)
   const [file, setFile] = useState(null)
-  const [name, setName] = useState()
+  const [name, setName] = useState(null)
 
   const inputImageRef = useRef(null)
   const navigate = useNavigate()
@@ -27,7 +32,6 @@ export function NewDish() {
     e.preventDefault()
     inputImageRef.current.click()
   }
-
   const handleFileChange = (e) => {
     if (!e.target.files) {
       return
@@ -36,9 +40,22 @@ export function NewDish() {
     setFile(e.target.files[0])
   }
 
-  const handleAddIngredient = () => {
+  const addIngredient = (e) => {
+    e.preventDefault()
+    setNewIngredient(e.target.value)
+  }
+  const handleAddIngredient = (e) => {
+    e.preventDefault()
+    if (!newIngredient) {
+      return
+    }
     setIngredients((prevState) => [...prevState, newIngredient])
-    
+    setNewIngredient('')
+  }
+  function handleRemoveIngredient(deleted) {
+    setIngredients((prevState) =>
+      prevState.filter((ingredients) => ingredients !== deleted)
+    )
   }
 
   function handleSubmit(e) {
@@ -55,12 +72,25 @@ export function NewDish() {
       <Body>
         <div className="buttonPrev">
           <SlArrowLeft id="buttonPrev" size={32} />
-          <ButtonText id="buttonDesktop" title="voltar" bold pop large onClick={handleBack} />
+          <ButtonText
+            id="buttonDesktop"
+            title="voltar"
+            bold
+            pop
+            large
+            onClick={handleBack}
+          />
         </div>
 
         <div className="buttonPrevMobile">
           <SlArrowLeft id="buttonPrevMobile" size={14} />
-          <ButtonText id="buttonMobile" title="voltar" bold pop onClick={handleBack} />
+          <ButtonText
+            id="buttonMobile"
+            title="voltar"
+            bold
+            pop
+            onClick={handleBack}
+          />
         </div>
 
         <Title title={'Adicionar prato'} />
@@ -82,7 +112,12 @@ export function NewDish() {
                   </>
                 )}
               </button>
-              <input id="selectImage" type="file" onChange={handleFileChange} ref={inputImageRef} />
+              <input
+                id="selectImage"
+                type="file"
+                onChange={handleFileChange}
+                ref={inputImageRef}
+              />
             </div>
 
             <div id="inputName" className="input">
@@ -100,7 +135,10 @@ export function NewDish() {
             <div id="category" className="input">
               <label htmlFor="setCategory">Categoria</label>
               <div>
-                <select id="setCategory" onChange={(e) => setCategory(e.target.value)}>
+                <select
+                  id="setCategory"
+                  onChange={(e) => setCategory(e.target.value)}
+                >
                   <option value="Refeição">Refeição</option>
                   <option value="Salada">Salada</option>
                   <option value="Sobremesa">Sobremesa</option>
@@ -116,7 +154,11 @@ export function NewDish() {
               <label htmlFor="addTag">Ingredientes</label>
               <div id="ingredients">
                 {ingredients.map((ingredients, index) => (
-                  <button id="tag" key={String(index)}>
+                  <button
+                    id="tag"
+                    key={String(index)}
+                    onClick={() => handleRemoveIngredient(ingredients)}
+                  >
                     {ingredients}
                     <PiXLight />
                   </button>
@@ -127,7 +169,8 @@ export function NewDish() {
                     id="inputTag"
                     type="text"
                     placeholder="Adicionar"
-                    onChange={(e) => setNewIngredient(e.target.value)}
+                    onChange={addIngredient}
+                    value={newIngredient}
                   />
                   <button id="addIcon" onClick={handleAddIngredient}>
                     <PiPlusLight />
@@ -163,7 +206,13 @@ export function NewDish() {
             </div>
           </div>
 
-          <Button id="buttonSave" title="Salvar alterações" small tomato type="submit" />
+          <Button
+            id="buttonSave"
+            title="Salvar alterações"
+            small
+            tomato
+            type="submit"
+          />
         </form>
       </Body>
       <Footer />
