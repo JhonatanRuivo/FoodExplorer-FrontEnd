@@ -12,6 +12,9 @@ export const Container = styled.div`
 
   position: relative;
 
+  animation-name: forDown;
+  animation-duration: 1s;
+
   > img {
     max-width: 632px;
     max-height: 406px;
@@ -111,6 +114,14 @@ export const Container = styled.div`
         font-size: 8px;
         font-weight: 400;
       }
+    }
+  }
+
+  @keyframes forDown {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
     }
   }
 `

@@ -11,6 +11,9 @@ export const Container = styled.div`
   align-items: center;
   gap: 32px;
 
+  animation-name: hidden;
+  animation-duration: 1.5s;
+
   .input {
     width: 100%;
   }
@@ -89,5 +92,15 @@ export const Icon = styled(Link)`
     display: flex;
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT100};
+  }
+
+  @keyframes hidden {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 `

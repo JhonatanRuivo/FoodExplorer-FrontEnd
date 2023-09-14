@@ -15,24 +15,38 @@ import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
+import { useAuth } from '../../hooks/auth.jsx'
+
+import { api } from '../../services/api'
 
 export function NewDish() {
-  const [newIngredient, setNewIngredient] = useState(null)
-  const [description, setDescription] = useState(null)
-  const [ingredients, setIngredients] = useState([])
-  const [category, setCategory] = useState(null)
-  const [price, setPrice] = useState(null)
   const [file, setFile] = useState(null)
+
   const [name, setName] = useState(null)
 
-  const inputImageRef = useRef(null)
-  const navigate = useNavigate()
+  const [category, setCategory] = useState('Refeição')
 
-  const handleUploadClick = (e) => {
-    e.preventDefault()
+  const [ingredient, setIngredient] = useState([])
+  const [newIngredient, setNewIngredient] = useState('')
+
+  const [price, setPrice] = useState(null)
+
+  const [description, setDescription] = useState(null)
+
+  const inputImageRef = useRef(null)
+
+  const navigate = useNavigate()
+  const { signOut } = useAuth()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
+  function handleUploadClick() {
+    // e.preventDefault()
     inputImageRef.current.click()
   }
-  const handleFileChange = (e) => {
+  function handleFileChange(e) {
     if (!e.target.files) {
       return
     }
@@ -40,30 +54,26 @@ export function NewDish() {
     setFile(e.target.files[0])
   }
 
-  const addIngredient = (e) => {
-    e.preventDefault()
+  function addIngredient(e) {
     setNewIngredient(e.target.value)
   }
-  const handleAddIngredient = (e) => {
-    e.preventDefault()
+  function handleAddIngredient() {
     if (!newIngredient) {
       return
     }
-    setIngredients((prevState) => [...prevState, newIngredient])
+
+    setIngredient((prevState) => [...prevState, newIngredient])
     setNewIngredient('')
   }
   function handleRemoveIngredient(deleted) {
-    setIngredients((prevState) =>
-      prevState.filter((ingredients) => ingredients !== deleted)
+    setIngredient((prevState) =>
+      prevState.filter((ingredient) => ingredient !== deleted)
     )
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log(name, category, price, description, file)
-  }
-  function handleBack() {
-    navigate(-1)
+  async function handleNewDish() {
+    const ingredients = ingredient.map()
+    console.log(ingredients)
   }
 
   return (
@@ -93,127 +103,147 @@ export function NewDish() {
           />
         </div>
 
-        <Title title={'Adicionar prato'} />
+        <fieldset>
+          <legend>
+            <Title title={'Adicionar prato'} />
+          </legend>
 
-        <form onSubmit={handleSubmit}>
-          <div id="sectionOne" className="section">
-            <div id="inputImage" className="input">
-              <label htmlFor="selectImage">Imagem</label>
-              <button className="inputFile" onClick={handleUploadClick}>
-                {file ? (
-                  <>
-                    <PiCheckCircleDuotone size={24} color="cyan" />
-                    `${file.name}`
-                  </>
-                ) : (
-                  <>
-                    <PiUploadSimple size={24} />
-                    Selecione imagem
-                  </>
-                )}
-              </button>
-              <input
-                id="selectImage"
-                type="file"
-                onChange={handleFileChange}
-                ref={inputImageRef}
-              />
-            </div>
-
-            <div id="inputName" className="input">
-              <label htmlFor="name">Nome</label>
-              <Input
-                id="name"
-                type="text"
-                maxLength={20}
-                placeholder="Ex.: Salada "
-                admin
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-
-            <div id="category" className="input">
-              <label htmlFor="setCategory">Categoria</label>
-              <div>
-                <select
-                  id="setCategory"
-                  onChange={(e) => setCategory(e.target.value)}
+          <form id="form-newDish">
+            <div id="sectionOne" className="section">
+              <div id="inputImage" className="input">
+                <label htmlFor="selectImage">Imagem</label>
+                <button
+                  className="inputFile"
+                  type="button"
+                  onClick={handleUploadClick}
                 >
-                  <option value="Refeição">Refeição</option>
-                  <option value="Salada">Salada</option>
-                  <option value="Sobremesa">Sobremesa</option>
-                  <option value="Bebida">Bebida</option>
-                </select>
-                <SlArrowDown id="icon" />
+                  {file ? (
+                    <>
+                      <PiCheckCircleDuotone size={24} color="cyan" />
+                      `${file.name}`
+                    </>
+                  ) : (
+                    <>
+                      <PiUploadSimple size={24} />
+                      Selecione imagem
+                    </>
+                  )}
+                </button>
+                <input
+                  required
+                  id="selectImage"
+                  type="file"
+                  onChange={handleFileChange}
+                  ref={inputImageRef}
+                />
               </div>
-            </div>
-          </div>
 
-          <div id="sectionTwo" className="section">
-            <div id="selectIngredients" className="input">
-              <label htmlFor="addTag">Ingredientes</label>
-              <div id="ingredients">
-                {ingredients.map((ingredients, index) => (
-                  <button
-                    id="tag"
-                    key={String(index)}
-                    onClick={() => handleRemoveIngredient(ingredients)}
+              <div id="inputName" className="input">
+                <label htmlFor="name">Nome</label>
+                <Input
+                  required
+                  id="name"
+                  type="text"
+                  maxLength={20}
+                  placeholder="Ex.: Salada "
+                  admin
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div id="category" className="input">
+                <label htmlFor="setCategory">Categoria</label>
+                <div>
+                  <select
+                    id="setCategory"
+                    onChange={(e) => setCategory(e.target.value)}
                   >
-                    {ingredients}
-                    <PiXLight />
-                  </button>
-                ))}
-
-                <div id="addTag">
-                  <input
-                    id="inputTag"
-                    type="text"
-                    placeholder="Adicionar"
-                    onChange={addIngredient}
-                    value={newIngredient}
-                  />
-                  <button id="addIcon" onClick={handleAddIngredient}>
-                    <PiPlusLight />
-                  </button>
+                    <option value="Refeição">Refeição</option>
+                    <option value="Salada">Salada</option>
+                    <option value="Sobremesa">Sobremesa</option>
+                    <option value="Bebida">Bebida</option>
+                  </select>
+                  <SlArrowDown id="icon" />
                 </div>
               </div>
             </div>
 
-            <div id="inputPrice" className="input">
-              <label htmlFor="price">Preço</label>
-              <Input
-                id="price"
-                type="number"
-                min={10}
-                max={100}
-                step={0.01}
-                placeholder="R$ 00,00"
-                admin
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-          </div>
+            <div id="sectionTwo" className="section">
+              <div id="selectIngredients" className="input">
+                <label htmlFor="inputTag">Ingredientes</label>
+                <div id="ingredients">
+                  {ingredient.map((ingredient, index) => (
+                    <button
+                      id="tag"
+                      type="button"
+                      key={String(index)}
+                      onClick={() => handleRemoveIngredient(ingredient)}
+                    >
+                      {ingredient}
+                      <PiXLight />
+                    </button>
+                  ))}
 
-          <div id="sectionThree" className="section">
-            <div id="inputDishDescription" className="input">
-              <label htmlFor="dishDescription">Descrição</label>
-              <textarea
-                id="dishDescription"
-                typeof="text"
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-              ></textarea>
-            </div>
-          </div>
+                  <div id="addTag">
+                    <input
+                      required
+                      id="inputTag"
+                      type="text"
+                      placeholder="Adicionar"
+                      onChange={addIngredient}
+                      value={newIngredient}
+                    />
+                    <button
+                      id="addIcon"
+                      type="button"
+                      onClick={handleAddIngredient}
+                    >
+                      <PiPlusLight />
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-          <Button
-            id="buttonSave"
-            title="Salvar alterações"
-            small
-            tomato
-            type="submit"
-          />
-        </form>
+              <div id="inputPrice" className="input">
+                <label htmlFor="price">Preço</label>
+                <Input
+                  required
+                  id="price"
+                  type="number"
+                  min={10}
+                  max={100}
+                  step={0.01}
+                  placeholder="R$ 00,00"
+                  admin
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div id="sectionThree" className="section">
+              <div id="inputDishDescription" className="input">
+                <label htmlFor="dishDescription">Descrição</label>
+                <textarea
+                  
+                  id="dishDescription"
+                  typeof="text"
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                ></textarea>
+              </div>
+            </div>
+          </form>
+        </fieldset>
+
+        <Button
+          form="form-newDish"
+          type="submit"
+          id="buttonSave"
+          title="Salvar alterações"
+          small
+          tomato
+          onClick={handleNewDish}
+        />
       </Body>
       <Footer />
     </Container>
