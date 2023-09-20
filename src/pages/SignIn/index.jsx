@@ -28,10 +28,10 @@ export function SignIn() {
         <div className="input">
           <label htmlFor="email">Email</label>
           <Input
-            autoComplete="on"
-            placeholder="Exemplo: exemplo@exemplo.com.br"
             id="email"
             type="email"
+            autoComplete="on"
+            placeholder="Exemplo: exemplo@exemplo.com.br"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -39,9 +39,9 @@ export function SignIn() {
         <div className="input">
           <label htmlFor="password">Senha</label>
           <Input
-            placeholder="No mínimo 6 caracteres"
             id="password"
             type="password"
+            placeholder="No mínimo 6 caracteres"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

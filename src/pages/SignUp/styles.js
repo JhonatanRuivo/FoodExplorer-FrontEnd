@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  display: grid;
   grid-template-columns: 50% 50%;
+  display: grid;
   height: 100vh;
   width: 100vw;
 
@@ -31,9 +31,9 @@ export const Form = styled.form`
   margin: auto;
   gap: 32px;
 
-  justify-content: center;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   > h3 {
     font-family: Poppins;
