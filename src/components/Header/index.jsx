@@ -44,7 +44,7 @@ export function Header({ admin = false }) {
       <div className="input">
         <Input
           id="search"
-          search
+          isSearch
           icon={PiMagnifyingGlass}
           type="text"
           placeholder="Busque por pratos ou ingredientes"

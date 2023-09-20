@@ -24,13 +24,15 @@ export function Dish() {
       <div className="body">
         <label htmlFor="back">
           <SlArrowLeft name="back" size={32} />
-          <ButtonText title="voltar" bold pop large onClick={handleBack} />
+          <ButtonText title="voltar" bold large onClick={handleBack} />
         </label>
         <div className="main">
           <img className="imgDish" src={img} alt="Foto do prato" />
           <div className="description">
             <h1>Salada Rovanello</h1>
-            <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+            <p>
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+            </p>
             <div className="tags">
               <Tag title="alface" />
               <Tag title="cebola" />

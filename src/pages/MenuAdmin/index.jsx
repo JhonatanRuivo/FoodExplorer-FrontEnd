@@ -11,12 +11,16 @@ export function MenuAdmin() {
     <Container>
       <HeaderMenu admin />
       <Main>
-        <Input id="input" icon={IoSearchOutline} placeholder="Busque por pratos ou ingredientes" />
+        <Input
+          id="input"
+          icon={IoSearchOutline}
+          placeholder="Busque por pratos ou ingredientes"
+        />
         <Content>
           <Items></Items>
         </Content>
-        <ButtonText title="Novo Prato" pop large border textStart to="/newdish" />
-        <ButtonText title="Sair" pop large border textStart to="/" />
+        <ButtonText title="Novo Prato" large border textStart to="/newdish" />
+        <ButtonText title="Sair" large border textStart to="/" />
       </Main>
       <Footer />
     </Container>

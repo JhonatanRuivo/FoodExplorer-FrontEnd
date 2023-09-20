@@ -3,7 +3,7 @@ import { Container } from './styles'
 export function ButtonText({
   title,
   icon: Icon,
-  pop = false,
+  fontPoppins = false,
   large = false,
   bold = false,
   border = false,
@@ -16,7 +16,7 @@ export function ButtonText({
       type="button"
       $fontweight={bold}
       $fontsize={large}
-      $poppins={pop}
+      $poppins={fontPoppins}
       $border={border}
       $textStart={textStart}
       {...rest}

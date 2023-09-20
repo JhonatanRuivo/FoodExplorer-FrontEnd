@@ -86,7 +86,6 @@ export function NewDish() {
             id="buttonDesktop"
             title="voltar"
             bold
-            pop
             large
             onClick={handleBack}
           />
@@ -98,7 +97,6 @@ export function NewDish() {
             id="buttonMobile"
             title="voltar"
             bold
-            pop
             onClick={handleBack}
           />
         </div>
@@ -224,7 +222,6 @@ export function NewDish() {
               <div id="inputDishDescription" className="input">
                 <label htmlFor="dishDescription">Descrição</label>
                 <textarea
-                  
                   id="dishDescription"
                   typeof="text"
                   onChange={(e) => setDescription(e.target.value)}

@@ -6,6 +6,10 @@ export const Container = styled.div`
   height: 100vh;
   width: 100vw;
 
+  animation-name: show;
+  animation-duration: 0.8s;
+
+
   @media (max-width: 1023px) {
     width: 316px;
     margin: auto;
@@ -37,7 +41,7 @@ export const Form = styled.div`
     font-weight: 500;
     margin: auto;
   }
-  >.input {
+  > .input {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -52,6 +56,12 @@ export const Form = styled.div`
 
     > h3 {
       display: none;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      opacity: 0;
     }
   }
 `

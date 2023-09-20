@@ -22,15 +22,23 @@ export function EditDish() {
       <Header admin="admin" />
       <Body>
         <div className="buttonPrev">
-         
-            <SlArrowLeft name="buttonPrev" size={32} />
-            <ButtonText id="buttonDesktop" title="Voltar" bold pop large onClick={handleBack} />
-         
+          <SlArrowLeft name="buttonPrev" size={32} />
+          <ButtonText
+            id="buttonDesktop"
+            title="Voltar"
+            bold
+            large
+            onClick={handleBack}
+          />
         </div>
         <div className="buttonPrevMobile">
-          
           <SlArrowLeft id="buttonPrevMobile" size={14} />
-          <ButtonText id="buttonMobile" title="voltar" bold pop onClick={handleBack}/>
+          <ButtonText
+            id="buttonMobile"
+            title="voltar"
+            bold
+            onClick={handleBack}
+          />
         </div>
 
         <Title title={'Editar prato'} />

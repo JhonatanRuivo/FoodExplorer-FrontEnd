@@ -23,7 +23,8 @@ export function SignUp() {
       return alert('A senha deve conter no mínimo 6 caracteres!')
     }
 
-    api.post('/users', { name, email, password })
+    api
+      .post('/users', { name, email, password })
       .then(() => {
         alert('Usuário cadastrado com sucesso!')
       })
@@ -47,6 +48,7 @@ export function SignUp() {
           <Input
             id="name"
             type="text"
+            required
             placeholder="Exemplo: Maria da Silva"
             onChange={(e) => setName(e.target.value)}
           />
@@ -55,9 +57,10 @@ export function SignUp() {
         <div className="input">
           <label htmlFor="email"> Email </label>
           <Input
-            placeholder="Exemplo: Maria@email.com"
             id="email"
             type="email"
+            required
+            placeholder="Exemplo: Maria@email.com"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -65,16 +68,17 @@ export function SignUp() {
         <div className="input">
           <label htmlFor="password">Senha</label>
           <Input
-            placeholder="No mínimo 6 caracteres"
             id="password"
             type="password"
+            required
+            placeholder="No mínimo 6 caracteres"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
         <Button title="Cadastrar" onClick={handleSignUp} />
 
-        <ButtonText title="Já tenho uma conta" pop bold to="/" />
+        <ButtonText title="Já tenho uma conta" bold fontPoppins to="/" />
       </Form>
     </Container>
   )

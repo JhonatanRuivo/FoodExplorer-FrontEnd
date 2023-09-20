@@ -28,7 +28,7 @@ export function SignIn() {
         <div className="input">
           <label htmlFor="email">Email</label>
           <Input
-          autoComplete='on'
+            autoComplete="on"
             placeholder="Exemplo: exemplo@exemplo.com.br"
             id="email"
             type="email"
@@ -48,7 +48,7 @@ export function SignIn() {
 
         <Button title="Entrar" onClick={handleSignIn} />
 
-        <ButtonText title="Criar uma conta" pop bold to="/register" />
+        <ButtonText title="Criar uma conta" bold fontPoppins to="/register" />
       </Form>
     </Container>
   )
