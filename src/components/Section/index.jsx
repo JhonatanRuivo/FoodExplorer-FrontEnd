@@ -1,8 +1,11 @@
 import { Container } from './styles'
 
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
+import { useState } from 'react'
 
 export function Section({ title, children }) {
+  
+
   return (
     <Container>
       <div className="titleList">{title}</div>

@@ -19,7 +19,7 @@ export function MenuAdmin() {
         <Content>
           <Items></Items>
         </Content>
-        <ButtonText title="Novo Prato" large border textStart to="/newdish" />
+        <ButtonText title="Novo Prato" large border textStart to="/new" />
         <ButtonText title="Sair" large border textStart to="/" />
       </Main>
       <Footer />

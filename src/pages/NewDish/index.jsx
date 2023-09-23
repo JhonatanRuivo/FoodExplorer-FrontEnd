@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 
 import { api } from '../../services/api'
+import { GoToTop } from '../../../utils/pageOnTop.js'
 
 export function NewDish() {
   const [imageFile, setImageFile] = useState(null)
@@ -32,10 +33,6 @@ export function NewDish() {
   const inputImageRef = useRef(null)
 
   const navigate = useNavigate()
-
-  function handleBack() {
-    navigate(-1)
-  }
 
   function handleUploadClick() {
     inputImageRef.current.click()
@@ -68,6 +65,7 @@ export function NewDish() {
   async function handleNewDish() {
     if (!name || !price || !description) {
       alert('Favor preencher todos os campos!')
+      return
     }
 
     if (ingredients.length < 1) {
@@ -88,16 +86,15 @@ export function NewDish() {
         .post('/dishes', formData)
         .then(alert('Prato cadastrado com sucesso!'))
         .catch((error) => {
-          if(error.response){
+          if (error.response) {
             alert(error.response.message)
           } else {
             alert('Erro ao cadastrar prato, tente novamente!')
           }
-
-
         })
     }
   }
+  GoToTop()
 
   return (
     <Container>
@@ -110,7 +107,7 @@ export function NewDish() {
             title="voltar"
             bold
             large
-            onClick={handleBack}
+            onClick={navigate('/')}
           />
         </div>
 
@@ -120,7 +117,7 @@ export function NewDish() {
             id="buttonMobile"
             title="voltar"
             bold
-            onClick={handleBack}
+            onClick={navigate('/')}
           />
         </div>
 
@@ -179,7 +176,6 @@ export function NewDish() {
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     <option value="Refeição">Refeição</option>
-                    <option value="Salada">Salada</option>
                     <option value="Sobremesa">Sobremesa</option>
                     <option value="Bebida">Bebida</option>
                   </select>

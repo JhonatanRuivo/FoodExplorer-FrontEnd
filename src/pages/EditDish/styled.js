@@ -45,6 +45,9 @@ export const Body = styled.div`
   flex-direction: column;
   gap: 24px;
 
+  animation-name: left;
+  animation-duration: 0.8s;
+
   > form {
     width: 100%;
 
@@ -254,6 +257,20 @@ export const Body = styled.div`
           font-size: 12px;
         }
       }
+    }
+  }
+
+  @keyframes left {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.3;
+    }
+
+    100% {
     }
   }
 `

@@ -9,7 +9,6 @@ import { CardDish } from '../../components/CardDish'
 import Spaguetti from '../../assets/Spaguetti Gambe.png'
 
 export function HomeAdmin() {
- 
 
   return (
     <Container>

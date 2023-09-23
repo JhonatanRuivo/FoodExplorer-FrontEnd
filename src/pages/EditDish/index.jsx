@@ -1,6 +1,7 @@
 import { Container, Body } from './styled.js'
 import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
 import { PiPlusLight, PiUploadSimple, PiXLight } from 'react-icons/pi'
+import { GoToTop } from '../../../utils/pageOnTop.js'
 
 import { ButtonText } from '../../components/ButtonText'
 import { Header } from '../../components/Header'
@@ -16,6 +17,8 @@ export function EditDish() {
   function handleBack() {
     navigate(-1)
   }
+
+  GoToTop()
 
   return (
     <Container>
