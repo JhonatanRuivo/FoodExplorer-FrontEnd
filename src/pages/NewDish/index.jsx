@@ -13,37 +13,31 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
+
 import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
-import { useAuth } from '../../hooks/auth.jsx'
 
 import { api } from '../../services/api'
 
 export function NewDish() {
-  const [file, setFile] = useState(null)
-
-  const [name, setName] = useState(null)
-
+  const [imageFile, setImageFile] = useState(null)
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('')
   const [category, setCategory] = useState('Refeição')
+  const [description, setDescription] = useState('')
 
-  const [ingredient, setIngredient] = useState([])
+  const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState('')
-
-  const [price, setPrice] = useState(null)
-
-  const [description, setDescription] = useState(null)
 
   const inputImageRef = useRef(null)
 
   const navigate = useNavigate()
-  const { signOut } = useAuth()
 
   function handleBack() {
     navigate(-1)
   }
 
   function handleUploadClick() {
-    // e.preventDefault()
     inputImageRef.current.click()
   }
   function handleFileChange(e) {
@@ -51,7 +45,7 @@ export function NewDish() {
       return
     }
 
-    setFile(e.target.files[0])
+    setImageFile(e.target.files[0])
   }
 
   function addIngredient(e) {
@@ -61,19 +55,48 @@ export function NewDish() {
     if (!newIngredient) {
       return
     }
-
-    setIngredient((prevState) => [...prevState, newIngredient])
+    setIngredients((prevState) => [...prevState, newIngredient])
     setNewIngredient('')
   }
   function handleRemoveIngredient(deleted) {
-    setIngredient((prevState) =>
+    setIngredients((prevState) =>
       prevState.filter((ingredient) => ingredient !== deleted)
     )
+    setNewIngredient('')
   }
 
   async function handleNewDish() {
-    const ingredients = ingredient.map()
-    console.log(ingredients)
+    if (!name || !price || !description) {
+      alert('Favor preencher todos os campos!')
+    }
+
+    if (ingredients.length < 1) {
+      alert('Adicione no mínimo 1 ingrediente!')
+    } else {
+      const formData = new FormData()
+      formData.append('image', imageFile)
+      formData.append('name', name)
+      formData.append('category', category)
+      formData.append('price', price)
+      formData.append('description', description)
+
+      for (let i = 0; i < ingredients.length; i += 1) {
+        formData.append('ingredients', ingredients[i])
+      }
+
+      await api
+        .post('/dishes', formData)
+        .then(alert('Prato cadastrado com sucesso!'))
+        .catch((error) => {
+          if(error.response){
+            alert(error.response.message)
+          } else {
+            alert('Erro ao cadastrar prato, tente novamente!')
+          }
+
+
+        })
+    }
   }
 
   return (
@@ -115,10 +138,10 @@ export function NewDish() {
                   type="button"
                   onClick={handleUploadClick}
                 >
-                  {file ? (
+                  {imageFile ? (
                     <>
                       <PiCheckCircleDuotone size={24} color="cyan" />
-                      `${file.name}`
+                      `${imageFile.name}`
                     </>
                   ) : (
                     <>
@@ -128,7 +151,6 @@ export function NewDish() {
                   )}
                 </button>
                 <input
-                  required
                   id="selectImage"
                   type="file"
                   onChange={handleFileChange}
@@ -170,7 +192,7 @@ export function NewDish() {
               <div id="selectIngredients" className="input">
                 <label htmlFor="inputTag">Ingredientes</label>
                 <div id="ingredients">
-                  {ingredient.map((ingredient, index) => (
+                  {ingredients.map((ingredient, index) => (
                     <button
                       id="tag"
                       type="button"
@@ -184,7 +206,6 @@ export function NewDish() {
 
                   <div id="addTag">
                     <input
-                      required
                       id="inputTag"
                       type="text"
                       placeholder="Adicionar"

@@ -7,7 +7,7 @@ import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
 import { Tag } from '../../components/Tag/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function DishAdmin() {
   const navigate = useNavigate()
@@ -15,6 +15,8 @@ export function DishAdmin() {
   function handleBack() {
     navigate(-1)
   }
+
+  
 
   return (
     <Container>
