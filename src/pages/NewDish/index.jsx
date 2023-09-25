@@ -1,11 +1,6 @@
 import { Container, Body } from './styled.js'
 import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
-import {
-  PiPlusLight,
-  PiUploadSimple,
-  PiXLight,
-  PiCheckCircleDuotone,
-} from 'react-icons/pi'
+import { PiPlusLight, PiUploadSimple, PiXLight, PiCheckCircleDuotone } from 'react-icons/pi'
 
 import { Input } from '../../components/Input'
 import { Title } from '../../components/Title'
@@ -31,9 +26,11 @@ export function NewDish() {
   const [newIngredient, setNewIngredient] = useState('')
 
   const inputImageRef = useRef(null)
-
   const navigate = useNavigate()
 
+  function handleBack() {
+    navigate(-1)
+  }
   function handleUploadClick() {
     inputImageRef.current.click()
   }
@@ -44,7 +41,6 @@ export function NewDish() {
 
     setImageFile(e.target.files[0])
   }
-
   function addIngredient(e) {
     setNewIngredient(e.target.value)
   }
@@ -56,12 +52,9 @@ export function NewDish() {
     setNewIngredient('')
   }
   function handleRemoveIngredient(deleted) {
-    setIngredients((prevState) =>
-      prevState.filter((ingredient) => ingredient !== deleted)
-    )
+    setIngredients((prevState) => prevState.filter((ingredient) => ingredient !== deleted))
     setNewIngredient('')
   }
-
   async function handleNewDish() {
     if (!name || !price || !description) {
       alert('Favor preencher todos os campos!')
@@ -84,7 +77,7 @@ export function NewDish() {
 
       await api
         .post('/dishes', formData)
-        .then(alert('Prato cadastrado com sucesso!'))
+        .then(alert('Prato cadastrado com sucesso!'), handleBack())
         .catch((error) => {
           if (error.response) {
             alert(error.response.message)
@@ -102,23 +95,12 @@ export function NewDish() {
       <Body>
         <div className="buttonPrev">
           <SlArrowLeft id="buttonPrev" size={32} />
-          <ButtonText
-            id="buttonDesktop"
-            title="voltar"
-            bold
-            large
-            onClick={navigate('/')}
-          />
+          <ButtonText id="buttonDesktop" title="voltar" bold large onClick={handleBack} />
         </div>
 
         <div className="buttonPrevMobile">
           <SlArrowLeft id="buttonPrevMobile" size={14} />
-          <ButtonText
-            id="buttonMobile"
-            title="voltar"
-            bold
-            onClick={navigate('/')}
-          />
+          <ButtonText id="buttonMobile" title="voltar" bold onClick={handleBack} />
         </div>
 
         <fieldset>
@@ -130,11 +112,7 @@ export function NewDish() {
             <div id="sectionOne" className="section">
               <div id="inputImage" className="input">
                 <label htmlFor="selectImage">Imagem</label>
-                <button
-                  className="inputFile"
-                  type="button"
-                  onClick={handleUploadClick}
-                >
+                <button className="inputFile" type="button" onClick={handleUploadClick}>
                   {imageFile ? (
                     <>
                       <PiCheckCircleDuotone size={24} color="cyan" />
@@ -147,12 +125,7 @@ export function NewDish() {
                     </>
                   )}
                 </button>
-                <input
-                  id="selectImage"
-                  type="file"
-                  onChange={handleFileChange}
-                  ref={inputImageRef}
-                />
+                <input id="selectImage" type="file" onChange={handleFileChange} ref={inputImageRef} />
               </div>
 
               <div id="inputName" className="input">
@@ -171,10 +144,7 @@ export function NewDish() {
               <div id="category" className="input">
                 <label htmlFor="setCategory">Categoria</label>
                 <div>
-                  <select
-                    id="setCategory"
-                    onChange={(e) => setCategory(e.target.value)}
-                  >
+                  <select id="setCategory" onChange={(e) => setCategory(e.target.value)}>
                     <option value="Refeição">Refeição</option>
                     <option value="Sobremesa">Sobremesa</option>
                     <option value="Bebida">Bebida</option>
@@ -208,11 +178,7 @@ export function NewDish() {
                       onChange={addIngredient}
                       value={newIngredient}
                     />
-                    <button
-                      id="addIcon"
-                      type="button"
-                      onClick={handleAddIngredient}
-                    >
+                    <button id="addIcon" type="button" onClick={handleAddIngredient}>
                       <PiPlusLight />
                     </button>
                   </div>
@@ -249,15 +215,7 @@ export function NewDish() {
           </form>
         </fieldset>
 
-        <Button
-          form="form-newDish"
-          type="submit"
-          id="buttonSave"
-          title="Salvar alterações"
-          small
-          tomato
-          onClick={handleNewDish}
-        />
+        <Button form="form-newDish" id="buttonSave" title="Salvar alterações" small tomato onClick={handleNewDish} />
       </Body>
       <Footer />
     </Container>

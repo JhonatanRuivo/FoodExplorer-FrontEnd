@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: 100%;
   min-height: 100vh;
   position: relative;
-
 `
 
 export const Main = styled.main`
@@ -14,16 +13,14 @@ export const Main = styled.main`
   gap: 24px;
   padding-bottom: 100px;
 
-  animation-name: forTop;
-  animation-duration: 1s;
-  
+  animation-name: show;
+  animation-duration: 3s;
 
-  @keyframes forTop {
+  @keyframes show {
     0% {
-      transform: translateY(100%)
+      opacity: 0;
     }
-    100%{
-
+    100% {
     }
   }
 `

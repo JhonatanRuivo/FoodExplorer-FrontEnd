@@ -18,8 +18,7 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
 
-  .iconTop{
-    
+  .iconTop {
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.LIGHT300};
 
@@ -36,6 +35,8 @@ export const Container = styled.div`
     text-decoration: none;
 
     height: 100%;
+    width: 212px;
+
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -60,6 +61,7 @@ export const Container = styled.div`
       font-family: 'Roboto';
       font-size: 14px;
       font-weight: 400;
+
     }
 
     > .price {

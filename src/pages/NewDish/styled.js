@@ -240,6 +240,7 @@ export const Body = styled.div`
       align-items: center;
       cursor: pointer;
     }
+
     > fieldset {
       > legend {
         margin-bottom: 24px;

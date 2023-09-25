@@ -1,18 +1,13 @@
 import { Container } from './styled'
 import { PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
-
+import {api} from '../../services/api'
 import { Button } from '../Button'
 import { Amount } from '../Amount'
 import { Link } from 'react-router-dom'
 
-export function CardDish({
-  image,
-  user = false,
-  dishName,
-  dishDescription,
-  price,
-  amount = false,
-}) {
+export function CardDish({ image, user = false, dishName, dishDescription, price, amount = false }) {
+  const imageURl = `${api.defaults.baseURL}/files/${image}`
+
   return (
     <Container>
       <div>
@@ -32,18 +27,17 @@ export function CardDish({
       </div>
 
       <Link className="card" to="/dish ">
-        <img src={image} />
+        <img src={imageURl} alt="imagem do prato" />
 
         <h3 className="dishName">{dishName}</h3>
 
         <p className="dishDescription">{dishDescription}</p>
 
-        <h2 className="price">{price}</h2>
+        <h2 className="price">R${price}</h2>
       </Link>
 
       <div className="footerButtons">
         <Amount amount={amount} />
-
         {amount ? <Button title="incluir" type="button" /> : ''}
       </div>
     </Container>
