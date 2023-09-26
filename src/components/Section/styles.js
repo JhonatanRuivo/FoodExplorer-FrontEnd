@@ -21,6 +21,7 @@ export const Container = styled.div`
       display: flex;
       gap: 27px;
       overflow: auto;
+      scroll-behavior: smooth;
 
       > .arrowLeft,
       .arrowRight {
