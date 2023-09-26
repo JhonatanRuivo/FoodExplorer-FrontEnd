@@ -1,11 +1,18 @@
 import { Container } from './styled'
 import { PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
-import {api} from '../../services/api'
+import { api } from '../../services/api'
 import { Button } from '../Button'
 import { Amount } from '../Amount'
 import { Link } from 'react-router-dom'
 
-export function CardDish({ image, user = false, dishName, dishDescription, price, amount = false }) {
+export function CardDish({
+  image,
+  user = false,
+  dishName,
+  dishDescription,
+  price,
+  amount = false,
+}) {
   const imageURl = `${api.defaults.baseURL}/files/${image}`
 
   return (
@@ -33,7 +40,9 @@ export function CardDish({ image, user = false, dishName, dishDescription, price
 
         <p className="dishDescription">{dishDescription}</p>
 
-        <h2 className="price">R${price}</h2>
+        <h2 className="price">
+          {price.toLocaleString('pt-br', { style: 'currency', currency: 'brl' })}
+        </h2>
       </Link>
 
       <div className="footerButtons">

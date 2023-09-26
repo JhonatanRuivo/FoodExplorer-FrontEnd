@@ -16,17 +16,17 @@ import { api } from '../../services/api'
 import { GoToTop } from '../../../utils/pageOnTop.js'
 
 export function NewDish() {
-  const [imageFile, setImageFile] = useState(null)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('Refeição')
+  const [imageFile, setImageFile] = useState(null)
   const [description, setDescription] = useState('')
 
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState('')
 
-  const inputImageRef = useRef(null)
   const navigate = useNavigate()
+  const inputImageRef = useRef(null)
 
   function handleBack() {
     navigate(-1)
@@ -87,6 +87,7 @@ export function NewDish() {
         })
     }
   }
+
   GoToTop()
 
   return (
@@ -125,7 +126,12 @@ export function NewDish() {
                     </>
                   )}
                 </button>
-                <input id="selectImage" type="file" onChange={handleFileChange} ref={inputImageRef} />
+                <input
+                  id="selectImage"
+                  type="file"
+                  onChange={handleFileChange}
+                  ref={inputImageRef}
+                />
               </div>
 
               <div id="inputName" className="input">
@@ -191,9 +197,9 @@ export function NewDish() {
                   required
                   id="price"
                   type="number"
-                  min={10}
-                  max={100}
-                  step={0.01}
+                  min="10"
+                  max="100"
+                  step=".10"
                   placeholder="R$ 00,00"
                   admin
                   onChange={(e) => setPrice(e.target.value)}
@@ -215,7 +221,14 @@ export function NewDish() {
           </form>
         </fieldset>
 
-        <Button form="form-newDish" id="buttonSave" title="Salvar alterações" small tomato onClick={handleNewDish} />
+        <Button
+          form="form-newDish"
+          id="buttonSave"
+          title="Salvar alterações"
+          small
+          tomato
+          onClick={handleNewDish}
+        />
       </Body>
       <Footer />
     </Container>
