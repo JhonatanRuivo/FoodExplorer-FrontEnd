@@ -1,18 +1,36 @@
 import { Container } from './styled.js'
+import { api } from '../../services/api.js'
 import { SlArrowLeft } from 'react-icons/sl'
-import img from '../../assets/Salada Ravanello.png'
 
-import { ButtonText } from '../../components/ButtonText'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
 import { Tag } from '../../components/Tag/index.jsx'
-import { Amount } from '../../components/Amount'
-import { Button } from '../../components/Button'
+import { Header } from '../../components/Header/index.jsx'
+import { Footer } from '../../components/Footer/index.jsx'
+import { Amount } from '../../components/Amount/index.jsx'
+import { Button } from '../../components/Button/index.jsx'
 import { PiReceipt } from 'react-icons/pi'
-import { useNavigate } from 'react-router-dom'
+import { ButtonText } from '../../components/ButtonText/index.jsx'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export function Dish() {
+  const params = useParams()
   const navigate = useNavigate()
+  const [dish, setDish] = useState(null)
+
+  const imageURl = dish && `${api.defaults.baseURL}/files/${dish.image}`
+
+  const fetchDishes = async () => {
+    try {
+      const response = await api.get(`/dishes/${params.id}`)
+
+      setDish(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchDishes()
+  }, [])
 
   function handleBack() {
     navigate(-1)
@@ -26,20 +44,14 @@ export function Dish() {
           <SlArrowLeft name="back" size={32} />
           <ButtonText title="voltar" bold large onClick={handleBack} />
         </label>
+
         <div className="main">
-          <img className="imgDish" src={img} alt="Foto do prato" />
+          <img className="imgDish" src={imageURl} alt="Foto do prato" />
           <div className="description">
             <h1>Salada Rovanello</h1>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-            </p>
+            <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
             <div className="tags">
               <Tag title="alface" />
-              <Tag title="cebola" />
-              <Tag title="pão naan" />
-              <Tag title="pepino" />
-              <Tag title="rabanete" />
-              <Tag title="tomate" />
             </div>
             <div className="footerButtons">
               <Amount amount={'01'} />

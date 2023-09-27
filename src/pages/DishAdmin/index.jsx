@@ -1,22 +1,42 @@
+import { api } from '../../services/api.js'
+import { useEffect, useState } from 'react'
 import { Container } from './styled.js'
-import { SlArrowLeft } from 'react-icons/sl'
-import img from '../../assets/Salada Ravanello.png'
 
-import { ButtonText } from '../../components/ButtonText/index.jsx'
+import { Tag } from '../../components/Tag/index.jsx'
 import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
-import { Tag } from '../../components/Tag/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
-import { Link, useNavigate } from 'react-router-dom'
+import { ButtonText } from '../../components/ButtonText/index.jsx'
+import { SlArrowLeft } from 'react-icons/sl'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export function DishAdmin() {
+  const params = useParams()
   const navigate = useNavigate()
+  const [dish, setDish] = useState(null)
+
+  const imageURl = dish && `${api.defaults.baseURL}/files/${dish.image}`
+
+  const fetchDishes = async () => {
+    try {
+      const response = await api.get(`/dishes/${params.id}`)
+
+      setDish(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchDishes()
+  }, [])
 
   function handleBack() {
     navigate(-1)
   }
-
-  
+  function handleDishEdit(id) {
+    navigate(`/edit/${id}`)
+  }
 
   return (
     <Container>
@@ -26,27 +46,24 @@ export function DishAdmin() {
           <SlArrowLeft name="back" size={32} />
           <ButtonText title="voltar" bold large onClick={handleBack} />
         </label>
-        <div className="main">
-          <img className="imgDish" src={img} alt="Foto do prato" />
-          <div className="description">
-            <h1>Salada Rovanello</h1>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-              O pão naan dá um toque especial.
-            </p>
-            <div className="tags">
-              <Tag title="alface" />
-              <Tag title="cebola" />
-              <Tag title="pão naan" />
-              <Tag title="pepino" />
-              <Tag title="rabanete" />
-              <Tag title="tomate" />
-            </div>
-            <div className="footerButtons">
-              <Button title={'Editar prato'} type="button" to="/edit" />
+
+        {dish && (
+          <div className="main">
+            <img className="imgDish" src={imageURl} alt="Foto do prato" />
+            <div className="description">
+              <h1>{dish.name}</h1>
+              <p>{dish.description}</p>
+              <div className="tags">
+                {dish.ingredients.map((ingredient) => (
+                  <Tag key={String(ingredient.id)} title={ingredient.name} />
+                ))}
+              </div>
+              <div className="footerButtons">
+                <Button title={'Editar prato'} type="button" onClick={()=>{handleDishEdit(dish.id)}} />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       <Footer />

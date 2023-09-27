@@ -12,7 +12,7 @@ export const Container = styled.div`
   gap: 32px;
 
   animation-name: hidden;
-  animation-duration: 1s;
+  animation-duration: 1.3s;
 
   .input {
     width: 100%;

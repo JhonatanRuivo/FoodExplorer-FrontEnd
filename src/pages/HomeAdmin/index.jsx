@@ -41,6 +41,7 @@ export function HomeAdmin() {
                   dishName={dish.name}
                   dishDescription={dish.description}
                   price={dish.price}
+                  dish={dish}
                 />
               ))}
           </Section>
@@ -57,6 +58,7 @@ export function HomeAdmin() {
                   dishName={dish.name}
                   dishDescription={dish.description}
                   price={dish.price}
+                  dish={dish}
                 />
               ))}
           </Section>
@@ -73,6 +75,7 @@ export function HomeAdmin() {
                   dishName={dish.name}
                   dishDescription={dish.description}
                   price={dish.price}
+                  dish={dish}
                 />
               ))}
           </Section>

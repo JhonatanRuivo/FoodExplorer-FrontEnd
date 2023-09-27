@@ -32,6 +32,7 @@ export const Container = styled.div`
 
   .card {
     color: ${({ theme }) => theme.COLORS.LIGHT300};
+    background: transparent;
     text-decoration: none;
 
     height: 100%;
