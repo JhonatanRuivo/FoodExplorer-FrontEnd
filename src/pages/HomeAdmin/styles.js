@@ -14,7 +14,7 @@ export const Main = styled.main`
   padding-bottom: 100px;
 
   animation-name: show;
-  animation-duration: 3s;
+  animation-duration: 1s;
 
   @keyframes show {
     0% {

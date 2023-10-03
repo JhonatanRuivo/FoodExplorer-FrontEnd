@@ -12,7 +12,6 @@ export function Section({ title, children }) {
   }
   const handleRightClick = (e) => {
     e.preventDefault()
-
     carousel.current.scrollLeft += carousel.current.offsetWidth
   }
 

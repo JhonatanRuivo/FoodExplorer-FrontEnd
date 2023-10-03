@@ -23,4 +23,8 @@ export const Container = styled.button`
   &:disabled {
     opacity: 50%;
   }
+  &:focus-within {
+    border: solid 1px ${({ theme }) => theme.COLORS.LIGHT100};
+    filter: brightness(0.8);
+  }
 `

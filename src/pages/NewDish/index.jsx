@@ -77,7 +77,7 @@ export function NewDish() {
 
       await api
         .post('/dishes', formData)
-        .then(alert('Prato cadastrado com sucesso!'), handleBack())
+        .then(alert('Prato cadastrado com sucesso!'), handleBack('/'))
         .catch((error) => {
           if (error.response) {
             alert(error.response.message)
@@ -109,7 +109,7 @@ export function NewDish() {
             <Title title={'Adicionar prato'} />
           </legend>
 
-          <form id="form-newDish">
+          <form id="formNewDish">
             <div id="sectionOne" className="section">
               <div id="inputImage" className="input">
                 <label htmlFor="selectImage">Imagem</label>

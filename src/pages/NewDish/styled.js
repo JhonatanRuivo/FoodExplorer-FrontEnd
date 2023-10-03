@@ -156,7 +156,7 @@ export const Body = styled.div`
             }
             #addTag {
               height: fit-content;
-              width: 15%;
+              width: 20%;
 
               background-color: transparent;
               color: ${({ theme }) => theme.COLORS.LIGHT500};

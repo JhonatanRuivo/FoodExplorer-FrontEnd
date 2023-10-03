@@ -11,29 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
 
-  .buttonPrev {
-    width: 106px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  .buttonPrevMobile {
-    display: none;
-  }
-
-  @media (max-width: 1023px) {
-    .buttonPrev {
-      display: none;
-    }
-    .buttonPrevMobile {
-      width: fit-content;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-  }
+  overflow-x: hidden;
 `
 
 export const Body = styled.div`
@@ -48,215 +26,286 @@ export const Body = styled.div`
   animation-name: left;
   animation-duration: 0.8s;
 
-  > form {
-    width: 100%;
-
+  .buttonPrev {
+    width: 106px;
+    height: 34px;
     display: flex;
-    flex-direction: column;
-    gap: 32px;
+    align-items: center;
+    cursor: pointer;
+  }
+  .buttonPrevMobile {
+    display: none;
+  }
 
-    > .section {
+  > fieldset {
+    border: none;
+
+    > legend {
+      margin-bottom: 32px;
+    }
+    > form {
       width: 100%;
+
       display: flex;
+      flex-direction: column;
       gap: 32px;
 
-      .input {
+      > .section {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        gap: 16px;
+        gap: 32px;
 
-        label {
-          color: ${({ theme }) => theme.COLORS.LIGHT400};
-        }
-      }
-    }
-    #sectionOne {
-      #inputImage {
-        width: 230px;
-
-        #selectImage {
-          background-color: ${({ theme }) => theme.COLORS.DARK800};
-          color: ${({ theme }) => theme.COLORS.LIGHT100};
-
-          display: flex;
-          border-radius: 8px;
-          gap: 8px;
-          padding: 12px 32px;
-
-          font-family: Poppins;
-          font-size: 14px;
-          font-weight: 500;
-
-          white-space: nowrap;
-        }
-      }
-      #inputName {
-        width: 60%;
-      }
-      #category {
-        width: 40%;
-        position: relative;
-
-        select {
+        .input {
           width: 100%;
-          background-color: ${({ theme }) => theme.COLORS.DARK800};
-          color: ${({ theme }) => theme.COLORS.LIGHT400};
-          border: none;
-          border-radius: 5px;
-          padding: 16px;
-
-          font-family: Roboto;
-          font-size: 14px;
-          font-weight: 400;
-
-          appearance: none;
-          cursor: pointer;
-        }
-        #icon {
-          color: ${({ theme }) => theme.COLORS.LIGHT400};
-
-          position: absolute;
-          right: 16px;
-          top: 63%;
-          cursor: pointer;
-        }
-      }
-    }
-
-    #sectionTwo {
-      #selectIngredients {
-        width: 100%;
-      }
-      #ingredients {
-        background-color: ${({ theme }) => theme.COLORS.DARK800};
-        width: 100%;
-
-        padding: 4px 8px;
-        display: flex;
-        gap: 16px;
-        border-radius: 8px;
-
-        #tag {
-          background-color: ${({ theme }) => theme.COLORS.LIGHT600};
-          color: ${({ theme }) => theme.COLORS.LIGHT100};
-
-          width: fit-content;
-          padding: 10px 16px;
           display: flex;
-          gap: 8px;
-          border-radius: 8px;
-          align-items: center;
-        }
-        #addTag {
-          background-color: transparent;
-          color: ${({ theme }) => theme.COLORS.LIGHT500};
+          flex-direction: column;
+          gap: 16px;
 
-          position: relative;
-
-          border-style: dashed;
-          border-radius: 8px;
-
-          padding: 10px 16px;
-
-          display: flex;
-          gap: 8px;
-          align-items: center;
-        }
-      }
-      #inputPrice {
-        width: 25%;
-      }
-    }
-
-    #sectionThree {
-      #inputDishDescription {
-        width: 100%;
-
-        textarea {
-          background-color: ${({ theme }) => theme.COLORS.DARK800};
-          color: ${({ theme }) => theme.COLORS.LIGHT100};
-
-          width: 100%;
-          padding: 14px;
-          height: 172px;
-          resize: none;
-
-          border-radius: 5px;
-          border: none;
-
-          font-family: Roboto;
-          font-size: 16px;
-          font-weight: 400;
-
-          &:focus {
-            outline: none;
-            border: 1px solid ${({ theme }) => theme.COLORS.LIGHT100};
+          label {
+            color: ${({ theme }) => theme.COLORS.LIGHT400};
           }
         }
       }
-    }
-
-    #buttonsSaveAndDelete {
-      display: flex;
-      gap: 32px;
-      margin: 0 0 0 auto;
-
-      #deleteButton {
-        background-color: ${({ theme }) => theme.COLORS.DARK800};
-        color: ${({ theme }) => theme.COLORS.LIGHT100};
-
-        padding: 12px 24px;
-        border-radius: 5px;
-
-        font-family: Poppins;
-        font-size: 14px;
-        font-weight: 500;
-
-        white-space: nowrap;
-      }
-      #saveButton {
-        font-size: 14px;
-      }
-    }
-  }
-
-  @media (max-width: 1023px) {
-    padding: 32px;
-
-    > form {
-      gap: 24px;
 
       #sectionOne {
-        flex-direction: column;
-        gap: 24px;
         #inputImage {
-          width: 100%;
+          height: 100%;
+          width: 230px;
+
+          .inputFile {
+            display: flex;
+            gap: 8px;
+
+            background-color: ${({ theme }) => theme.COLORS.DARK800};
+            color: ${({ theme }) => theme.COLORS.LIGHT300};
+
+            display: flex;
+            border-radius: 8px;
+            padding: 12px 32px;
+
+            white-space: nowrap;
+            align-items: center;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          #selectImage {
+            display: none;
+          }
         }
+
         #inputName {
-          width: 100%;
+          width: 60%;
         }
+
         #category {
-          width: 100%;
+          width: 40%;
+          position: relative;
+
+          select {
+            width: 100%;
+            background-color: ${({ theme }) => theme.COLORS.DARK800};
+            color: ${({ theme }) => theme.COLORS.LIGHT400};
+            border: none;
+            border-radius: 5px;
+            padding: 16px;
+
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 400;
+
+            appearance: none;
+            cursor: pointer;
+          }
+          #icon {
+            color: ${({ theme }) => theme.COLORS.LIGHT400};
+
+            position: absolute;
+            right: 16px;
+            top: 63%;
+            cursor: pointer;
+          }
         }
       }
 
       #sectionTwo {
-        flex-direction: column;
-        gap: 24px;
-        #inputPrice {
+        #selectIngredients {
           width: 100%;
+
+          #ingredients {
+            background-color: ${({ theme }) => theme.COLORS.DARK800};
+            width: 100%;
+            flex-wrap: wrap;
+
+            padding: 4px 8px;
+            display: flex;
+            gap: 16px;
+            border-radius: 8px;
+
+            #tag {
+              background-color: ${({ theme }) => theme.COLORS.LIGHT600};
+              color: ${({ theme }) => theme.COLORS.LIGHT100};
+
+              width: fit-content;
+              height: fit-content;
+              padding: 10px 16px;
+              display: flex;
+              gap: 8px;
+              border-radius: 8px;
+              align-items: center;
+            }
+            #addTag {
+              height: fit-content;
+              width: 20%;
+
+              background-color: transparent;
+              color: ${({ theme }) => theme.COLORS.LIGHT500};
+
+              position: relative;
+
+              border-style: dashed;
+              border-radius: 8px;
+
+              padding: 10px 16px;
+
+              display: flex;
+              gap: 8px;
+              align-items: center;
+
+              #inputTag {
+                background-color: transparent;
+                color: ${({ theme }) => theme.COLORS.LIGHT400};
+
+                width: 100%;
+              }
+
+              #addIcon {
+                background-color: transparent;
+                color: ${({ theme }) => theme.COLORS.LIGHT400};
+              }
+            }
+          }
+        }
+
+        #inputPrice {
+          width: 25%;
         }
       }
-      #buttonsSaveAndDelete {
-        width: 100%;
-        justify-content: space-around;
-        #deleteButton {
-          font-size: 12px;
-        }
-        #saveButton {
-          font-size: 12px;
+
+      #sectionThree {
+        #inputDishDescription {
+          width: 100%;
+
+          textarea {
+            background-color: ${({ theme }) => theme.COLORS.DARK800};
+            color: ${({ theme }) => theme.COLORS.LIGHT100};
+
+            width: 100%;
+            padding: 14px;
+            height: 172px;
+            resize: none;
+
+            border-radius: 5px;
+            border: none;
+
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 400;
+
+            &:focus {
+              outline: none;
+              border: 1px solid ${({ theme }) => theme.COLORS.LIGHT100};
+            }
+          }
         }
       }
+    }
+  }
+
+  .buttonSaveAndDelete {
+    display: flex;
+    gap: 32px;
+    margin-left: auto;
+
+    #deleteButton {
+      background-color: ${({ theme }) => theme.COLORS.DARK800};
+      color: ${({ theme }) => theme.COLORS.LIGHT100};
+
+      padding: 12px 24px;
+      border-radius: 5px;
+
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 500;
+
+      white-space: nowrap;
+
+      &:focus-within {
+        border: solid 1px ${({ theme }) => theme.COLORS.LIGHT100};
+        filter: brightness(0.8);
+      }
+    }
+    #saveButton {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 32px;
+
+    .buttonPrev {
+      display: none;
+    }
+    .buttonPrevMobile {
+      width: fit-content;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    > fieldset {
+      > legend {
+        margin-bottom: 24px;
+      }
+      > form {
+        gap: 24px;
+
+        #sectionOne {
+          flex-direction: column;
+          gap: 24px;
+          #inputImage {
+            width: 100%;
+          }
+          #inputName {
+            width: 100%;
+          }
+          #category {
+            width: 100%;
+          }
+        }
+
+        #sectionTwo {
+          flex-direction: column;
+          gap: 24px;
+          #selectIngredients {
+            #ingredients {
+              #addTag {
+                width: 40%;
+              }
+            }
+          }
+          #inputPrice {
+            width: 100%;
+          }
+        }
+      }
+    }
+    #buttonSave {
+      width: 100%;
+      font-size: 12px;
     }
   }
 

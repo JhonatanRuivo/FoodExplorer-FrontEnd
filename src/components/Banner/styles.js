@@ -12,7 +12,7 @@ export const Container = styled.div`
 
   position: relative;
 
-  animation-name: forDown;
+  animation-name: show;
   animation-duration: 1s;
 
   > img {
@@ -117,9 +117,9 @@ export const Container = styled.div`
     }
   }
 
-  @keyframes forDown {
+  @keyframes show {
     0% {
-      transform: translateY(-100%);
+      opacity: 0;
     }
     100% {
     }
