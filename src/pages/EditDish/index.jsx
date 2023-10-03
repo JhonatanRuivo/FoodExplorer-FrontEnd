@@ -9,8 +9,8 @@ import { Footer } from '../../components/Footer/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
 import { ButtonText } from '../../components/ButtonText/index.jsx'
 
-import { useNavigate } from 'react-router-dom'
-import { useRef, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 
 import { api } from '../../services/api.js'
 import { GoToTop } from '../../../utils/pageOnTop.js'
@@ -28,9 +28,27 @@ export function EditDish() {
   const navigate = useNavigate()
   const inputImageRef = useRef(null)
 
-  function handleBack() {
-    navigate(-1)
+  const params = useParams()
+
+  async function fetchDishes() {
+    try {
+      const response = await api.get(`/dishes/${params.id}`)
+      const { name, price, category, description, ingredients } = response.data
+      setName(name)
+      setPrice(price)
+      setCategory(category)
+      setDescription(description)
+      setIngredients(ingredients.map((ingredient) => ingredient.name))
+      console.log(response.data)
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.message)
+      } else {
+        alert('Erro ao carregar prato, favor tente novamente!')
+      }
+    }
   }
+
   function handleUploadClick() {
     inputImageRef.current.click()
   }
@@ -55,7 +73,7 @@ export function EditDish() {
     setIngredients((prevState) => prevState.filter((ingredient) => ingredient !== deleted))
     setNewIngredient('')
   }
-  async function handleNewDish() {
+  async function handleDishUpdate() {
     if (!name || !price || !description) {
       alert('Favor preencher todos os campos!')
       return
@@ -76,8 +94,8 @@ export function EditDish() {
       }
 
       await api
-        .post('/dishes', formData)
-        .then(alert('Prato cadastrado com sucesso!'), handleBack('/'))
+        .put(`/dishes/${params.id}`, formData)
+        .then(alert('Prato cadastrado com sucesso!'), navigate('/'))
         .catch((error) => {
           if (error.response) {
             alert(error.response.message)
@@ -87,6 +105,14 @@ export function EditDish() {
         })
     }
   }
+
+  function handleBack() {
+    navigate(-1)
+  }
+
+  useEffect(() => {
+    fetchDishes()
+  }, [])
 
   GoToTop()
 
@@ -109,7 +135,7 @@ export function EditDish() {
             <Title title={'Editar prato'} />
           </legend>
 
-          <form id="formNewDish">
+          <form id="formEditDish">
             <div id="sectionOne" className="section">
               <div id="inputImage" className="input">
                 <label htmlFor="selectImage">Imagem</label>
@@ -137,12 +163,13 @@ export function EditDish() {
               <div id="inputName" className="input">
                 <label htmlFor="name">Nome</label>
                 <Input
+                  admin
                   required
                   id="name"
                   type="text"
                   maxLength={20}
-                  placeholder="Ex.: Salada "
-                  admin
+                  placeholder="Ex: Salada"
+                  value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
@@ -150,7 +177,7 @@ export function EditDish() {
               <div id="category" className="input">
                 <label htmlFor="setCategory">Categoria</label>
                 <div>
-                  <select id="setCategory" onChange={(e) => setCategory(e.target.value)}>
+                  <select value={category} id="setCategory" onChange={(e) => setCategory(e.target.value)}>
                     <option value="Refeição">Refeição</option>
                     <option value="Sobremesa">Sobremesa</option>
                     <option value="Bebida">Bebida</option>
@@ -194,14 +221,15 @@ export function EditDish() {
               <div id="inputPrice" className="input">
                 <label htmlFor="price">Preço</label>
                 <Input
+                  admin
                   required
-                  id="price"
-                  type="number"
                   min="10"
                   max="100"
+                  id="price"
                   step=".10"
+                  type="number"
                   placeholder="R$ 00,00"
-                  admin
+                  value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
@@ -211,8 +239,9 @@ export function EditDish() {
               <div id="inputDishDescription" className="input">
                 <label htmlFor="dishDescription">Descrição</label>
                 <textarea
-                  id="dishDescription"
                   typeof="text"
+                  id="dishDescription"
+                  value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                 ></textarea>
@@ -224,12 +253,12 @@ export function EditDish() {
         <div className="buttonSaveAndDelete">
           <button id="deleteButton">Excluir prato</button>
           <Button
-            form="form-newDish"
+            form="formEditDish"
             id="saveButton"
             title="Salvar alterações"
             small
             tomato
-            onClick={handleNewDish}
+            onClick={handleDishUpdate}
           />
         </div>
       </Body>

@@ -17,7 +17,11 @@ export function HomeAdmin() {
 
       setDishes(response.data)
     } catch (error) {
-      console.log(error)
+      if (error.response) {
+        alert(error.response.message)
+      } else {
+        alert('Não foi possível carregar o menu, favor tente novamente.')
+      }
     }
   }
 
