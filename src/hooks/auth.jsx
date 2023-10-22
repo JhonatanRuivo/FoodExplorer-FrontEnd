@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
         token,
         user: JSON.parse(user),
       })
-    }
+    } 
   }, [])
 
   return (

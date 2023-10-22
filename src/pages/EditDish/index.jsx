@@ -33,13 +33,13 @@ export function EditDish() {
   async function fetchDishes() {
     try {
       const response = await api.get(`/dishes/${params.id}`)
-      const { name, price, category, description, ingredients } = response.data
+      const { image, name, price, category, description, ingredients } = response.data
+      setImageFile(image)
       setName(name)
       setPrice(price)
       setCategory(category)
       setDescription(description)
       setIngredients(ingredients.map((ingredient) => ingredient.name))
-      console.log(response.data)
     } catch (error) {
       if (error.response) {
         alert(error.response.message)
@@ -63,9 +63,6 @@ export function EditDish() {
     setNewIngredient(e.target.value)
   }
   function handleAddIngredient() {
-    if (!newIngredient) {
-      return
-    }
     setIngredients((prevState) => [...prevState, newIngredient])
     setNewIngredient('')
   }
@@ -83,27 +80,33 @@ export function EditDish() {
       alert('Adicione no mínimo 1 ingrediente!')
     } else {
       const formData = new FormData()
-      formData.append('image', imageFile)
       formData.append('name', name)
+      formData.append('image', imageFile)
       formData.append('category', category)
       formData.append('price', price)
       formData.append('description', description)
-
       for (let i = 0; i < ingredients.length; i += 1) {
         formData.append('ingredients', ingredients[i])
       }
 
-      await api
-        .put(`/dishes/${params.id}`, formData)
-        .then(alert('Prato cadastrado com sucesso!'), navigate('/'))
-        .catch((error) => {
-          if (error.response) {
-            alert(error.response.message)
-          } else {
-            alert('Erro ao cadastrar prato, tente novamente!')
-          }
-        })
+      try {
+        const response = await api.put(`/dishes/${params.id}`, formData)
+        console.log(response.status)
+      } catch (error) {
+        console.log(error.message)
+      }
     }
+    handleBack()
+  }
+  async function handleDelete() {
+    try {
+      await api.delete(`/dishes/${params.id}`)
+      console.log('deleted successfully')
+    } catch (error) {
+      console.log(error.message)
+    }
+
+    navigate("/")
   }
 
   function handleBack() {
@@ -143,7 +146,7 @@ export function EditDish() {
                   {imageFile ? (
                     <>
                       <PiCheckCircleDuotone size={24} color="cyan" />
-                      `${imageFile.name}`
+                      {imageFile.name}
                     </>
                   ) : (
                     <>
@@ -152,12 +155,7 @@ export function EditDish() {
                     </>
                   )}
                 </button>
-                <input
-                  id="selectImage"
-                  type="file"
-                  onChange={handleFileChange}
-                  ref={inputImageRef}
-                />
+                <input id="selectImage" type="file" onChange={handleFileChange} ref={inputImageRef} />
               </div>
 
               <div id="inputName" className="input">
@@ -251,7 +249,9 @@ export function EditDish() {
         </fieldset>
 
         <div className="buttonSaveAndDelete">
-          <button id="deleteButton">Excluir prato</button>
+          <button id="deleteButton" onClick={handleDelete}>
+            Excluir prato
+          </button>
           <Button
             form="formEditDish"
             id="saveButton"

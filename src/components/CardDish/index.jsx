@@ -3,7 +3,7 @@ import { api } from '../../services/api'
 
 import { Button } from '../Button'
 import { Amount } from '../Amount'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
 
 export function CardDish({
