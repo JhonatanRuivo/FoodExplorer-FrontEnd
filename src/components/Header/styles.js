@@ -16,6 +16,22 @@ export const Container = styled.div`
 
   .input {
     width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listSearch {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    background-color: ${({ theme }) => theme.COLORS.DARK200};
+    z-index: 1;
+    flex: 1;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 8px;
   }
 
   .logo {
@@ -65,7 +81,7 @@ export const Container = styled.div`
     > .logo {
       width: 100%;
       justify-content: center;
-      
+
       .textLogo {
         flex-direction: row;
         gap: 8px;
