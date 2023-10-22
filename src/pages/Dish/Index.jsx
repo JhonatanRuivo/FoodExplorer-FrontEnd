@@ -10,6 +10,7 @@ import { Button } from '../../components/Button/index.jsx'
 import { PiReceipt } from 'react-icons/pi'
 import { ButtonText } from '../../components/ButtonText/index.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 export function Dish() {
   const params = useParams()
@@ -58,13 +59,7 @@ export function Dish() {
 
               <Button id="submitButtonDesktop" title="Incluir R$25,00" small />
 
-              <Button
-                id="submitButtonMobile"
-                icon={PiReceipt}
-                title="inserir R$25,00"
-                small
-                mobile
-              />
+              <Button id="submitButtonMobile" icon={PiReceipt} title="inserir R$25,00" small mobile />
             </div>
           </div>
         </div>

@@ -41,6 +41,8 @@ export function Header({ admin = false }) {
 
   console.log(dishFiltered)
 
+  
+
   function handleSignOut() {
     navigate('/')
     signOut()
@@ -76,7 +78,11 @@ export function Header({ admin = false }) {
         />
         <div className="listSearch">
           {dishFiltered?.map((dish) => (
-            <ListSearch key={dish.id} name={dish.name} />
+            <ListSearch
+              key={dish.id}
+              name={dish.name}
+              id={dish.id}
+            />
           ))}
         </div>
       </div>
