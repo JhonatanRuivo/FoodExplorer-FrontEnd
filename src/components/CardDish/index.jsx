@@ -66,7 +66,7 @@ export function CardDish({
 
       <div className="footerButtons">
         <Amount amount={amount} />
-        {amount ? <Button title="incluir" type="button" /> : ''}
+        {amount ? <Button className="includes" title="incluir" type="button" /> : ''}
       </div>
     </Container>
   )

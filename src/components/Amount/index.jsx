@@ -9,7 +9,7 @@ export function Amount({ amount }) {
       <button id="minus" type="button">
         {amount ? <PiMinus size={24} /> : ''}
       </button>
-      <strong >{"0"}</strong>
+      <strong >{amount}</strong>
       <button id="more" type="button">
         {amount ? <PiPlus size={24} /> : ''}
       </button>

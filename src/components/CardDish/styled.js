@@ -62,7 +62,6 @@ export const Container = styled.div`
       font-family: 'Roboto';
       font-size: 14px;
       font-weight: 400;
-
     }
 
     > .price {
@@ -112,6 +111,16 @@ export const Container = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 16px;
+
+      .includes {
+        display: flex;
+        width: 162px;
+        height: 32px;
+        padding: 12px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
     }
   }
 `

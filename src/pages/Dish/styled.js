@@ -27,6 +27,9 @@ export const Container = styled.div`
       .imgDish {
         width: 390px;
         height: 389px;
+
+        animation-name: showDish;
+        animation-duration: 0.6s;
       }
       .description {
         display: flex;
@@ -106,6 +109,21 @@ export const Container = styled.div`
           }
         }
       }
+    }
+  }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes showDish {
+    0% {
+      opacity: 0;
+      transform: scale(0.1) rotate(240deg);
+    }
+    55% {
+      opacity: 0.7;
     }
   }
 `

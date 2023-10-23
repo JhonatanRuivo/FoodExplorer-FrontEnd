@@ -30,8 +30,6 @@ export const Container = styled.button`
 
   @media (max-width: 1023px) {
     display: flex;
-    width: 162px;
-    height: 32px;
     padding: 12px 24px;
     justify-content: center;
     align-items: center;
