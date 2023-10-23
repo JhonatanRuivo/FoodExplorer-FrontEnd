@@ -11,10 +11,6 @@ import { useEffect, useState } from 'react'
 export function HomeAdmin() {
   const [dishes, setDishes] = useState([])
 
-  // const searchDishes = async () => {
-  //   await api.get('/dishes/?name&ingredients&category')
-  // }
-
   const fetchDishes = async () => {
     try {
       const response = await api.get('/dishes/?name&ingredients&category')

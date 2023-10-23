@@ -1,4 +1,5 @@
 import { Container, Form } from './styles'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { api } from '../../services/api'
 
@@ -11,6 +12,7 @@ export function SignUp() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   function handleSignUp() {
     if (!name || !email || !password) {
@@ -35,6 +37,10 @@ export function SignUp() {
           alert('Não foi possível cadastrar!')
         }
       })
+  }
+
+  function navToSigIn() {
+    navigate('/')
   }
 
   return (
@@ -78,7 +84,7 @@ export function SignUp() {
 
         <Button title="Cadastrar" onClick={handleSignUp} />
 
-        <ButtonText title="Já tenho uma conta" bold fontPoppins to="/" />
+        <ButtonText title="Já tenho uma conta" bold fontPoppins onClick={navToSigIn} />
       </Form>
     </Container>
   )

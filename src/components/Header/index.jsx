@@ -1,31 +1,21 @@
-import { Container, Icon } from './styles'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
-import { ListSearch } from '../ListSearch'
-
-import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
-import { Input } from '../Input'
-import { ButtonCart } from '../ButtonCart'
-import { ButtonNewDish } from '../ButtonNewDish'
+import { useAuth } from '../../hooks/auth'
+import { Container, Icon } from './styles'
 import { useState, useEffect, useMemo } from 'react'
 
+import { Input } from '../Input'
+import { ListSearch } from '../ListSearch'
+import { ButtonCart } from '../ButtonCart'
+import { ButtonNewDish } from '../ButtonNewDish'
+import { Link, useNavigate } from 'react-router-dom'
+import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
+
 export function Header({ admin = false }) {
-  const { signOut } = useAuth()
   const navigate = useNavigate()
+  const { signOut } = useAuth()
 
   const [searchDishes, setSearchDishes] = useState([])
   const [searchData, setSearchData] = useState('')
-
-  async function fetchDishes() {
-    const response = await api.get('/dishes/?name&ingredients&category')
-
-    setSearchDishes(response.data)
-  }
-
-  useEffect(() => {
-    fetchDishes()
-  }, [])
 
   const dishFiltered = useMemo(() => {
     if (searchData == '') {
@@ -39,14 +29,20 @@ export function Header({ admin = false }) {
     )
   }, [searchData])
 
-  console.log(dishFiltered)
+  async function fetchDishes() {
+    const response = await api.get('/dishes/?name&ingredients&category')
 
-  
+    setSearchDishes(response.data)
+  }
 
   function handleSignOut() {
     navigate('/')
     signOut()
   }
+
+  useEffect(() => {
+    fetchDishes()
+  }, [])
 
   return (
     <Container>
@@ -74,15 +70,12 @@ export function Header({ admin = false }) {
           icon={PiMagnifyingGlass}
           type="text"
           placeholder="Busque por pratos ou ingredientes"
+          value={searchData}
           onChange={(e) => setSearchData(e.target.value)}
         />
         <div className="listSearch">
           {dishFiltered?.map((dish) => (
-            <ListSearch
-              key={dish.id}
-              name={dish.name}
-              id={dish.id}
-            />
+            <ListSearch key={dish.id} name={dish.name} id={dish.id} setSearchData={setSearchData} />
           ))}
         </div>
       </div>

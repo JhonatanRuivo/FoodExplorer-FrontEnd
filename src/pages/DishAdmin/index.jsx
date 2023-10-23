@@ -29,10 +29,11 @@ export function DishAdmin() {
 
   useEffect(() => {
     fetchDishes()
+    
   }, [dish])
 
   function handleBack() {
-    navigate(-1)
+    navigate('/')
   }
   function handleDishEdit(id) {
     navigate(`/edit/${id}`)

@@ -1,10 +1,11 @@
 import { Container } from './styles'
 import { useNavigate } from 'react-router-dom'
 
-export function ListSearch({ name, id }) {
+export function ListSearch({ name, id, setSearchData }) {
   const navigate = useNavigate()
 
   function handleDishDetails(id) {
+    setSearchData('')
     navigate(`/dish/${id}`)
   }
 
@@ -20,4 +21,4 @@ export function ListSearch({ name, id }) {
       </a>
     </Container>
   )
-}
+} 
