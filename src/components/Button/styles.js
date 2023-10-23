@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.button`
-  background-color: ${({ theme, $color }) => $color ? theme.COLORS.TOMATO400 : theme.COLORS.TOMATO100};
+  background-color: ${({ theme, $color }) => ($color ? theme.COLORS.TOMATO400 : theme.COLORS.TOMATO100)};
   color: ${({ theme }) => theme.COLORS.LIGHT100};
 
-  width: ${({ $fitContent }) => $fitContent ? 'fit-content' : '100%'};
+  width: ${({ $fitContent }) => ($fitContent ? 'fit-content' : '100%')};
   border: none;
   padding: 12px 32px;
 
@@ -12,11 +12,11 @@ export const Container = styled.button`
   align-items: center;
   white-space: nowrap;
   justify-content: center;
-  border-radius: 5px; 
+  border-radius: 5px;
   gap: 8px;
 
   font-family: Poppins;
-  font-size: ${({$font}) => $font ? '10px' : '16px'};
+  font-size: ${({ $font }) => ($font ? '10px' : '16px')};
   font-style: normal;
   font-weight: 500;
 
@@ -26,5 +26,15 @@ export const Container = styled.button`
   &:focus-within {
     border: solid 1px ${({ theme }) => theme.COLORS.LIGHT100};
     filter: brightness(0.8);
+  }
+
+  @media (max-width: 1023px) {
+    display: flex;
+    width: 162px;
+    height: 32px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
 `
