@@ -1,10 +1,10 @@
-import { Container } from './styled'
-import { api } from '../../services/api'
-
-import { Button } from '../Button'
 import { Amount } from '../Amount'
-import { useNavigate } from 'react-router-dom'
+import { Button } from '../Button'
+import { Container } from './styled'
 import { PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
+
+import { api } from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 
 export function CardDish({ dish, dishDescription, amount = false, user = false, dishName, image, price }) {
   const imageURl = `${api.defaults.baseURL}/files/${image}`
@@ -13,6 +13,7 @@ export function CardDish({ dish, dishDescription, amount = false, user = false, 
   function handleDishDetails(id) {
     navigate(`/dish/${id}`)
   }
+
   function handleDishEdit(id) {
     navigate(`/edit/${id}`)
   }

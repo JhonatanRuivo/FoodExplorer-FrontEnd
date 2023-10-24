@@ -1,21 +1,22 @@
-import { api } from '../../services/api'
-import { useAuth } from '../../hooks/auth'
-import { Container, Icon } from './styles'
-import { useState, useEffect, useMemo } from 'react'
-
 import { Input } from '../Input'
 import { ListSearch } from '../ListSearch'
 import { ButtonCart } from '../ButtonCart'
 import { ButtonNewDish } from '../ButtonNewDish'
+import { Container, Icon } from './styles'
 import { Link, useNavigate } from 'react-router-dom'
 import { PiList, PiMagnifyingGlass, PiSignOut } from 'react-icons/pi'
 
+import { api } from '../../services/api'
+import { useAuth } from '../../hooks/auth'
+import { useState, useEffect, useMemo } from 'react'
+
 export function Header({ admin = false }) {
   const navigate = useNavigate()
+
   const { signOut } = useAuth()
 
-  const [searchDishes, setSearchDishes] = useState([])
   const [searchData, setSearchData] = useState('')
+  const [searchDishes, setSearchDishes] = useState([])
 
   const dishFiltered = useMemo(() => {
     if (searchData == '') {

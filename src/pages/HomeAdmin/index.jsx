@@ -1,11 +1,11 @@
-import { Container, Main } from './styles'
-import { api } from '../../services/api'
-
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Banner } from '../../components/Banner'
 import { Section } from '../../components/Section'
 import { CardDish } from '../../components/CardDish'
+import { Container, Main } from './styles'
+
+import { api } from '../../services/api'
 import { useEffect, useState } from 'react'
 
 export function HomeAdmin() {

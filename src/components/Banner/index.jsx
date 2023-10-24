@@ -1,7 +1,5 @@
 import { Container } from './styles'
-
 import banner from '../../assets/pngegg 2.png'
-
 
 export function Banner() {
   return (

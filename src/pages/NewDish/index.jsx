@@ -1,19 +1,17 @@
-import { Container, Body } from './styled.js'
-import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
-import { PiPlusLight, PiUploadSimple, PiXLight, PiCheckCircleDuotone } from 'react-icons/pi'
-
 import { Input } from '../../components/Input'
 import { Title } from '../../components/Title'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
+import { GoToTop } from '../../../utils/pageOnTop.js'
 import { ButtonText } from '../../components/ButtonText'
-
-import { useNavigate } from 'react-router-dom'
-import { useRef, useState } from 'react'
+import { Container, Body } from './styled.js'
+import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
+import { PiPlusLight, PiUploadSimple, PiXLight, PiCheckCircleDuotone } from 'react-icons/pi'
 
 import { api } from '../../services/api'
-import { GoToTop } from '../../../utils/pageOnTop.js'
+import { useNavigate } from 'react-router-dom'
+import { useRef, useState } from 'react'
 
 export function NewDish() {
   const [name, setName] = useState('')
@@ -28,12 +26,10 @@ export function NewDish() {
   const navigate = useNavigate()
   const inputImageRef = useRef(null)
 
-  function handleBack() {
-    navigate(-1)
-  }
   function handleUploadClick() {
     inputImageRef.current.click()
   }
+
   function handleFileChange(e) {
     if (!e.target.files) {
       return
@@ -41,9 +37,11 @@ export function NewDish() {
 
     setImageFile(e.target.files[0])
   }
+
   function addIngredient(e) {
     setNewIngredient(e.target.value)
   }
+
   function handleAddIngredient() {
     if (!newIngredient) {
       return
@@ -51,10 +49,12 @@ export function NewDish() {
     setIngredients((prevState) => [...prevState, newIngredient])
     setNewIngredient('')
   }
+
   function handleRemoveIngredient(deleted) {
     setIngredients((prevState) => prevState.filter((ingredient) => ingredient !== deleted))
     setNewIngredient('')
   }
+
   async function handleNewDish() {
     if (!name || !price || !description) {
       alert('Favor preencher todos os campos!')
@@ -86,6 +86,10 @@ export function NewDish() {
           }
         })
     }
+  }
+
+  function handleBack() {
+    navigate(-1)
   }
 
   GoToTop()
@@ -126,12 +130,7 @@ export function NewDish() {
                     </>
                   )}
                 </button>
-                <input
-                  id="selectImage"
-                  type="file"
-                  onChange={handleFileChange}
-                  ref={inputImageRef}
-                />
+                <input id="selectImage" type="file" onChange={handleFileChange} ref={inputImageRef} />
               </div>
 
               <div id="inputName" className="input">
@@ -221,14 +220,7 @@ export function NewDish() {
           </form>
         </fieldset>
 
-        <Button
-          form="form-newDish"
-          id="buttonSave"
-          title="Salvar alterações"
-          small
-          tomato
-          onClick={handleNewDish}
-        />
+        <Button form="form-newDish" id="buttonSave" title="Salvar alterações" small tomato onClick={handleNewDish} />
       </Body>
       <Footer />
     </Container>

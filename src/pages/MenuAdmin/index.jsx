@@ -1,24 +1,24 @@
-import { Container, Main, Content } from './styles'
-import { IoSearchOutline } from 'react-icons/io5'
+import { Input } from '../../components/Input'
+import { Footer } from '../../components/Footer'
 import { HeaderMenu } from '../../components/HeaderMenu'
 import { ButtonText } from '../../components/ButtonText'
 import { ListSearch } from '../../components/ListSearch'
-import { Footer } from '../../components/Footer'
-import { Input } from '../../components/Input'
+import { IoSearchOutline } from 'react-icons/io5'
+import { Container, Main, Content } from './styles'
 
+import { api } from '../../services/api'
+import { useAuth } from '../../hooks/auth'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
-import { useAuth } from '../../hooks/auth'
-import { api } from '../../services/api'
 
 export function MenuAdmin() {
   const { signOut } = useAuth()
+
   const navigate = useNavigate()
 
   const [searchData, setSearchData] = useState('')
   const [searchDishes, setSearchDishes] = useState([])
 
-  console.log(searchData)
   const dishFiltered = useMemo(() => {
     if (searchData == '') {
       return null
@@ -41,6 +41,7 @@ export function MenuAdmin() {
     signOut()
     navigate('/')
   }
+  
   function navToNewDish() {
     navigate('/new')
   }

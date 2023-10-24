@@ -1,19 +1,17 @@
-import { Container, Body } from './styled.js'
-import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
-import { PiPlusLight, PiUploadSimple, PiXLight, PiCheckCircleDuotone } from 'react-icons/pi'
-
 import { Input } from '../../components/Input/index.jsx'
 import { Title } from '../../components/Title/index.jsx'
 import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
+import { GoToTop } from '../../../utils/pageOnTop.js'
 import { ButtonText } from '../../components/ButtonText/index.jsx'
-
-import { useNavigate, useParams } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { Container, Body } from './styled.js'
+import { SlArrowLeft, SlArrowDown } from 'react-icons/sl'
+import { PiPlusLight, PiUploadSimple, PiXLight, PiCheckCircleDuotone } from 'react-icons/pi'
 
 import { api } from '../../services/api.js'
-import { GoToTop } from '../../../utils/pageOnTop.js'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 
 export function EditDish() {
   const [name, setName] = useState('')
@@ -21,14 +19,12 @@ export function EditDish() {
   const [category, setCategory] = useState('Refeição')
   const [imageFile, setImageFile] = useState(null)
   const [description, setDescription] = useState('')
-
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState('')
 
+  const params = useParams()
   const navigate = useNavigate()
   const inputImageRef = useRef(null)
-
-  const params = useParams()
 
   async function fetchDishes() {
     try {
@@ -49,27 +45,6 @@ export function EditDish() {
     }
   }
 
-  function handleUploadClick() {
-    inputImageRef.current.click()
-  }
-  function handleFileChange(e) {
-    if (!e.target.files) {
-      return
-    }
-
-    setImageFile(e.target.files[0])
-  }
-  function addIngredient(e) {
-    setNewIngredient(e.target.value)
-  }
-  function handleAddIngredient() {
-    setIngredients((prevState) => [...prevState, newIngredient])
-    setNewIngredient('')
-  }
-  function handleRemoveIngredient(deleted) {
-    setIngredients((prevState) => prevState.filter((ingredient) => ingredient !== deleted))
-    setNewIngredient('')
-  }
   async function handleDishUpdate() {
     if (!name || !price || !description) {
       alert('Favor preencher todos os campos!')
@@ -98,6 +73,7 @@ export function EditDish() {
     }
     handleBack()
   }
+
   async function handleDelete() {
     try {
       await api.delete(`/dishes/${params.id}`)
@@ -106,7 +82,33 @@ export function EditDish() {
       console.log(error.message)
     }
 
-    navigate("/")
+    navigate('/')
+  }
+
+  function handleUploadClick() {
+    inputImageRef.current.click()
+  }
+
+  function handleFileChange(e) {
+    if (!e.target.files) {
+      return
+    }
+
+    setImageFile(e.target.files[0])
+  }
+
+  function addIngredient(e) {
+    setNewIngredient(e.target.value)
+  }
+
+  function handleAddIngredient() {
+    setIngredients((prevState) => [...prevState, newIngredient])
+    setNewIngredient('')
+  }
+
+  function handleRemoveIngredient(deleted) {
+    setIngredients((prevState) => prevState.filter((ingredient) => ingredient !== deleted))
+    setNewIngredient('')
   }
 
   function handleBack() {
@@ -127,7 +129,6 @@ export function EditDish() {
           <SlArrowLeft id="buttonPrev" size={32} />
           <ButtonText id="buttonDesktop" title="voltar" bold large onClick={handleBack} />
         </div>
-
         <div className="buttonPrevMobile">
           <SlArrowLeft id="buttonPrevMobile" size={14} />
           <ButtonText id="buttonMobile" title="voltar" bold onClick={handleBack} />

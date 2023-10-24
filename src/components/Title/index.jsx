@@ -1,10 +1,5 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
-
-export function Title({title}) {
-  return(
-    <Container>
-      {title}
-    </Container>
-  )
+export function Title({ title }) {
+  return <Container>{title}</Container>
 }

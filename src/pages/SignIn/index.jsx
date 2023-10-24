@@ -1,19 +1,21 @@
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { useAuth } from '../../hooks/auth'
-
-import { Container, Form } from './styles'
-import { ButtonText } from '../../components/ButtonText'
-import { Button } from '../../components/Button'
-import { Input } from '../../components/Input'
 import { Logo } from '../../components/Logo'
+import { Input } from '../../components/Input'
+import { Button } from '../../components/Button'
+import { ButtonText } from '../../components/ButtonText'
+import { Container, Form } from './styles'
+
+import { useAuth } from '../../hooks/auth'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function SignIn() {
+  const { signIn } = useAuth()
+
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { signIn } = useAuth()
-  const navigate = useNavigate()
 
   function handleSignIn() {
     if (!email || !password) {
@@ -22,6 +24,7 @@ export function SignIn() {
     signIn({ email, password })
     
   }
+  
   function navToRegister() {
     navigate('/register')
   }

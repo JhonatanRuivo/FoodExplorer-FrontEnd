@@ -1,7 +1,7 @@
-import { useRef } from 'react'
 import { Container } from './styles'
-
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
+
+import { useRef } from 'react'
 
 export function Section({ title, children }) {
   const carousel = useRef(null)

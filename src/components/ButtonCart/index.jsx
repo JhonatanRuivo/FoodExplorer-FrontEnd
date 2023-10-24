@@ -1,7 +1,5 @@
-import { Container } from "./styles";
-
-import { PiReceipt } from "react-icons/pi";
-
+import { Container } from './styles'
+import { PiReceipt } from 'react-icons/pi'
 
 export function ButtonCart() {
   return (

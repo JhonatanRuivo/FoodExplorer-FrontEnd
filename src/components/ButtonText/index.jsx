@@ -9,7 +9,6 @@ export function ButtonText({
   border = false,
   textStart = false,
   ...rest
-  
 }) {
   return (
     <Container

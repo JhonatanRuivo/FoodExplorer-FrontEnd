@@ -45,12 +45,12 @@ export function DishAdmin() {
       <Header admin="admin" />
       <div className="body">
         <label htmlFor="back">
-          <SlArrowLeft name="back" size={32} />
-          <ButtonText title="voltar" bold large onClick={handleBack} />
+          <SlArrowLeft  size={32} />
+          <ButtonText id="back" title="voltar" bold large onClick={handleBack} />
         </label>
 
         {dish && (
-          <div className="main">
+          <main>
             <img className="imgDish" src={imageURl} alt="Foto do prato" />
             <div className="description">
               <h1>{dish.name}</h1>
@@ -70,7 +70,7 @@ export function DishAdmin() {
                 />
               </div>
             </div>
-          </div>
+          </main>
         )}
       </div>
 

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Container } from './styles'
-
 import { IoCloseOutline } from 'react-icons/io5'
 
-export function HeaderMenu({ admin = false }) {
+export function HeaderMenu() {
   return (
     <Container>
       <Link to={'/'} className="iconX">

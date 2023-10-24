@@ -21,4 +21,4 @@ export function ListSearch({ name, id, setSearchData }) {
       </a>
     </Container>
   )
-} 
+}

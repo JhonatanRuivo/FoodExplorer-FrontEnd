@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react'
 import { api } from '../services/api'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
         token,
         user: JSON.parse(user),
       })
-    } 
+    }
   }, [])
 
   return (

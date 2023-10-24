@@ -17,7 +17,7 @@ export const Container = styled.div`
       align-items: center;
     }
 
-    > .main {
+    > main {
       padding-top: 42px;
       display: flex;
       align-items: center;
@@ -70,7 +70,7 @@ export const Container = styled.div`
       > label {
         height: 24px;
       }
-      > .main {
+      > main {
         display: flex;
         flex-direction: column;
         align-items: center;

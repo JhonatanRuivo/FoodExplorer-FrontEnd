@@ -1,18 +1,19 @@
-import { Container, Form } from './styles'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { api } from '../../services/api'
-
-import { ButtonText } from '../../components/ButtonText'
-import { Button } from '../../components/Button'
-import { Input } from '../../components/Input'
 import { Logo } from '../../components/Logo'
+import { Input } from '../../components/Input'
+import { Button } from '../../components/Button'
+import { ButtonText } from '../../components/ButtonText'
+import { Container, Form } from './styles'
+
+import { api } from '../../services/api'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function SignUp() {
+  const navigate = useNavigate()
+  
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const navigate = useNavigate()
 
   function handleSignUp() {
     if (!name || !email || !password) {
