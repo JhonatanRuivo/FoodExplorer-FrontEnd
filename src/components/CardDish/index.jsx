@@ -6,15 +6,7 @@ import { Amount } from '../Amount'
 import { useNavigate } from 'react-router-dom'
 import { PiHeartStraight, PiPencilSimpleLight } from 'react-icons/pi'
 
-export function CardDish({
-  dish,
-  dishDescription,
-  amount = false,
-  user = false,
-  dishName,
-  image,
-  price,
-}) {
+export function CardDish({ dish, dishDescription, amount = false, user = false, dishName, image, price }) {
   const imageURl = `${api.defaults.baseURL}/files/${image}`
   const navigate = useNavigate()
 
@@ -30,16 +22,18 @@ export function CardDish({
       <div>
         {user ? (
           <>
-            <button className="iconTop" >
+            <button className="iconTop">
               <PiHeartStraight size={24} />
             </button>
           </>
         ) : (
           <>
-            <button className="iconTop" 
-            onClick={() => {
-              handleDishEdit(dish.id)
-              }}>
+            <button
+              className="iconTop"
+              onClick={() => {
+                handleDishEdit(dish.id)
+              }}
+            >
               <PiPencilSimpleLight size={24} />
             </button>
           </>
@@ -59,14 +53,18 @@ export function CardDish({
 
         <p className="dishDescription">{dishDescription}</p>
 
-        <h2 className="price">
-          {price.toLocaleString('pt-br', { style: 'currency', currency: 'brl' })}
-        </h2>
+        <h2 className="price">{price.toLocaleString('pt-br', { style: 'currency', currency: 'brl' })}</h2>
       </button>
 
       <div className="footerButtons">
-        <Amount amount={amount} />
-        {amount ? <Button className="includes" title="incluir" type="button" /> : ''}
+        {amount ? (
+          <>
+            <Amount amount={'01'} />
+            <Button className="includes" title="incluir" type="button" />
+          </>
+        ) : (
+          ''
+        )}
       </div>
     </Container>
   )

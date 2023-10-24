@@ -1,7 +1,3 @@
-import { api } from '../../services/api.js'
-import { useEffect, useState } from 'react'
-import { Container } from './styled.js'
-
 import { Tag } from '../../components/Tag/index.jsx'
 import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
@@ -10,9 +6,14 @@ import { ButtonText } from '../../components/ButtonText/index.jsx'
 import { SlArrowLeft } from 'react-icons/sl'
 import { useNavigate, useParams } from 'react-router-dom'
 
+import { api } from '../../services/api.js'
+import { Container } from './styled.js'
+import { useEffect, useState } from 'react'
+
 export function DishAdmin() {
   const params = useParams()
   const navigate = useNavigate()
+
   const [dish, setDish] = useState(null)
 
   const imageURl = dish && `${api.defaults.baseURL}/files/${dish.image}`
@@ -27,17 +28,17 @@ export function DishAdmin() {
     }
   }
 
-  useEffect(() => {
-    fetchDishes()
-    
-  }, [dish])
+  function handleDishEdit(id) {
+    navigate(`/edit/${id}`)
+  }
 
   function handleBack() {
     navigate('/')
   }
-  function handleDishEdit(id) {
-    navigate(`/edit/${id}`)
-  }
+
+  useEffect(() => {
+    fetchDishes()
+  }, [dish])
 
   return (
     <Container>
@@ -60,7 +61,13 @@ export function DishAdmin() {
                 ))}
               </div>
               <div className="footerButtons">
-                <Button title={'Editar prato'} type="button" onClick={()=>{handleDishEdit(dish.id)}} />
+                <Button
+                  title={'Editar prato'}
+                  type="button"
+                  onClick={() => {
+                    handleDishEdit(dish.id)
+                  }}
+                />
               </div>
             </div>
           </div>

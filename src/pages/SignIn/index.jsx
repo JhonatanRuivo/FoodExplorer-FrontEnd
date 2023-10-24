@@ -20,6 +20,7 @@ export function SignIn() {
       return alert('Preencha todos os campos!')
     }
     signIn({ email, password })
+    
   }
   function navToRegister() {
     navigate('/register')

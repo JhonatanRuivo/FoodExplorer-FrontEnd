@@ -11,14 +11,14 @@ export const Container = styled.div`
   > .body {
     margin: 25px 123px 140px;
 
-    > label {
+    > .label {
       width: 106px;
       height: 34px;
       display: flex;
       align-items: center;
     }
 
-    > .main {
+    > main {
       padding-top: 42px;
       display: flex;
       align-items: center;
@@ -71,10 +71,10 @@ export const Container = styled.div`
   @media (max-width: 1023px) {
     > .body {
       margin: 16px 56px 32px;
-      > label {
+      > .label {
         height: 24px;
       }
-      > .main {
+      > main {
         display: flex;
         flex-direction: column;
         align-items: center;

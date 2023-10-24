@@ -1,7 +1,6 @@
-import { Container } from "./styles"
+import { Container } from './styles'
 
 import { PiMinus, PiPlus } from 'react-icons/pi'
-
 
 export function Amount({ amount }) {
   return (
@@ -9,7 +8,7 @@ export function Amount({ amount }) {
       <button id="minus" type="button">
         {amount ? <PiMinus size={24} /> : ''}
       </button>
-      <strong >{amount}</strong>
+      <strong> {amount ? '01' : ''}</strong>
       <button id="more" type="button">
         {amount ? <PiPlus size={24} /> : ''}
       </button>
