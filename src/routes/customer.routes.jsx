@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Home } from '../pages/Home'
-import { Dish } from '../pages/Dish'
-import { Menu } from '../pages/Menu'
+import { Home } from '../pages/Home/index.jsx'
+import { Dish } from '../pages/Dish/index.jsx'
+import { Menu } from '../pages/Menu/index.jsx'
 
 export function CustomerRoutes() {
   return (

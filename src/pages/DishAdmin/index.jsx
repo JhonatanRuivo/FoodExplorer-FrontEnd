@@ -2,13 +2,13 @@ import { Tag } from '../../components/Tag/index.jsx'
 import { Header } from '../../components/Header/index.jsx'
 import { Footer } from '../../components/Footer/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
+import { Container } from './styled.js'
 import { ButtonText } from '../../components/ButtonText/index.jsx'
 import { SlArrowLeft } from 'react-icons/sl'
-import { useNavigate, useParams } from 'react-router-dom'
 
 import { api } from '../../services/api.js'
-import { Container } from './styled.js'
 import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export function DishAdmin() {
   const params = useParams()
