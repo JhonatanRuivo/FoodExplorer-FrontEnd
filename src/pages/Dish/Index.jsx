@@ -8,8 +8,8 @@ import { PiReceipt } from 'react-icons/pi'
 import { ButtonText } from '../../components/ButtonText/index.jsx'
 import { SlArrowLeft } from 'react-icons/sl'
 
-import { api } from '../../services/api.js'
 import { useEffect, useState } from 'react'
+import { api } from '../../services/api.js'
 import { useNavigate, useParams } from 'react-router-dom'
 
 export function Dish() {
