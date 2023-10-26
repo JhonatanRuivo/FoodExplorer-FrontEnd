@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { DishAdmin } from '../pages/DishAdmin/index.jsx'
-import { EditDish } from '../pages/EditDish/index.jsx'
-import { HomeAdmin } from '../pages/HomeAdmin/index.jsx'
-import { MenuAdmin } from '../pages/MenuAdmin/index.jsx'
-import { NewDish } from '../pages/NewDish/index.jsx'
+import { DishAdmin } from '../pages/DishAdmin'
+import { EditDish } from '../pages/EditDish'
+import { HomeAdmin } from '../pages/HomeAdmin'
+import { MenuAdmin } from '../pages/MenuAdmin'
+import { NewDish } from '../pages/NewDish'
 
 export function AdminRoutes() {
   return (
