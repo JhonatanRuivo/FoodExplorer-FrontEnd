@@ -10,6 +10,8 @@
 
 ## 🎨 Layout
 
+<img src="https://github.com/JhonatanRuivo/FoodExplorer-FrontEnd/assets/103151419/5be3da7a-78a8-4266-adfc-f553669c52ec" alt="Imagem da home do projeto" />
+
 O layout da aplicação está disponível no Figma:
 
 <a href="https://www.figma.com/community/file/1196874589259687769/food-explorer-v2" target="blank" >
@@ -68,8 +70,8 @@ $ cd + sua pasta + git@github.com:JhonatanRuivo/FoodExplorer-API.git
 $ npm install
 
 # Execute as migration e seed
-$ npm migrate
-$ npm seed
+$ npm run migrate
+$ npm run seed
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev
