@@ -96,6 +96,7 @@ $ npm install
 
 # Rode a aplicação em modo de desenvolvimento:
 $ npm run dev
+```
 
 ---
 
@@ -110,15 +111,15 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - React.js
 
 ---
+
 ## Deploy do projeto.
 
 https://food-explorer-front-655yfroll-jhonatanruivo.vercel.app
-
 
 ---
 
 ## 📝 License
 
-Criado por Jhonatan de Oliveira Ruivo  [Get in Touch!](https://www.linkedin.com/in/jhonatanruivo)
+Criado por Jhonatan de Oliveira Ruivo [Get in Touch!](https://www.linkedin.com/in/jhonatanruivo)
 
-```
+---
